@@ -88,10 +88,10 @@ export default function HomePage() {
               </div>
               
               {/* Enhanced floating badges with modern styling */}
-              <div className="absolute -top-6 -right-6 glass rounded-full px-4 py-2 border border-green-500/30 shadow-lg backdrop-blur-xl hover:border-green-500/50 transition-all duration-500 hover:scale-105 animate-fade-in animate-delay-700">
-                <div className="flex items-center">
-                  <Star className="h-4 w-4 text-green-400 mr-2 animate-pulse" />
-                  <span className="text-white text-sm font-medium">Líder Cultural</span>
+              <div className="absolute -top-6 -right-6 glass rounded-full px-2 py-2">
+                <div className="flex items-center glass-light rounded-full px-2 py-2.5 border-glow animate-fade-in animate-delay-300">
+                  <Calendar className="h-4 w-4 text-green-500 mr-2" />
+                  <span className="text-white text-sm">Líder Cultural</span>
                 </div>
               </div>
               
