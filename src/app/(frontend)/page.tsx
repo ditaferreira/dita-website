@@ -2,7 +2,6 @@
 
 import { nanciData } from '@/data/nanci-data'
 import Navigation from '@/components/Navigation'
-import PrismaticBurst from '@/components/PrismaticBurst'
 import SplashCursor from '@/components/SplashCursor';
 import { Leaf, Heart, Users, Globe, Music, Palette, TreePine, Sparkles, MapPin, Calendar, Award, BookOpen, Mountain, ArrowRight, Star, ChevronRight, ExternalLink } from 'lucide-react'
 
@@ -51,7 +50,7 @@ export default function HomePage() {
             <div className="flex items-center justify-center gap-3 mb-8">
               <Heart className="h-6 w-6 text-green-400 animate-pulse-glow" />
               <p className="text-fluid-2xl text-white font-semibold">
-                Carinhosamente conhecida como <span className="text-green-300 font-bold">"Dita"</span>
+                Carinhosamente conhecida como <span className="text-green-300 font-bold">&ldquo;Dita&rdquo;</span>
               </p>
             </div>
             
@@ -168,10 +167,10 @@ export default function HomePage() {
               <div className="mt-16 max-w-4xl mx-auto animate-slide-up animate-delay-300">
                 <blockquote className="relative text-fluid-xl text-green-400 italic font-light leading-relaxed glass-light rounded-2xl py-8 px-10 border border-green-500/10 shadow-lg">
                   {/* Quote mark decoration */}
-                  <div className="absolute -top-6 -left-2 text-green-500/20 text-8xl font-serif">"</div>
-                  <div className="absolute -bottom-16 -right-2 text-green-500/20 text-8xl font-serif">"</div>
+                  <div className="absolute -top-6 -left-2 text-green-500/20 text-8xl font-serif">&ldquo;</div>
+                  <div className="absolute -bottom-16 -right-2 text-green-500/20 text-8xl font-serif">&rdquo;</div>
                   
-                  <p className="relative z-10">"{nanciData.personal.quote}"</p>
+                  <p className="relative z-10">&ldquo;{nanciData.personal.quote}&rdquo;</p>
                   
                   {/* Subtle glow effect */}
                   <div className="absolute -inset-1 bg-green-500/5 blur-xl rounded-2xl -z-10"></div>
@@ -310,7 +309,7 @@ export default function HomePage() {
           <div className="text-center animate-fade-in animate-delay-400">
             <div className="glass rounded-3xl p-8 max-w-4xl mx-auto backdrop-blur-xl border-green-500/15">
               <blockquote className="text-fluid-xl text-green-300 italic font-light leading-relaxed">
-                "Cada imagem conta uma história, cada momento é uma semente plantada para o futuro"
+                &ldquo;Cada imagem conta uma história, cada momento é uma semente plantada para o futuro&rdquo;
               </blockquote>
               <cite className="block text-white/60 mt-4 text-sm">- Reflexão sobre o legado visual</cite>
             </div>
@@ -713,7 +712,7 @@ export default function HomePage() {
             {/* Quote */}
             <div className="mt-12 pt-8 border-t border-green-500/20">
               <blockquote className="text-fluid-lg text-green-300 italic font-light leading-relaxed">
-                "Cada gesto de preservação cultural é uma semente plantada para as futuras gerações"
+                &ldquo;Cada gesto de preservação cultural é uma semente plantada para as futuras gerações&rdquo;
               </blockquote>
               <cite className="block text-white/60 mt-3 text-sm">- Filosofia de vida de Nanci Ferreira</cite>
             </div>
@@ -740,7 +739,7 @@ export default function HomePage() {
                 </h3>
               </div>
               <p className="text-white/70 mb-8 max-w-xl leading-relaxed">
-                "A história de Nanci Ferreira é, fundamentalmente, a história de como uma pessoa, enraizada em sua comunidade e comprometida com valores de sustentabilidade e justiça social, pode transformar realidades e inspirar mudanças que transcendem os limites de seu território original."
+                &ldquo;A história de Nanci Ferreira é, fundamentalmente, a história de como uma pessoa, enraizada em sua comunidade e comprometida com valores de sustentabilidade e justiça social, pode transformar realidades e inspirar mudanças que transcendem os limites de seu território original.&rdquo;
               </p>
               <p className="text-white/50 text-sm">
                 Cascata, Águas da Prata - São Paulo | Arte e Sustentabilidade na Mata Atlântica

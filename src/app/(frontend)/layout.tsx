@@ -1,11 +1,15 @@
 import type { Metadata } from 'next'
 
-import { cn } from '@/utilities/ui'
 import { GeistMono } from 'geist/font/mono'
 import { GeistSans } from 'geist/font/sans'
 import React from 'react'
 
 import './globals.css'
+
+// Utility function to merge class names
+function cn(...classes: string[]) {
+  return classes.filter(Boolean).join(' ')
+}
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
