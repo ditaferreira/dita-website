@@ -5,49 +5,43 @@ import { GeistMono } from 'geist/font/mono'
 import { GeistSans } from 'geist/font/sans'
 import React from 'react'
 
-import { AdminBar } from '@/components/AdminBar'
-import { Footer } from '@/Footer/Component'
-import { Header } from '@/Header/Component'
-import { Providers } from '@/providers'
-import { InitTheme } from '@/providers/Theme/InitTheme'
-import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
-import { draftMode } from 'next/headers'
-
 import './globals.css'
-import { getServerSideURL } from '@/utilities/getURL'
 
-export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const { isEnabled } = await draftMode()
-
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html className={cn(GeistSans.variable, GeistMono.variable)} lang="en" suppressHydrationWarning>
+    <html className={cn(GeistSans.variable, GeistMono.variable)} lang="pt-BR" suppressHydrationWarning>
       <head>
-        <InitTheme />
         <link href="/favicon.ico" rel="icon" sizes="32x32" />
         <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
       </head>
-      <body>
-        <Providers>
-          <AdminBar
-            adminBarProps={{
-              preview: isEnabled,
-            }}
-          />
-
-          <Header />
+      <body className="bg-black min-h-screen overflow-x-hidden">
+        {/* Subtle noise texture overlay for AMOLED effect */}
+        <div className="fixed inset-0 bg-[url('/noise.png')] opacity-[0.03] mix-blend-overlay pointer-events-none z-[1]"></div>
+        
+        {/* Background image with reduced opacity for AMOLED look */}
+        <div className="fixed inset-0 bg-[url('/dita-photo.jpg')] bg-cover bg-center opacity-[0.07] z-0"></div>
+        
+        {/* Enhanced gradient overlay with more depth */}
+        <div className="fixed inset-0 bg-gradient-to-b from-black via-black/98 to-black/95 z-0"></div>
+        
+        {/* Subtle vignette effect */}
+        <div className="fixed inset-0 bg-radial-gradient pointer-events-none z-[2]"></div>
+        
+        {/* Content container */}
+        <div className="relative z-10">
           {children}
-          <Footer />
-        </Providers>
+        </div>
       </body>
     </html>
   )
 }
 
 export const metadata: Metadata = {
-  metadataBase: new URL(getServerSideURL()),
-  openGraph: mergeOpenGraph(),
-  twitter: {
-    card: 'summary_large_image',
-    creator: '@payloadcms',
-  },
+  title: 'Nanci Ferreira - Dita | Arte e Sustentabilidade na Mata Atlântica',
+  description: 'Conheça o trabalho de Nanci Ferreira (Dita), uma anciã que integra arte e sustentabilidade no coração da Mata Atlântica, em Cascata, Águas da Prata, São Paulo.',
+  keywords: ['Nanci Ferreira', 'Dita', 'sustentabilidade', 'arte', 'Mata Atlântica', 'Cascata', 'Águas da Prata', 'bio-joias', 'instrumentos naturais', 'educação ambiental'],
+  themeColor: '#000000',
 }
