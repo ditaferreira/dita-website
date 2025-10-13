@@ -15,7 +15,7 @@ const nextConfig = {
     ],
   },
   // Set the correct base path if your repo name is different from your username
-  // basePath: '/your-repo-name', // Uncomment and set if needed
+  basePath: '/dita-website', // Uncomment and set if needed
 }
 
 export default nextConfig
