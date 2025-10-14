@@ -1,3 +1,13 @@
+import { type ClassValue, clsx } from "clsx"
+import { twMerge } from "tailwind-merge"
+
+/**
+ * Merge Tailwind CSS classes with clsx
+ */
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
+}
+
 /**
  * Get the correct image path with basePath prefix
  * @param path - The image path (e.g., '/image.jpg')
