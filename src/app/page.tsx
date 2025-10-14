@@ -1,5 +1,6 @@
 "use client";
 
+import Image from 'next/image'
 import { nanciData } from '@/data/nanci-data'
 import Navigation from '@/components/Navigation'
 import SplashCursor from '@/components/SplashCursor';
@@ -19,10 +20,11 @@ export default function HomePage() {
         {/* Main Background Image */} 
         <div className="absolute inset-0">
           {/* Main Background Image only */}
-          <img 
+          <Image 
             src="/nanci-dita-full.jpg" 
             alt="" 
-            className="absolute w-full h-full object-cover opacity-45 z-10"
+            fill
+            className="object-cover opacity-45 z-10"
           />
           <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/70 to-black/60"></div>
         </div>
@@ -79,10 +81,11 @@ export default function HomePage() {
                 
                 {/* Image container with enhanced glow */}
                 <div className="relative w-full h-full rounded-full overflow-hidden animate-pulse-glow">
-                  <img 
+                  <Image 
                     src="/dita-nobackground.png" 
                     alt="Nanci Ferreira (Dita)" 
-                    className="w-full h-full object-contain scale-90 hover:scale-95 transition-all duration-700 filter drop-shadow-[0_0_20px_rgba(16,185,129,0.3)]"
+                    fill
+                    className="object-contain scale-90 hover:scale-95 transition-all duration-700 filter drop-shadow-[0_0_20px_rgba(16,185,129,0.3)]"
                   />
                 </div>
               </div>
@@ -132,10 +135,11 @@ export default function HomePage() {
       <section className="relative py-28 px-4 overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
-          <img 
+          <Image 
             src="/dita-photo.jpg" 
             alt="" 
-            className="w-full h-full object-cover opacity-20"
+            fill
+            className="object-cover opacity-20"
           />
           <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/85 to-black/80"></div>
         </div>
@@ -185,10 +189,11 @@ export default function HomePage() {
       <section id="sobre" className="relative py-32 px-4 overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
-          <img 
+          <Image 
             src="/dita-maracatu.jpg" 
             alt="" 
-            className="w-full h-full object-cover opacity-15"
+            fill
+            className="object-cover opacity-15"
           />
           <div className="absolute inset-0 bg-gradient-to-br from-black/85 via-black/90 to-black/85"></div>
         </div>
@@ -258,10 +263,11 @@ export default function HomePage() {
       <section className="relative py-24 px-4 overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
-          <img 
+          <Image 
             src="/dita3.jpg" 
             alt="" 
-            className="w-full h-full object-cover opacity-25"
+            fill
+            className="object-cover opacity-25"
           />
           <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/80 to-black/70"></div>
         </div>
@@ -275,29 +281,29 @@ export default function HomePage() {
           
           {/* Image Gallery Grid - Enhanced */}
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-12">
-            <div className="relative group animate-fade-in image-glow">
-              <img src="/nanci-dita-close.jpg" alt="Nanci Ferreira" className="w-full h-48 object-cover rounded-xl border border-green-500/20 group-hover:border-green-500/40 transition-all duration-500 hover:scale-110 hover:rotate-1" />
+            <div className="relative group animate-fade-in image-glow h-48">
+              <Image src="/nanci-dita-close.jpg" alt="Nanci Ferreira" fill className="object-cover rounded-xl border border-green-500/20 group-hover:border-green-500/40 transition-all duration-500 hover:scale-110 hover:rotate-1" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 rounded-xl"></div>
               <div className="absolute bottom-3 left-3 right-3 text-white opacity-0 group-hover:opacity-100 transition-all duration-300">
                 <p className="text-sm font-medium">Retrato Íntimo</p>
               </div>
             </div>
-            <div className="relative group animate-fade-in animate-delay-100 image-glow">
-              <img src="/nanci2.jpg" alt="Dita" className="w-full h-48 object-cover rounded-xl border border-green-500/20 group-hover:border-green-500/40 transition-all duration-500 hover:scale-110 hover:-rotate-1" />
+            <div className="relative group animate-fade-in animate-delay-100 image-glow h-48">
+              <Image src="/nanci2.jpg" alt="Dita" fill className="object-cover rounded-xl border border-green-500/20 group-hover:border-green-500/40 transition-all duration-500 hover:scale-110 hover:-rotate-1" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 rounded-xl"></div>
               <div className="absolute bottom-3 left-3 right-3 text-white opacity-0 group-hover:opacity-100 transition-all duration-300">
                 <p className="text-sm font-medium">Essência Natural</p>
               </div>
             </div>
-            <div className="relative group animate-fade-in animate-delay-200 image-glow">
-              <img src="/dita+friend-square.jpg" alt="Dita e amiga" className="w-full h-48 object-cover rounded-xl border border-green-500/20 group-hover:border-green-500/40 transition-all duration-500 hover:scale-110 hover:rotate-1" />
+            <div className="relative group animate-fade-in animate-delay-200 image-glow h-48">
+              <Image src="/dita+friend-square.jpg" alt="Dita e amiga" fill className="object-cover rounded-xl border border-green-500/20 group-hover:border-green-500/40 transition-all duration-500 hover:scale-110 hover:rotate-1" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 rounded-xl"></div>
               <div className="absolute bottom-3 left-3 right-3 text-white opacity-0 group-hover:opacity-100 transition-all duration-300">
                 <p className="text-sm font-medium">Vínculos Comunitários</p>
               </div>
             </div>
-            <div className="relative group animate-fade-in animate-delay-300 image-glow">
-              <img src="/dita-photo.jpg" alt="Nanci artesã" className="w-full h-48 object-cover rounded-xl border border-green-500/20 group-hover:border-green-500/40 transition-all duration-500 hover:scale-110 hover:-rotate-1" />
+            <div className="relative group animate-fade-in animate-delay-300 image-glow h-48">
+              <Image src="/dita-photo.jpg" alt="Nanci artesã" fill className="object-cover rounded-xl border border-green-500/20 group-hover:border-green-500/40 transition-all duration-500 hover:scale-110 hover:-rotate-1" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 rounded-xl"></div>
               <div className="absolute bottom-3 left-3 right-3 text-white opacity-0 group-hover:opacity-100 transition-all duration-300">
                 <p className="text-sm font-medium">Mestre Artesã</p>
@@ -459,10 +465,11 @@ export default function HomePage() {
       {/* Organizations Section - Enhanced */}
       <section id="organizacoes" className="relative py-24 px-4 overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img 
+          <Image 
             src="/nanci-dita-full.jpg" 
             alt="" 
-            className="w-full h-full object-cover opacity-10"
+            fill
+            className="object-cover opacity-10"
           />
           <div className="absolute inset-0 bg-gradient-to-br from-black/90 via-black/95 to-black/90"></div>
         </div>
@@ -506,10 +513,11 @@ export default function HomePage() {
       {/* Tourism Section - Enhanced */}
       <section className="relative py-24 px-4 overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img 
+          <Image 
             src="/nanci2.jpg" 
             alt="" 
-            className="w-full h-full object-cover opacity-15"
+            fill
+            className="object-cover opacity-15"
           />
           <div className="absolute inset-0 bg-gradient-to-br from-black/85 via-black/90 to-black/85"></div>
         </div>
@@ -550,10 +558,11 @@ export default function HomePage() {
       {/* Impact Section - Enhanced */}
       <section id="impacto" className="relative py-24 px-4 overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img 
+          <Image 
             src="/dita+friend-square.jpg" 
             alt="" 
-            className="w-full h-full object-cover opacity-20"
+            fill
+            className="object-cover opacity-20"
           />
           <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/90 to-black/80"></div>
         </div>
@@ -658,10 +667,11 @@ export default function HomePage() {
       <section className="relative py-32 px-4 overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
-          <img 
+          <Image 
             src="/nanci-dita-close.jpg" 
             alt="" 
-            className="w-full h-full object-cover opacity-30"
+            fill
+            className="object-cover opacity-30"
           />
           <div className="absolute inset-0 bg-gradient-to-br from-green-900/50 via-black/70 to-green-900/50"></div>
         </div>
