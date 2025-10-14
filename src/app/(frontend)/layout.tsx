@@ -47,5 +47,4 @@ export const metadata: Metadata = {
   title: 'Nanci Ferreira - Dita | Arte e Sustentabilidade na Mata Atlântica',
   description: 'Conheça o trabalho de Nanci Ferreira (Dita), uma anciã que integra arte e sustentabilidade no coração da Mata Atlântica, em Cascata, Águas da Prata, São Paulo.',
   keywords: ['Nanci Ferreira', 'Dita', 'sustentabilidade', 'arte', 'Mata Atlântica', 'Cascata', 'Águas da Prata', 'bio-joias', 'instrumentos naturais', 'educação ambiental'],
-  themeColor: '#000000',
 }
