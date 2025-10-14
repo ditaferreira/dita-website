@@ -17,6 +17,9 @@ const nextConfig = {
   // Set the correct base path if your repo name is different from your username
   basePath: '/dita-website',
   assetPrefix: '/dita-website',
+  env: {
+    NEXT_PUBLIC_BASE_PATH: '/dita-website',
+  },
 }
 
 export default nextConfig

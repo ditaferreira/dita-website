@@ -5,6 +5,7 @@ import { GeistSans } from 'geist/font/sans'
 import React from 'react'
 
 import './globals.css'
+import { getImagePath } from '@/lib/utils'
 
 // Utility function to merge class names
 function cn(...classes: string[]) {
@@ -23,10 +24,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className="bg-black min-h-screen overflow-x-hidden">
         {/* Subtle noise texture overlay for AMOLED effect */}
-        <div className="fixed inset-0 bg-[url('/noise.png')] opacity-[0.03] mix-blend-overlay pointer-events-none z-[1]"></div>
+        <div className="fixed inset-0 opacity-[0.03] mix-blend-overlay pointer-events-none z-[1]" style={{ backgroundImage: `url('${getImagePath('/noise.png')}')` }}></div>
         
         {/* Background image with reduced opacity for AMOLED look */}
-        <div className="fixed inset-0 bg-[url('/dita-photo.jpg')] bg-cover bg-center opacity-[0.07] z-0"></div>
+        <div className="fixed inset-0 bg-cover bg-center opacity-[0.07] z-0" style={{ backgroundImage: `url('${getImagePath('/dita-photo.jpg')}')` }}></div>
         
         {/* Enhanced gradient overlay with more depth */}
         <div className="fixed inset-0 bg-gradient-to-b from-black via-black/98 to-black/95 z-0"></div>

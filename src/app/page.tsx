@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { nanciData } from '@/data/nanci-data'
 import Navigation from '@/components/Navigation'
 import SplashCursor from '@/components/SplashCursor';
+import { getImagePath } from '@/lib/utils'
 import { Leaf, Heart, Users, Globe, Music, Palette, TreePine, Sparkles, MapPin, Calendar, Award, BookOpen, Mountain, ArrowRight, Star, ChevronRight, ExternalLink } from 'lucide-react'
 
 export default function HomePage() {
@@ -21,7 +22,7 @@ export default function HomePage() {
         <div className="absolute inset-0">
           {/* Main Background Image only */}
           <Image 
-            src="/nanci-dita-full.jpg" 
+            src={getImagePath("/nanci-dita-full.jpg")}
             alt="" 
             fill
             className="object-cover opacity-45 z-10"
@@ -31,7 +32,7 @@ export default function HomePage() {
       
 
         {/* Subtle particle overlay */}
-        <div className="absolute inset-0 z-2 bg-[url('/particles.png')] bg-repeat opacity-[0.05] mix-blend-overlay"></div>
+        <div className="absolute inset-0 z-2 bg-repeat opacity-[0.05] mix-blend-overlay" style={{ backgroundImage: `url('${getImagePath('/particles.png')}')` }}></div>
         
         {/* Hero Content - Centralized Layout */}
         <div className="max-w-5xl ml-auto relative z-10 w-full text-center">
@@ -77,12 +78,12 @@ export default function HomePage() {
                 <div className="absolute inset-0 bg-gradient-to-br from-green-500/40 via-green-600/30 to-green-400/40 rounded-full animate-rotate-gradient"></div>
                 
                 {/* Subtle particle effect */}
-                <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.1] mix-blend-overlay rounded-full"></div>
+                <div className="absolute inset-0 opacity-[0.1] mix-blend-overlay rounded-full" style={{ backgroundImage: `url('${getImagePath('/noise.png')}')` }}></div>
                 
                 {/* Image container with enhanced glow */}
                 <div className="relative w-full h-full rounded-full overflow-hidden animate-pulse-glow">
                   <Image 
-                    src="/dita-nobackground.png" 
+                    src={getImagePath("/dita-nobackground.png")}
                     alt="Nanci Ferreira (Dita)" 
                     fill
                     className="object-contain scale-90 hover:scale-95 transition-all duration-700 filter drop-shadow-[0_0_20px_rgba(16,185,129,0.3)]"
@@ -136,7 +137,7 @@ export default function HomePage() {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image 
-            src="/dita-photo.jpg" 
+            src={getImagePath("/dita-photo.jpg")}
             alt="" 
             fill
             className="object-cover opacity-20"
@@ -190,7 +191,7 @@ export default function HomePage() {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image 
-            src="/dita-maracatu.jpg" 
+            src={getImagePath("/dita-maracatu.jpg")}
             alt="" 
             fill
             className="object-cover opacity-15"
@@ -264,7 +265,7 @@ export default function HomePage() {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image 
-            src="/dita3.jpg" 
+            src={getImagePath("/dita3.jpg")}
             alt="" 
             fill
             className="object-cover opacity-25"
@@ -282,28 +283,28 @@ export default function HomePage() {
           {/* Image Gallery Grid - Enhanced */}
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-12">
             <div className="relative group animate-fade-in image-glow h-48">
-              <Image src="/nanci-dita-close.jpg" alt="Nanci Ferreira" fill className="object-cover rounded-xl border border-green-500/20 group-hover:border-green-500/40 transition-all duration-500 hover:scale-110 hover:rotate-1" />
+              <Image src={getImagePath("/nanci-dita-close.jpg")} alt="Nanci Ferreira" fill className="object-cover rounded-xl border border-green-500/20 group-hover:border-green-500/40 transition-all duration-500 hover:scale-110 hover:rotate-1" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 rounded-xl"></div>
               <div className="absolute bottom-3 left-3 right-3 text-white opacity-0 group-hover:opacity-100 transition-all duration-300">
                 <p className="text-sm font-medium">Retrato Íntimo</p>
               </div>
             </div>
             <div className="relative group animate-fade-in animate-delay-100 image-glow h-48">
-              <Image src="/nanci2.jpg" alt="Dita" fill className="object-cover rounded-xl border border-green-500/20 group-hover:border-green-500/40 transition-all duration-500 hover:scale-110 hover:-rotate-1" />
+              <Image src={getImagePath("/nanci2.jpg")} alt="Dita" fill className="object-cover rounded-xl border border-green-500/20 group-hover:border-green-500/40 transition-all duration-500 hover:scale-110 hover:-rotate-1" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 rounded-xl"></div>
               <div className="absolute bottom-3 left-3 right-3 text-white opacity-0 group-hover:opacity-100 transition-all duration-300">
                 <p className="text-sm font-medium">Essência Natural</p>
               </div>
             </div>
             <div className="relative group animate-fade-in animate-delay-200 image-glow h-48">
-              <Image src="/dita+friend-square.jpg" alt="Dita e amiga" fill className="object-cover rounded-xl border border-green-500/20 group-hover:border-green-500/40 transition-all duration-500 hover:scale-110 hover:rotate-1" />
+              <Image src={getImagePath("/dita+friend-square.jpg")} alt="Dita e amiga" fill className="object-cover rounded-xl border border-green-500/20 group-hover:border-green-500/40 transition-all duration-500 hover:scale-110 hover:rotate-1" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 rounded-xl"></div>
               <div className="absolute bottom-3 left-3 right-3 text-white opacity-0 group-hover:opacity-100 transition-all duration-300">
                 <p className="text-sm font-medium">Vínculos Comunitários</p>
               </div>
             </div>
             <div className="relative group animate-fade-in animate-delay-300 image-glow h-48">
-              <Image src="/dita-photo.jpg" alt="Nanci artesã" fill className="object-cover rounded-xl border border-green-500/20 group-hover:border-green-500/40 transition-all duration-500 hover:scale-110 hover:-rotate-1" />
+              <Image src={getImagePath("/dita-photo.jpg")} alt="Nanci artesã" fill className="object-cover rounded-xl border border-green-500/20 group-hover:border-green-500/40 transition-all duration-500 hover:scale-110 hover:-rotate-1" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 rounded-xl"></div>
               <div className="absolute bottom-3 left-3 right-3 text-white opacity-0 group-hover:opacity-100 transition-all duration-300">
                 <p className="text-sm font-medium">Mestre Artesã</p>
@@ -328,7 +329,7 @@ export default function HomePage() {
         {/* Background Pattern */}
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-br from-black via-green-950/10 to-black"></div>
-          <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.02] mix-blend-overlay"></div>
+          <div className="absolute inset-0 opacity-[0.02] mix-blend-overlay" style={{ backgroundImage: `url('${getImagePath('/noise.png')}')` }}></div>
         </div>
         
         <div className="max-w-7xl mx-auto relative z-10">
@@ -466,7 +467,7 @@ export default function HomePage() {
       <section id="organizacoes" className="relative py-24 px-4 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image 
-            src="/nanci-dita-full.jpg" 
+            src={getImagePath("/nanci-dita-full.jpg")}
             alt="" 
             fill
             className="object-cover opacity-10"
@@ -514,7 +515,7 @@ export default function HomePage() {
       <section className="relative py-24 px-4 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image 
-            src="/nanci2.jpg" 
+            src={getImagePath("/nanci2.jpg")}
             alt="" 
             fill
             className="object-cover opacity-15"
@@ -559,7 +560,7 @@ export default function HomePage() {
       <section id="impacto" className="relative py-24 px-4 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image 
-            src="/dita+friend-square.jpg" 
+            src={getImagePath("/dita+friend-square.jpg")}
             alt="" 
             fill
             className="object-cover opacity-20"
@@ -610,7 +611,7 @@ export default function HomePage() {
       <section className="relative py-24 px-4 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-br from-green-950/20 via-black to-green-950/20"></div>
-          <div className="absolute inset-0 bg-[url('/particles.png')] bg-repeat opacity-[0.02] mix-blend-overlay"></div>
+          <div className="absolute inset-0 bg-repeat opacity-[0.02] mix-blend-overlay" style={{ backgroundImage: `url('${getImagePath('/particles.png')}')` }}></div>
         </div>
         
         <div className="max-w-7xl mx-auto relative z-10">
@@ -668,7 +669,7 @@ export default function HomePage() {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image 
-            src="/nanci-dita-close.jpg" 
+            src={getImagePath("/nanci-dita-close.jpg")}
             alt="" 
             fill
             className="object-cover opacity-30"
@@ -734,7 +735,7 @@ export default function HomePage() {
       <footer className="relative glass border-t border-green-500/10 py-16 px-4 overflow-hidden">
         {/* Subtle background pattern */}
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.01] mix-blend-overlay"></div>
+          <div className="absolute inset-0 opacity-[0.01] mix-blend-overlay" style={{ backgroundImage: `url('${getImagePath('/noise.png')}')` }}></div>
         </div>
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">

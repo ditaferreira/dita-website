@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useCallback } from 'react';
 import { useGesture } from '@use-gesture/react';
 import Image from 'next/image';
+import { getImagePath } from '@/lib/utils';
 
 type ImageItem = string | { src: string; alt?: string };
 
@@ -105,9 +106,11 @@ function buildItems(pool: ImageItem[], seg: number): ItemDef[] {
 
   const normalizedImages = pool.map(image => {
     if (typeof image === 'string') {
-      return { src: image, alt: '' };
+      const src = image.startsWith('http') ? image : getImagePath(image);
+      return { src, alt: '' };
     }
-    return { src: image.src || '', alt: image.alt || '' };
+    const src = (image.src || '').startsWith('http') ? image.src : getImagePath(image.src || '');
+    return { src, alt: image.alt || '' };
   });
 
   const usedImages = Array.from({ length: totalSlots }, (_, i) => normalizedImages[i % normalizedImages.length]);
