@@ -4,8 +4,9 @@ import Image from 'next/image'
 import { nanciData } from '@/data/nanci-data'
 import Navigation from '@/components/Navigation'
 import SplashCursor from '@/components/SplashCursor';
+import DomeGallery from '@/components/DomeGallery';
 import { getImagePath } from '@/lib/utils'
-import { Leaf, Heart, Users, Globe, Music, Palette, TreePine, Sparkles, MapPin, Calendar, Award, BookOpen, Mountain, ArrowRight, Star, ChevronRight, ExternalLink } from 'lucide-react'
+import { Leaf, Heart, Users, Globe, Music, Palette, TreePine, Sparkles, MapPin, Calendar, Award, BookOpen, Mountain, ArrowRight, Star, ChevronRight, ExternalLink, Camera } from 'lucide-react'
 
 export default function HomePage() {
   return (
@@ -660,6 +661,63 @@ export default function HomePage() {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Gallery Section - Dome Gallery */}
+      <section id="galeria" className="relative py-32 px-4 overflow-hidden">
+        {/* Background */}
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-black via-green-950/10 to-black"></div>
+          <div className="absolute inset-0 bg-repeat opacity-[0.02] mix-blend-overlay" style={{ backgroundImage: `url('${getImagePath('/particles.png')}')` }}></div>
+        </div>
+        
+        {/* Decorative elements */}
+        <div className="absolute left-0 top-1/4 w-96 h-96 bg-green-600/5 rounded-full blur-3xl -z-10"></div>
+        <div className="absolute right-0 bottom-1/4 w-80 h-80 bg-green-700/5 rounded-full blur-3xl -z-10"></div>
+        
+        <div className="max-w-7xl mx-auto relative z-10">
+          {/* Section Header */}
+          <div className="text-center mb-16 animate-fade-in">
+            <div className="inline-flex items-center justify-center mb-6 glass-light rounded-full px-5 py-2 border-glow animate-glow-pulse">
+              <Camera className="h-4 w-4 text-green-500 mr-2" />
+              <span className="text-green-400 text-sm font-medium tracking-wide">Momentos Especiais</span>
+            </div>
+            
+            <h2 className="text-fluid-4xl font-bold text-gradient mb-8 tracking-tight">
+              Galeria de Imagens
+            </h2>
+            
+            {/* Enhanced divider */}
+            <div className="relative w-32 h-1 mx-auto mb-10">
+              <div className="absolute inset-0 bg-gradient-to-r from-green-600 via-green-500 to-green-600 rounded-full animate-shimmer"></div>
+              <div className="absolute inset-0 bg-green-500/50 blur-sm rounded-full"></div>
+            </div>
+            
+            <p className="text-fluid-xl text-white/90 max-w-3xl mx-auto leading-relaxed mb-4">
+              Explore momentos marcantes da trajetória de Nanci Ferreira
+            </p>
+            <p className="text-white/70 max-w-2xl mx-auto">
+              Arraste para navegar • Clique para ampliar
+            </p>
+          </div>
+          
+          {/* Dome Gallery Component */}
+          <div className="w-full h-[600px] md:h-[700px] lg:h-[800px] animate-fade-in animate-delay-200">
+            <DomeGallery 
+              grayscale={false}
+              overlayBlurColor="#000000"
+              imageBorderRadius="20px"
+              openedImageBorderRadius="20px"
+              openedImageWidth="80vw"
+              openedImageHeight="80vh"
+              fit={0.6}
+              minRadius={500}
+              maxRadius={1200}
+              dragSensitivity={15}
+              dragDampening={1.5}
+            />
           </div>
         </div>
       </section>
