@@ -138,6 +138,7 @@ export default function HomePage() {
       {/* Bio Section - Enhanced with background */}
       <section className="relative py-28 px-4 overflow-hidden">
         {/* Background Image */}
+
         <div className="absolute inset-0 z-0">
           <Image 
             src={getImagePath("/dita-photo.jpg")}
@@ -148,9 +149,21 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/85 to-black/80"></div>
         </div>
         
-
-
+          <Waves
+            lineColor="#00FF91"
+            backgroundColor="rgba(0, 0, 0, 0.2)"
+            waveSpeedX={0.02}
+            waveSpeedY={0.01}
+            waveAmpX={40}
+            waveAmpY={20}
+            friction={0.9}
+            tension={0.01}
+            maxCursorMove={120}
+            xGap={12}
+            yGap={36}
+          />
         <div className="max-w-7xl mx-auto relative z-10">
+
           {/* Decorative elements */}
           <div className="absolute left-0 top-[40%] w-64 h-64 bg-green-600/8 rounded-full blur-3xl -z-10"></div>
           <div className="absolute right-0 bottom-[30%] w-80 h-80 bg-green-700/8 rounded-full blur-3xl -z-10"></div>
