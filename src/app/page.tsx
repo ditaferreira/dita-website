@@ -563,7 +563,7 @@ export default function HomePage() {
             <p className="text-white/70 leading-relaxed text-fluid-lg">{nanciData.tourism.approach}</p>
             
             <div className="mt-8 flex justify-end">
-              <a href="#" className="inline-flex items-center text-green-400 hover:text-green-300 transition-colors">
+              <a href="https://prataexpedicoes.com.br/" className="inline-flex items-center text-green-400 hover:text-green-300 transition-colors">
                 <span className="mr-2">Conhecer roteiros</span>
                 <ExternalLink className="h-4 w-4" />
               </a>
