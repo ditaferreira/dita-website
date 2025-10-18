@@ -5,6 +5,8 @@ import { nanciData } from '@/data/nanci-data'
 import Navigation from '@/components/Navigation'
 import SplashCursor from '@/components/SplashCursor';
 import DomeGallery from '@/components/DomeGallery';
+import Waves from '@/components/Waves';
+
 import { getImagePath } from '@/lib/utils'
 import { Leaf, Heart, Users, Globe, Music, Palette, TreePine, Sparkles, MapPin, Calendar, Award, BookOpen, Mountain, ArrowRight, Star, ChevronRight, ExternalLink, Camera } from 'lucide-react'
 
@@ -857,7 +859,7 @@ export default function HomePage() {
                   </li>
                   <li>
                     <a href="#" className="text-white/70 hover:text-white transition-colors">
-                      contato@nanciferreira.com.br
+                      dita.13.ferreira@gmail.com
                     </a>
                   </li>
                 </ul>
