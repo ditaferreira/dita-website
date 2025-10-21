@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from 'react'
 import { Leaf, Menu, X, ChevronRight } from 'lucide-react'
+import Image from 'next/image'
+import { getImagePath } from '@/lib/utils'
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
@@ -42,7 +44,12 @@ export default function Navigation() {
             <div className={`bg-green-600 rounded-full p-2 transition-all duration-300 ${
               scrolled ? 'scale-90' : 'scale-100'
             }`}>
-              <Leaf className="h-6 w-6 text-black" />
+              <Image
+                src={getImagePath("/dita_logo.png")}// or "/images/logo.png" or "/logo.svg" (place files in /public)
+                alt="Nanci logo"
+                width={80}
+                height={80}
+              />
             </div>
             <h1 className={`font-bold transition-all duration-300 ${
               scrolled ? 'text-xl' : 'text-2xl'
