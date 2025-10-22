@@ -56,11 +56,6 @@ export default function HomePage() {
         </div>
 
         {/* Subtle particle overlay */}
-        <div
-          className="absolute inset-0 z-[2] bg-repeat opacity-[0.05] mix-blend-overlay pointer-events-none"
-          style={{ backgroundImage: `url('${getImagePath('/particles.webp')}')` }}
-        ></div>
-
         {/* Hero Content - Centralized Layout */}
         <div className="max-w-5xl ml-auto relative z-10 w-full text-center">
           <div className="glass rounded-[2rem] p-12 md:p-16 border border-green-500/15 shadow-2xl hover:border-green-500/25 transition-all duration-700 animate-breathe backdrop-blur-xl">
@@ -107,12 +102,6 @@ export default function HomePage() {
               <div className="relative w-full h-full circular-image animate-float">
                 {/* Rotating gradient background */}
                 <div className="absolute inset-0 bg-gradient-to-br from-green-500/40 via-green-600/30 to-green-400/40 rounded-full animate-rotate-gradient"></div>
-
-                {/* Subtle particle effect */}
-                <div
-                  className="absolute inset-0 opacity-[0.1] mix-blend-overlay rounded-full"
-                  style={{ backgroundImage: `url('${getImagePath('/noise.webp')}')` }}
-                ></div>
 
                 {/* Image container with enhanced glow */}
                 <div className="relative w-full h-full rounded-full overflow-hidden animate-pulse-glow">
@@ -387,11 +376,11 @@ export default function HomePage() {
         <div className="max-w-8xl mx-auto relative z-10">
           <SectionBackground
             imagePath="/dita (42).webp" // Obrigatório
-            opacity={0.3} // 0-1
+            opacity={0.15} // 0-1
             blur={12} // pixels
             texture={true} // noise overlay
             textureOpacity={0.2} // 0-1
-            gradient="dark" // 'dark' | 'radial' | 'vignette' | 'none'
+            gradient="radial" // 'dark' | 'radial' | 'vignette' | 'none'
             customGradient="..." // CSS gradient customizado
             objectPosition="center" // posição da imagem
           />
@@ -500,13 +489,6 @@ export default function HomePage() {
           customGradient="..." // CSS gradient customizado
           objectPosition="center" // posição da imagem
         />
-        <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-green-950/20 via-black to-green-950/20"></div>
-          <div
-            className="absolute inset-0 bg-repeat opacity-[0.02] mix-blend-overlay"
-            style={{ backgroundImage: `url('${getImagePath('/particles.webp')}')` }}
-          ></div>
-        </div>
 
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-16 animate-fade-in">
@@ -715,12 +697,6 @@ export default function HomePage() {
       {/* Footer - Enhanced */}
       <footer className="relative glass border-t border-green-500/10 py-16 px-4 overflow-hidden">
         {/* Subtle background pattern */}
-        <div className="absolute inset-0 z-0">
-          <div
-            className="absolute inset-0 opacity-[0.01] mix-blend-overlay"
-            style={{ backgroundImage: `url('${getImagePath('/noise.webp')}')` }}
-          ></div>
-        </div>
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
