@@ -164,7 +164,7 @@ export const nanciData = {
       {
         number: 5,
         description:
-          'Lidera a Orquestra de Violeiros com predominância feminina, quebrando barreiras em um universo tradicionalmente masculino e inspirando outras mulheres.',
+          'Com protagonismo feminino, quebra barreiras de gênero, inspirando outras mulheres a serem livres e ocupando espaços de direito.',
         color: '#FF3A21',
       },
       {

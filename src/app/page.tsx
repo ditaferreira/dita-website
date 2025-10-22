@@ -29,7 +29,7 @@ import {
 export default function HomePage() {
   // Transform ODS data for ChromaGrid
   const odsItems = nanciData.ods.objectives.map((ods) => ({
-    image: `/ods_${ods.number}.png`,
+    image: `/dita-website/ods_${ods.number}.png`,
     subtitle: ods.description,
     borderColor: ods.color,
     gradient: `linear-gradient(145deg, ${ods.color}, #000)`,
@@ -167,11 +167,17 @@ export default function HomePage() {
           textureOpacity={0.03}
         />
 
-        {/* Background decorative elements */}
-        <div className="absolute right-0 top-20 w-96 h-96 bg-green-600/8 rounded-full blur-3xl -z-10"></div>
-        <div className="absolute left-0 bottom-40 w-80 h-80 bg-green-700/8 rounded-full blur-3xl -z-10"></div>
-
         <div className="max-w-7xl mx-auto">
+          <SectionBackground
+            imagePath="/nanci2.jpg" // Obrigatório
+            opacity={0.5} // 0-1
+            blur={12} // pixels
+            texture={true} // noise overlay
+            textureOpacity={1} // 0-1
+            gradient="dark" // 'dark' | 'radial' | 'vignette' | 'none'
+            customGradient="..." // CSS gradient customizado
+            objectPosition="center" // posição da imagem
+          />
           <div className="text-center mb-20 animate-slide-up">
             <div className="inline-flex items-center justify-center mb-6 glass-light rounded-full px-5 py-2 border-glow animate-glow-pulse">
               <Sparkles className="h-4 w-4 text-green-500 mr-2" />
@@ -249,7 +255,7 @@ export default function HomePage() {
         {/* Background Image */}
         <SectionBackground
           imagePath="/dita3.jpg"
-          opacity={0.25}
+          opacity={1}
           blur={8}
           gradient="dark"
           customGradient="linear-gradient(to bottom right, rgba(0,0,0,0.70), rgba(0,0,0,0.80), rgba(0,0,0,0.70))"
@@ -378,10 +384,10 @@ export default function HomePage() {
 
       {/* Organizations Section - Enhanced */}
       <section id="organizacoes" className="relative py-24 px-4 overflow-hidden">
-        <div className="max-w-7xl mx-auto relative z-10">
+        <div className="max-w-8xl mx-auto relative z-10">
           <SectionBackground
             imagePath="/dita (42).jpg" // Obrigatório
-            opacity={0.09} // 0-1
+            opacity={0.3} // 0-1
             blur={12} // pixels
             texture={true} // noise overlay
             textureOpacity={0.2} // 0-1
