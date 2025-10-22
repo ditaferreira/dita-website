@@ -412,7 +412,21 @@ export default function HomePage() {
                     </div>
                   </div>
                 </div>
-                <p className="text-white/70 leading-relaxed">{org.description}</p>
+                <p className="text-white/70 leading-relaxed mb-6">{org.description}</p>
+
+                {org.link && (
+                  <div className="flex justify-end relative z-20">
+                    <a
+                      href={org.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center text-green-400 hover:text-green-300 transition-colors cursor-pointer relative z-20"
+                    >
+                      <span className="mr-2">Visitar</span>
+                      <ExternalLink className="h-4 w-4" />
+                    </a>
+                  </div>
+                )}
               </div>
             ))}
           </div>

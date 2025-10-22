@@ -37,24 +37,28 @@ export const nanciData = {
       role: 'Presidente fundadora',
       description:
         'Desenvolve atividades que integram cultura, educação e sustentabilidade, oferecendo à comunidade local do bairro da Cascata um desenvolvimento humano.',
+      link: 'https://www.instagram.com/nanci.ferreira.dita',
     },
     {
       name: 'Comunidade de Artistas Regionais',
       role: 'Liderança',
       description:
         'Promove e fomenta ativamente a criação de espaços e eventos culturais para a troca de ideias e experiências, fortalecendo a identidade cultural da região.',
+      link: 'https://www.instagram.com/nanci.ferreira.dita',
     },
     {
       name: 'SOS - Águas da Prata',
       role: 'Membro Ilustre',
       description:
         'Serviço de Obras Sociais - SOS é Organização dedicada à proteção dos recursos naturais locais e à promoção de práticas sustentáveis, participando de campanhas contra mineração predatória e defesa das águas minerais.',
+      link: 'https://aguasdapratasos.wixstudio.com/2025',
     },
     {
       name: 'Guardiões da Terra Cascata',
       role: 'Conselheira de Sabedoria',
       description:
         'Conexão com rede internacional de ativistas ambientais (Earth Guardians), desenvolvendo ações que combinam educação ambiental, arte e ativismo.',
+      link: 'https://earthguardians.org',
     },
   ],
 
