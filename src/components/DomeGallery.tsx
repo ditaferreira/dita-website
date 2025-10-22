@@ -210,7 +210,7 @@ function computeItemBaseRotation(
 export default function DomeGallery({
   images = DEFAULT_IMAGES,
   fit = 0.9,
-  fitBasis = 'auto',
+  fitBasis = 'max',
   minRadius = 600,
   maxRadius = Infinity,
   padFactor = 0.25,
@@ -219,7 +219,7 @@ export default function DomeGallery({
   enlargeTransitionMs = DEFAULTS.enlargeTransitionMs,
   segments = DEFAULTS.segments,
   dragDampening = 2,
-  openedImageWidth = '1200px',
+  openedImageWidth = '1000px',
   openedImageHeight = '1100px',
   imageBorderRadius = '30px',
   openedImageBorderRadius = '30px',
