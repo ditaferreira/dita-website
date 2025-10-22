@@ -15,7 +15,7 @@ interface SectionBackgroundProps extends BackgroundConfig {
  * ```tsx
  * <section className="relative py-24">
  *   <SectionBackground
- *     imagePath="/dita-photo.jpg"
+ *     imagePath="/dita-photo.webp"
  *     opacity={0.25}
  *     blur={10}
  *     gradient="radial"

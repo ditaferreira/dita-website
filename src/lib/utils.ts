@@ -10,7 +10,7 @@ export function cn(...inputs: ClassValue[]) {
 
 /**
  * Get the correct image path with basePath prefix
- * @param path - The image path (e.g., '/image.jpg')
+ * @param path - The image path (e.g., '/image.webp')
  * @returns The full path with basePath if configured
  */
 export function getImagePath(path: string): string {

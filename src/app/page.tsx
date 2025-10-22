@@ -29,7 +29,7 @@ import {
 export default function HomePage() {
   // Transform ODS data for ChromaGrid
   const odsItems = nanciData.ods.objectives.map((ods) => ({
-    image: `/dita-website/ods_${ods.number}.png`,
+    image: `/dita-website/ods_${ods.number}.webp`,
     subtitle: ods.description,
     borderColor: ods.color,
     gradient: `linear-gradient(145deg, ${ods.color}, #000)`,
@@ -47,7 +47,7 @@ export default function HomePage() {
         <div className="absolute inset-0">
           {/* Main Background Image only */}
           <Image
-            src={getImagePath('/nanci-dita-full.jpg')}
+            src={getImagePath('/nanci-dita-full.webp')}
             alt=""
             fill
             className="object-cover opacity-45 z-10"
@@ -58,7 +58,7 @@ export default function HomePage() {
         {/* Subtle particle overlay */}
         <div
           className="absolute inset-0 z-[2] bg-repeat opacity-[0.05] mix-blend-overlay pointer-events-none"
-          style={{ backgroundImage: `url('${getImagePath('/particles.png')}')` }}
+          style={{ backgroundImage: `url('${getImagePath('/particles.webp')}')` }}
         ></div>
 
         {/* Hero Content - Centralized Layout */}
@@ -68,7 +68,7 @@ export default function HomePage() {
             <div className="inline-flex items-center justify-center mb-8 glass-light rounded-full px-6 py-3 border-glow animate-glow-pulse">
               <Leaf className="h-4 w-4 text-green-400 mr-2" />
               <span className="text-green-300 text-sm font-semibold tracking-wide">
-                Mata Atlântica • Cascata • Águas da Prata
+                Mata Atlântica • Cascata
               </span>
             </div>
 
@@ -111,7 +111,7 @@ export default function HomePage() {
                 {/* Subtle particle effect */}
                 <div
                   className="absolute inset-0 opacity-[0.1] mix-blend-overlay rounded-full"
-                  style={{ backgroundImage: `url('${getImagePath('/noise.png')}')` }}
+                  style={{ backgroundImage: `url('${getImagePath('/noise.webp')}')` }}
                 ></div>
 
                 {/* Image container with enhanced glow */}
@@ -159,7 +159,7 @@ export default function HomePage() {
       <section id="sobre" className="relative py-32 px-4 overflow-hidden">
         {/* Background Image */}
         <SectionBackground
-          imagePath="/dita-maracatu.jpg"
+          imagePath="/dita-maracatu.webp"
           opacity={0.15}
           blur={6}
           gradient="dark"
@@ -169,7 +169,7 @@ export default function HomePage() {
 
         <div className="max-w-7xl mx-auto">
           <SectionBackground
-            imagePath="/nanci2.jpg" // Obrigatório
+            imagePath="/nanci2.webp" // Obrigatório
             opacity={0.5} // 0-1
             blur={12} // pixels
             texture={true} // noise overlay
@@ -254,7 +254,7 @@ export default function HomePage() {
       <section className="relative py-24 px-4 overflow-hidden">
         {/* Background Image */}
         <SectionBackground
-          imagePath="/dita3.jpg"
+          imagePath="/dita3.webp"
           opacity={1}
           blur={8}
           gradient="dark"
@@ -293,7 +293,7 @@ export default function HomePage() {
       {/* Projects Section - Enhanced */}
       <section id="projetos" className="relative py-24 px-4 overflow-hidden">
         <SectionBackground
-          imagePath="/dita-maracatu.jpg" // Obrigatório
+          imagePath="/dita-maracatu.webp" // Obrigatório
           opacity={0.25} // 0-1
           blur={8} // pixels
           texture={true} // noise overlay
@@ -386,7 +386,7 @@ export default function HomePage() {
       <section id="organizacoes" className="relative py-24 px-4 overflow-hidden">
         <div className="max-w-8xl mx-auto relative z-10">
           <SectionBackground
-            imagePath="/dita (42).jpg" // Obrigatório
+            imagePath="/dita (42).webp" // Obrigatório
             opacity={0.3} // 0-1
             blur={12} // pixels
             texture={true} // noise overlay
@@ -439,7 +439,7 @@ export default function HomePage() {
       {/* Tourism Section - Enhanced */}
       <section className="relative py-24 px-4 overflow-hidden">
         <SectionBackground
-          imagePath="/nanci2.jpg"
+          imagePath="/nanci2.webp"
           opacity={0.15}
           blur={7}
           gradient="dark"
@@ -491,7 +491,7 @@ export default function HomePage() {
       {/* Events Section - Enhanced */}
       <section className="relative py-24 px-4 overflow-hidden">
         <SectionBackground
-          imagePath="/dita (83).jpg" // Obrigatório
+          imagePath="/dita (83).webp" // Obrigatório
           opacity={0.2} // 0-1
           blur={12} // pixels
           texture={true} // noise overlay
@@ -504,7 +504,7 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-gradient-to-br from-green-950/20 via-black to-green-950/20"></div>
           <div
             className="absolute inset-0 bg-repeat opacity-[0.02] mix-blend-overlay"
-            style={{ backgroundImage: `url('${getImagePath('/particles.png')}')` }}
+            style={{ backgroundImage: `url('${getImagePath('/particles.webp')}')` }}
           ></div>
         </div>
 
@@ -573,7 +573,7 @@ export default function HomePage() {
       {/* ODS Section - Objetivos de Desenvolvimento Sustentável */}
       <section id="ods" className="relative py-32 px-4 overflow-hidden">
         <SectionBackground
-          imagePath="/dita-photo.jpg"
+          imagePath="/dita-photo.webp"
           opacity={0.12}
           blur={10}
           gradient="dark"
@@ -639,7 +639,7 @@ export default function HomePage() {
       <section className="relative py-32 px-4 overflow-hidden">
         {/* Background Image */}
         <SectionBackground
-          imagePath="/nanci-dita-close.jpg"
+          imagePath="/nanci-dita-close.webp"
           opacity={0.3}
           blur={6}
           customGradient="linear-gradient(to bottom right, rgba(20,83,45,0.50), rgba(0,0,0,0.70), rgba(20,83,45,0.50))"
@@ -718,7 +718,7 @@ export default function HomePage() {
         <div className="absolute inset-0 z-0">
           <div
             className="absolute inset-0 opacity-[0.01] mix-blend-overlay"
-            style={{ backgroundImage: `url('${getImagePath('/noise.png')}')` }}
+            style={{ backgroundImage: `url('${getImagePath('/noise.webp')}')` }}
           ></div>
         </div>
         <div className="max-w-7xl mx-auto">

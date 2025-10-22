@@ -91,7 +91,7 @@ Visit these pages to see the improvements:
 <section className="relative py-24 px-4">
   {/* Use SectionBackground component as before */}
   <SectionBackground
-    imagePath="/your-image.jpg"
+    imagePath="/your-image.webp"
     opacity={0.2}
     blur={8}
     texture={true}

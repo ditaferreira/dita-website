@@ -48,13 +48,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* Enhanced noise texture overlay for depth */}
         <div
           className="fixed inset-0 opacity-[0.035] mix-blend-overlay pointer-events-none z-[2]"
-          style={{ backgroundImage: `url('${getImagePath('/noise.png')}')` }}
+          style={{ backgroundImage: `url('${getImagePath('/noise.webp')}')` }}
         ></div>
 
         {/* Background image with reduced opacity for AMOLED look */}
         <div
           className="fixed inset-0 bg-cover bg-center opacity-[0.08] z-0"
-          style={{ backgroundImage: `url('${getImagePath('/dita-photo.jpg')}')` }}
+          style={{ backgroundImage: `url('${getImagePath('/dita-photo.webp')}')` }}
         ></div>
 
         {/* Enhanced gradient overlay with more depth and organic feel */}

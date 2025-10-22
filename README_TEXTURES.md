@@ -183,7 +183,7 @@ All components using these classes automatically have the new textures:
 ```tsx
 <section className="relative py-24">
   <SectionBackground
-    imagePath="/image.jpg"
+    imagePath="/image.webp"
     opacity={0.2}
     blur={8}
     texture={true}

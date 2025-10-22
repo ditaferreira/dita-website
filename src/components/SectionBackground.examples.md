@@ -10,7 +10,7 @@ import SectionBackground from '@/components/SectionBackground'
 
 ```tsx
 <section className="relative py-24 px-4">
-  <SectionBackground imagePath="/dita-photo.jpg" />
+  <SectionBackground imagePath="/dita-photo.webp" />
   
   <div className="relative z-10">
     {/* Seu conteúdo aqui */}
@@ -23,7 +23,7 @@ import SectionBackground from '@/components/SectionBackground'
 ### 1. Background Sutil com Blur Leve
 ```tsx
 <SectionBackground
-  imagePath="/dita-maracatu.jpg"
+  imagePath="/dita-maracatu.webp"
   opacity={0.15}
   blur={6}
   gradient="dark"
@@ -33,7 +33,7 @@ import SectionBackground from '@/components/SectionBackground'
 ### 2. Background com Vignette Radial
 ```tsx
 <SectionBackground
-  imagePath="/nanci-dita-full.jpg"
+  imagePath="/nanci-dita-full.webp"
   opacity={0.25}
   blur={8}
   gradient="radial"
@@ -44,7 +44,7 @@ import SectionBackground from '@/components/SectionBackground'
 ### 3. Background com Gradiente Customizado (Verde)
 ```tsx
 <SectionBackground
-  imagePath="/nanci-dita-close.jpg"
+  imagePath="/nanci-dita-close.webp"
   opacity={0.30}
   blur={6}
   customGradient="linear-gradient(to bottom right, rgba(20,83,45,0.50), rgba(0,0,0,0.70), rgba(20,83,45,0.50))"
@@ -56,7 +56,7 @@ import SectionBackground from '@/components/SectionBackground'
 ### 4. Background Forte sem Texture
 ```tsx
 <SectionBackground
-  imagePath="/dita3.jpg"
+  imagePath="/dita3.webp"
   opacity={0.40}
   blur={10}
   gradient="vignette"
@@ -67,7 +67,7 @@ import SectionBackground from '@/components/SectionBackground'
 ### 5. Background com Posição Customizada
 ```tsx
 <SectionBackground
-  imagePath="/nanci2.jpg"
+  imagePath="/nanci2.webp"
   opacity={0.20}
   blur={5}
   gradient="dark"
@@ -140,7 +140,7 @@ Sempre use `relative` na section e `z-10` no conteúdo:
 
 ```tsx
 <section className="relative py-24 px-4 overflow-hidden">
-  <SectionBackground imagePath="/your-image.jpg" />
+  <SectionBackground imagePath="/your-image.webp" />
   
   <div className="max-w-7xl mx-auto relative z-10">
     {/* Conteúdo sempre acima do background */}
