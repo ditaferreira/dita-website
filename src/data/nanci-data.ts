@@ -131,6 +131,7 @@ export const nanciData = {
     'Feiras culturais',
     'Exposições de arte',
     'Celebrações comunitárias',
+    'Rodas Musicais',
   ],
 
   impact: {

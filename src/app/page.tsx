@@ -550,7 +550,7 @@ export default function HomePage() {
           {/* Regular Events */}
           <div className="glass rounded-3xl p-10 border border-white/5 animate-fade-in animate-delay-200">
             <h3 className="text-fluid-xl font-semibold text-white text-center mb-8">
-              Participações Regulares
+              Participações Especiais
             </h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
               {nanciData.events.map((event, index) => (
