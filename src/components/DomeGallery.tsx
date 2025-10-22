@@ -891,7 +891,7 @@ export default function DomeGallery({
                       ['--offset-x' as any]: it.x,
                       ['--offset-y' as any]: it.y,
                       ['--item-size-x' as any]: it.sizeX,
-                      ['--item-size-y' as any]: it.sizeY,
+                      ['--item-size-y' as unknown]: it.sizeY,
                       top: '-999px',
                       bottom: '-999px',
                       left: '-999px',
