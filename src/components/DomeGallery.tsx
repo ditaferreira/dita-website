@@ -34,7 +34,6 @@ type ItemDef = {
 }
 
 const DEFAULT_IMAGES: ImageItem[] = [
-  { src: getImagePath('/dita (1).jpg'), alt: 'Dita photo 1' },
   { src: getImagePath('/dita (10).jpg'), alt: 'Dita photo 10' },
   { src: getImagePath('/dita (11).jpg'), alt: 'Dita photo 11' },
   { src: getImagePath('/dita (12).jpg'), alt: 'Dita photo 12' },
@@ -45,7 +44,6 @@ const DEFAULT_IMAGES: ImageItem[] = [
   { src: getImagePath('/dita (17).jpg'), alt: 'Dita photo 17' },
   { src: getImagePath('/dita (18).jpg'), alt: 'Dita photo 18' },
   { src: getImagePath('/dita (19).jpg'), alt: 'Dita photo 19' },
-  { src: getImagePath('/dita (2).jpg'), alt: 'Dita photo 2' },
   { src: getImagePath('/dita (20).jpg'), alt: 'Dita photo 20' },
   { src: getImagePath('/dita (21).jpg'), alt: 'Dita photo 21' },
   { src: getImagePath('/dita (22).jpg'), alt: 'Dita photo 22' },
@@ -56,11 +54,8 @@ const DEFAULT_IMAGES: ImageItem[] = [
   { src: getImagePath('/dita (27).jpg'), alt: 'Dita photo 27' },
   { src: getImagePath('/dita (28).jpg'), alt: 'Dita photo 28' },
   { src: getImagePath('/dita (29).jpg'), alt: 'Dita photo 29' },
-  { src: getImagePath('/dita (3).jpg'), alt: 'Dita photo 3' },
   { src: getImagePath('/dita (30).jpg'), alt: 'Dita photo 30' },
   { src: getImagePath('/dita (31).jpg'), alt: 'Dita photo 31' },
-  { src: getImagePath('/dita (32).jpg'), alt: 'Dita photo 32' },
-  { src: getImagePath('/dita (33).jpg'), alt: 'Dita photo 33' },
   { src: getImagePath('/dita (34).jpg'), alt: 'Dita photo 34' },
   { src: getImagePath('/dita (35).jpg'), alt: 'Dita photo 35' },
   { src: getImagePath('/dita (36).jpg'), alt: 'Dita photo 36' },
