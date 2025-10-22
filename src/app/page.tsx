@@ -17,7 +17,6 @@ import {
   Music,
   Palette,
   Sparkles,
-  MapPin,
   Calendar,
   Award,
   BookOpen,
@@ -30,10 +29,8 @@ import {
 export default function HomePage() {
   // Transform ODS data for ChromaGrid
   const odsItems = nanciData.ods.objectives.map((ods) => ({
-    image: getImagePath(`/ods_${ods.number}.png`),
+    image: `/ods_${ods.number}.png`,
     subtitle: ods.description,
-    description: ods.description,
-    number: ods.number,
     borderColor: ods.color,
     gradient: `linear-gradient(145deg, ${ods.color}, #000)`,
     url: 'https://sdgs.un.org/goals', // Link to UN SDGs page

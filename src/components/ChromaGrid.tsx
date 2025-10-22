@@ -3,7 +3,6 @@ import { gsap } from 'gsap'
 
 export interface ChromaItem {
   image: string
-  title: string
   subtitle: string
   handle?: string
   location?: string
@@ -40,7 +39,6 @@ const ChromaGrid: React.FC<ChromaGridProps> = ({
   const demo: ChromaItem[] = [
     {
       image: 'https://i.pravatar.cc/300?img=8',
-      title: 'Alex Rivera',
       subtitle: 'Full Stack Developer',
       handle: '@alexrivera',
       borderColor: '#4F46E5',
@@ -49,7 +47,6 @@ const ChromaGrid: React.FC<ChromaGridProps> = ({
     },
     {
       image: 'https://i.pravatar.cc/300?img=11',
-      title: 'Jordan Chen',
       subtitle: 'DevOps Engineer',
       handle: '@jordanchen',
       borderColor: '#10B981',
@@ -58,7 +55,6 @@ const ChromaGrid: React.FC<ChromaGridProps> = ({
     },
     {
       image: 'https://i.pravatar.cc/300?img=3',
-      title: 'Morgan Blake',
       subtitle: 'UI/UX Designer',
       handle: '@morganblake',
       borderColor: '#F59E0B',
@@ -67,7 +63,6 @@ const ChromaGrid: React.FC<ChromaGridProps> = ({
     },
     {
       image: 'https://i.pravatar.cc/300?img=16',
-      title: 'Casey Park',
       subtitle: 'Data Scientist',
       handle: '@caseypark',
       borderColor: '#EF4444',
@@ -76,7 +71,6 @@ const ChromaGrid: React.FC<ChromaGridProps> = ({
     },
     {
       image: 'https://i.pravatar.cc/300?img=25',
-      title: 'Sam Kim',
       subtitle: 'Mobile Developer',
       handle: '@thesamkim',
       borderColor: '#8B5CF6',
@@ -85,7 +79,6 @@ const ChromaGrid: React.FC<ChromaGridProps> = ({
     },
     {
       image: 'https://i.pravatar.cc/300?img=60',
-      title: 'Tyler Rodriguez',
       subtitle: 'Cloud Architect',
       handle: '@tylerrod',
       borderColor: '#06B6D4',
@@ -184,13 +177,11 @@ const ChromaGrid: React.FC<ChromaGridProps> = ({
           <div className="relative z-10 flex-1 p-[10px] box-border">
             <img
               src={c.image}
-              alt={c.title}
               loading="lazy"
               className="w-full h-full object-cover rounded-[10px]"
             />
           </div>
           <footer className="relative z-10 p-3 text-white font-sans grid grid-cols-[1fr_auto] gap-x-3 gap-y-1">
-            <h3 className="m-0 text-[1.05rem] font-semibold">{c.title}</h3>
             {c.handle && <span className="text-[0.95rem] opacity-80 text-right">{c.handle}</span>}
             <p className="m-0 text-[0.85rem] opacity-85">{c.subtitle}</p>
             {c.location && (
