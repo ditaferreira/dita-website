@@ -254,7 +254,7 @@ export default function HomePage() {
           {/* Dome Gallery Component - Full Width */}
           <div
             className="relative w-full flex items-center justify-center z-10"
-            style={{ height: '70vh', maxWidth: '70vw' }}
+            style={{ height: '100vh', maxWidth: '100vw' }}
           >
             <DomeGallery />
           </div>
