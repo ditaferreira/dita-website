@@ -30,8 +30,6 @@ export default function SectionBackground({
   imagePath,
   opacity = 0.3,
   blur = 8,
-  texture = true,
-  textureOpacity = 0.02,
   gradient = 'dark',
   customGradient,
   objectPosition = 'center',
@@ -42,8 +40,6 @@ export default function SectionBackground({
     imagePath,
     opacity,
     blur,
-    texture,
-    textureOpacity,
     gradient,
     customGradient,
     objectPosition,
@@ -71,17 +67,6 @@ export default function SectionBackground({
       {/* Gradient Overlay */}
       {styles.gradient !== 'none' && (
         <div className="absolute inset-0" style={{ background: styles.gradient }} />
-      )}
-
-      {/* Texture Overlay */}
-      {styles.texture && (
-        <div
-          className="absolute inset-0 bg-repeat mix-blend-overlay pointer-events-none"
-          style={{
-            backgroundImage: `url('${styles.texture.src}')`,
-            opacity: styles.texture.opacity,
-          }}
-        />
       )}
     </div>
   )

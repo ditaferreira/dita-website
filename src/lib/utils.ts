@@ -28,10 +28,6 @@ export interface BackgroundConfig {
   opacity?: number
   /** Blur amount in pixels */
   blur?: number
-  /** Add noise texture overlay */
-  texture?: boolean
-  /** Texture opacity (0-1) */
-  textureOpacity?: number
   /** Gradient overlay type */
   gradient?: 'dark' | 'radial' | 'vignette' | 'none'
   /** Custom gradient overlay */
@@ -50,8 +46,6 @@ export function createBackgroundStyles(config: BackgroundConfig) {
     imagePath,
     opacity = 0.3,
     blur = 8,
-    texture = true,
-    textureOpacity = 0.02,
     gradient = 'dark',
     customGradient,
     objectPosition = 'center',
@@ -72,11 +66,5 @@ export function createBackgroundStyles(config: BackgroundConfig) {
       objectPosition,
     },
     gradient: customGradient || gradients[gradient],
-    texture: texture
-      ? {
-          enabled: true,
-          opacity: textureOpacity,
-        }
-      : null,
   }
 }

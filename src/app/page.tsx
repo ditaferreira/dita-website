@@ -152,8 +152,6 @@ export default function HomePage() {
           opacity={0.15}
           blur={6}
           gradient="dark"
-          texture={true}
-          textureOpacity={0.03}
         />
 
         <div className="max-w-7xl mx-auto">
@@ -161,8 +159,6 @@ export default function HomePage() {
             imagePath="/nanci2.webp" // Obrigatório
             opacity={0.5} // 0-1
             blur={12} // pixels
-            texture={true} // noise overlay
-            textureOpacity={1} // 0-1
             gradient="dark" // 'dark' | 'radial' | 'vignette' | 'none'
             customGradient="..." // CSS gradient customizado
             objectPosition="center" // posição da imagem
@@ -280,8 +276,6 @@ export default function HomePage() {
           imagePath="/dita-maracatu.webp" // Obrigatório
           opacity={0.25} // 0-1
           blur={8} // pixels
-          texture={true} // noise overlay
-          textureOpacity={0.2} // 0-1
           gradient="dark" // 'dark' | 'radial' | 'vignette' | 'none'
           customGradient="..." // CSS gradient customizado
           objectPosition="center" // posição da imagem
@@ -372,8 +366,6 @@ export default function HomePage() {
           imagePath="/dita (42).webp" // Obrigatório
           opacity={0.15} // 0-1
           blur={12} // pixels
-          texture={true} // noise overlay
-          textureOpacity={0.2} // 0-1
           gradient="radial" // 'dark' | 'radial' | 'vignette' | 'none'
           customGradient="..." // CSS gradient customizado
           objectPosition="center" // posição da imagem
@@ -435,14 +427,7 @@ export default function HomePage() {
 
       {/* Tourism Section - Enhanced */}
       <section className="relative py-24 px-4 overflow-hidden">
-        <SectionBackground
-          imagePath="/dita (52).webp"
-          opacity={1}
-          blur={7}
-          gradient="dark"
-          texture={true}
-          textureOpacity={1}
-        />
+        <SectionBackground imagePath="/dita (52).webp" opacity={1} blur={7} gradient="dark" />
 
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-16 animate-fade-in">
@@ -491,8 +476,6 @@ export default function HomePage() {
           imagePath="/dita (83).webp" // Obrigatório
           opacity={0.2} // 0-1
           blur={12} // pixels
-          texture={true} // noise overlay
-          textureOpacity={1} // 0-1
           gradient="radial" // 'dark' | 'radial' | 'vignette' | 'none'
           customGradient="..." // CSS gradient customizado
           objectPosition="center" // posição da imagem
@@ -562,14 +545,7 @@ export default function HomePage() {
 
       {/* ODS Section - Objetivos de Desenvolvimento Sustentável */}
       <section id="ods" className="relative py-32 px-4 overflow-hidden">
-        <SectionBackground
-          imagePath="/dita-photo.webp"
-          opacity={0.12}
-          blur={10}
-          gradient="dark"
-          texture={true}
-          textureOpacity={0.02}
-        />
+        <SectionBackground imagePath="/dita-photo.webp" opacity={0.12} blur={10} gradient="dark" />
 
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-16 animate-fade-in">
@@ -633,8 +609,6 @@ export default function HomePage() {
           opacity={0.3}
           blur={6}
           customGradient="linear-gradient(to bottom right, rgba(20,83,45,0.50), rgba(0,0,0,0.70), rgba(20,83,45,0.50))"
-          texture={true}
-          textureOpacity={0.03}
         />
 
         {/* Animated particles */}
