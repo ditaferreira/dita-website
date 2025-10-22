@@ -33,16 +33,16 @@ export const nanciData = {
 
   organizations: [
     {
-      name: 'Associação Sócio Cultural da Estação da Cascata',
+      name: 'Associação Sociocultural da Estação da Cascata',
       role: 'Presidente fundadora',
       description:
         'Desenvolve atividades que integram cultura, educação e sustentabilidade, oferecendo à comunidade local do bairro da Cascata um desenvolvimento humano.',
     },
     {
-      name: 'Comunidade de Artistas Locais',
+      name: 'Comunidade de Artistas Regionais',
       role: 'Liderança',
       description:
-        'Promove a criação de espaços e eventos culturais para a troca de ideias e experiências, fortalecendo a identidade cultural da região.',
+        'Promove e fomenta ativamente a criação de espaços e eventos culturais para a troca de ideias e experiências, fortalecendo a identidade cultural da região.',
     },
     {
       name: 'SOS - Águas da Prata',
@@ -73,11 +73,11 @@ export const nanciData = {
       title: 'Kintal da Dita',
       category: 'Espaço Cultural',
       description:
-        'Ponto de Cultura para atividades artísticas, educativas e ambientais no bairro da Cascata. Mais que um local físico, é um conceito de espaço comunitário que privilegia a sustentabilidade.',
+        'Ponto de Cultura para atividades artísticas, educativas e ambientais no bairro da Cascata. Mais que um local físico, é um conceito de resistência climática.',
       impact:
-        'Serve como laboratório de experimentação para práticas sustentáveis e ponto de encontro para a comunidade local.',
+        'Serve como laboratório de experimentação para práticas sustentáveis e ponto de encontro para a comunidade internacional.',
       details:
-        'Representa a expressão mais completa da visão integradora de Nanci. Sua concepção reflete uma compreensão sofisticada das necessidades comunitárias, oferecendo alternativas de lazer, educação e desenvolvimento econômico que respeitam as características ambientais e culturais do território.',
+        'Representa um Ponto de Cultura rico em histórias, artefatos de museu e ambientes de convivência na natureza.',
     },
   ],
 

@@ -253,7 +253,7 @@ export default function HomePage() {
           {/* Image Gallery Grid - Enhanced with 8 featured images */}
           {/* Dome Gallery Component - Full Width */}
           <div
-            className="relative w-full flex items-center justify-center z-10"
+            className="relative w-full flex items-center justify-center z-999"
             style={{ height: '100vh', maxWidth: '100vw' }}
           >
             <DomeGallery />
@@ -296,8 +296,8 @@ export default function HomePage() {
             <h2 className="text-fluid-4xl font-bold text-gradient mb-6">Projetos Principais</h2>
             <div className="w-24 h-1 bg-gradient-to-r from-green-500 to-green-700 mx-auto mb-8"></div>
             <p className="text-fluid-lg text-white/70 max-w-3xl mx-auto">
-              Iniciativas que integram arte, sustentabilidade e educação ambiental, transformando
-              comunidades através de práticas ancestrais e inovadoras.
+              Iniciativas que integram arte, sustentabilidade e educação ambiental, transformando a
+              comunidade.
             </p>
           </div>
 
@@ -368,25 +368,24 @@ export default function HomePage() {
 
       {/* Organizations Section - Enhanced */}
       <section id="organizacoes" className="relative py-24 px-4 overflow-hidden">
-        <div className="max-w-8xl mx-auto relative z-10">
-          <SectionBackground
-            imagePath="/dita (42).webp" // Obrigatório
-            opacity={0.15} // 0-1
-            blur={12} // pixels
-            texture={true} // noise overlay
-            textureOpacity={0.2} // 0-1
-            gradient="radial" // 'dark' | 'radial' | 'vignette' | 'none'
-            customGradient="..." // CSS gradient customizado
-            objectPosition="center" // posição da imagem
-          />
+        <SectionBackground
+          imagePath="/dita (42).webp" // Obrigatório
+          opacity={0.15} // 0-1
+          blur={12} // pixels
+          texture={true} // noise overlay
+          textureOpacity={0.2} // 0-1
+          gradient="radial" // 'dark' | 'radial' | 'vignette' | 'none'
+          customGradient="..." // CSS gradient customizado
+          objectPosition="center" // posição da imagem
+        />
+        <div className="max-w-6xl mx-auto relative z-10">
           <div className="text-center mb-16 animate-fade-in">
             <h2 className="text-fluid-4xl font-bold text-gradient mb-6">
               Organizações e Movimentos
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-green-500 to-green-700 mx-auto mb-8"></div>
             <p className="text-fluid-lg text-white/70 max-w-3xl mx-auto">
-              Participação ativa em organizações locais e movimentos globais, conectando ações
-              comunitárias com causas ambientais de maior alcance.
+              Participação ativa em organizações e entidades, locais e internacionais.
             </p>
           </div>
 
@@ -423,12 +422,12 @@ export default function HomePage() {
       {/* Tourism Section - Enhanced */}
       <section className="relative py-24 px-4 overflow-hidden">
         <SectionBackground
-          imagePath="/nanci2.webp"
-          opacity={0.15}
+          imagePath="/dita (52).webp"
+          opacity={1}
           blur={7}
           gradient="dark"
           texture={true}
-          textureOpacity={0.025}
+          textureOpacity={1}
         />
 
         <div className="max-w-7xl mx-auto relative z-10">

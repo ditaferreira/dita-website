@@ -116,43 +116,43 @@ html {
 /* Fluid typography */
 @layer utilities {
   .text-fluid-xs {
-    font-size: clamp(0.875rem, 0.825rem + 0.3vw, 1rem);
+    font-size: clamp(1.14rem, 1.07rem + 0.39vw, 1.3rem);
   }
   
   .text-fluid-sm {
-    font-size: clamp(1rem, 0.95rem + 0.4vw, 1.15rem);
+    font-size: clamp(0.7rem, 1.24rem + 1.52vw, 3.5rem);
   }
   
   .text-fluid-base {
-    font-size: clamp(1.125rem, 1.075rem + 0.3vw, 1.3rem);
+    font-size: clamp(1.46rem, 1.4rem + 0.39vw, 1.69rem);
   }
   
   .text-fluid-lg {
-    font-size: clamp(1.3rem, 1.2rem + 0.7vw, 1.5rem);
+    font-size: clamp(1.69rem, 1.56rem + 0.91vw, 1.95rem);
   }
   
   .text-fluid-xl {
-    font-size: clamp(1.5rem, 1.35rem + 0.85vw, 1.75rem);
+    font-size: clamp(0.95rem, 0.76rem + 0.81vw, 1.28rem);
   }
   
   .text-fluid-2xl {
-    font-size: clamp(1.75rem, 1.55rem + 1.15vw, 2.2rem);
+    font-size: clamp(2.28rem, 2.02rem + 1.5vw, 2.86rem);
   }
   
   .text-fluid-3xl {
-    font-size: clamp(2.2rem, 1.95rem + 1.3vw, 2.65rem);
+    font-size: clamp(2.86rem, 2.54rem + 1.69vw, 3.45rem);
   }
   
   .text-fluid-4xl {
-    font-size: clamp(2.65rem, 2.3rem + 1.75vw, 3.5rem);
+    font-size: clamp(2.4rem, 1.99rem + 2.28vw, 4.55rem);
   }
   
   .text-fluid-5xl {
-    font-size: clamp(3.5rem, 2.95rem + 2.9vw, 4.7rem);
+    font-size: clamp(2xrem, 3.84rem + 3.77vw, 6.11rem);
   }
   
   .text-fluid-6xl {
-    font-size: clamp(4.4rem, 3.55rem + 4.3vw, 7rem);
+    font-size: clamp(3rem, 4.62rem + 5.59vw, 4.1rem);
   }
 }
 

@@ -76,7 +76,6 @@ export function createBackgroundStyles(config: BackgroundConfig) {
       ? {
           enabled: true,
           opacity: textureOpacity,
-          src: getImagePath('/noise.png'),
         }
       : null,
   }
