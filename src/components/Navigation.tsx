@@ -81,10 +81,10 @@ export default function Navigation() {
               href="https://www.instagram.com/dita22067/"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-br from-purple-600 via-pink-500 to-orange-400 hover:scale-110 transition-all duration-300 hover:shadow-lg hover:shadow-pink-500/50 group"
+              className="flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-br from-purple-600 via-pink-500 to-orange-400 hover:scale-110 transition-all duration-300 hover:shadow-lg hover:shadow-pink-500/50 group cursor-pointer relative z-[60]"
               aria-label="Instagram de Nanci Ferreira"
             >
-              <Instagram className="h-5 w-5 text-white" />
+              <Instagram className="h-5 w-5 text-white pointer-events-none" />
             </a>
           </div>
 
