@@ -51,7 +51,7 @@ export default function HomePage() {
 
         {/* Subtle particle overlay */}
         <div
-          className="absolute inset-0 z-2 bg-repeat opacity-[0.05] mix-blend-overlay"
+          className="absolute inset-0 z-[2] bg-repeat opacity-[0.05] mix-blend-overlay pointer-events-none"
           style={{ backgroundImage: `url('${getImagePath('/particles.png')}')` }}
         ></div>
 
@@ -118,25 +118,21 @@ export default function HomePage() {
                   />
                 </div>
               </div>
-
-              {/* Enhanced floating badges with modern styling */}
-              <div className="absolute -top-6 -right-6 glass rounded-full px-2 py-2">
-                <div className="flex items-center glass-light rounded-full px-2 py-2.5 border-glow animate-fade-in animate-delay-300">
-                  <Calendar className="h-4 w-4 text-green-500 mr-2" />
-                  <span className="text-white text-sm">Líder Cultural</span>
-                </div>
-              </div>
             </div>
 
             {/* Enhanced Info Cards with AMOLED styling - Centered */}
             <div className="flex flex-wrap justify-center gap-4 mb-12">
               <div className="flex items-center glass-light rounded-full px-5 py-2.5 border-glow animate-fade-in animate-delay-300">
-                <Calendar className="h-4 w-4 text-green-500 mr-2" />
-                <span className="text-white text-sm">73 anos de sabedoria</span>
+                <Calendar className="h-5 w-5 text-green-500 mr-2" />
+                <span className="text-white text-fluid-sm">73 anos de sabedoria</span>
               </div>
-              <div className="flex items-center glass-light rounded-full px-5 py-2.5 animate-fade-in animate-delay-400">
-                <MapPin className="h-4 w-4 text-green-500 mr-2" />
-                <span className="text-white text-sm">Cascata, Águas da Prata - SP</span>
+              <div className="flex items-center glass-light rounded-full px-5 py-2.5 border-glow animate-fade-in animate-delay-400">
+                <Calendar className="h-5 w-5 text-green-500 mr-2" />
+                <span className="text-white text-fluid-sm">Líder na Comunidade</span>
+              </div>
+              <div className="flex items-center glass-light rounded-full px-5 py-2.5 animate-fade-in animate-delay-500">
+                <MapPin className="h-5 w-5 text-green-500 mr-2" />
+                <span className="text-white text-fluid-sm">Cascata, Águas da Prata - SP</span>
               </div>
               <div className="flex items-center glass-light rounded-full px-5 py-2.5 animate-fade-in animate-delay-500">
                 <Mountain className="h-4 w-4 text-green-500 mr-2" />
@@ -145,10 +141,10 @@ export default function HomePage() {
             </div>
 
             {/* Modern CTA Button - Centered */}
-            <div className="animate-fade-in animate-delay-600">
+            <div className="animate-fade-in animate-delay-600 relative z-20">
               <a
                 href="#sobre"
-                className="group relative inline-flex items-center overflow-hidden rounded-full bg-green-600 px-8 py-3.5 text-black font-medium transition-all duration-300 hover:shadow-lg hover:shadow-green-500/25"
+                className="group relative inline-flex items-center overflow-hidden rounded-full bg-green-600 px-8 py-3.5 text-black font-medium transition-all duration-300 hover:shadow-lg hover:shadow-green-500/25 cursor-pointer z-20"
               >
                 <span className="absolute inset-0 bg-gradient-to-r from-green-600 via-green-500 to-green-600 opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
                 <span className="relative flex items-center">
@@ -345,7 +341,7 @@ export default function HomePage() {
                       </div>
                     )}
                   </div>
-                  <div className="flex-1">
+                  <div className="flex-1 relative w-full items-center justify-center">
                     <h3 className="text-fluid-2xl font-semibold text-white group-hover:text-green-400 transition-colors duration-300 mb-3">
                       {project.title}
                     </h3>
@@ -472,10 +468,12 @@ export default function HomePage() {
               {nanciData.tourism.approach}
             </p>
 
-            <div className="mt-8 flex justify-end">
+            <div className="mt-8 flex justify-end relative z-20">
               <a
                 href="https://prataexpedicoes.com.br/"
-                className="inline-flex items-center text-green-400 hover:text-green-300 transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center text-green-400 hover:text-green-300 transition-colors cursor-pointer relative z-20"
               >
                 <span className="mr-2">Conhecer roteiros</span>
                 <ExternalLink className="h-4 w-4" />
@@ -571,7 +569,7 @@ export default function HomePage() {
         </div>
 
         {/* Animated particles */}
-        <div className="absolute inset-0 z-1">
+        <div className="absolute inset-0 z-[1] pointer-events-none">
           <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-green-400 rounded-full animate-ping opacity-20"></div>
           <div className="absolute top-3/4 right-1/4 w-3 h-3 bg-green-500 rounded-full animate-pulse opacity-30"></div>
           <div className="absolute top-1/2 right-1/3 w-1 h-1 bg-green-300 rounded-full animate-bounce opacity-40"></div>
@@ -598,10 +596,10 @@ export default function HomePage() {
             </p>
 
             {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center relative z-20">
               <a
                 href="#sobre"
-                className="group relative inline-flex items-center overflow-hidden rounded-full bg-green-600 px-8 py-4 text-white font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-green-500/25 hover:scale-105"
+                className="group relative inline-flex items-center overflow-hidden rounded-full bg-green-600 px-8 py-4 text-white font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-green-500/25 hover:scale-105 cursor-pointer z-20"
               >
                 <span className="absolute inset-0 bg-gradient-to-r from-green-600 via-green-500 to-green-600 opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
                 <span className="relative flex items-center">
@@ -612,7 +610,7 @@ export default function HomePage() {
 
               <a
                 href="#projetos"
-                className="group relative inline-flex items-center overflow-hidden rounded-full border-2 border-green-500 px-8 py-4 text-green-400 font-semibold transition-all duration-300 hover:bg-green-500 hover:text-white hover:scale-105"
+                className="group relative inline-flex items-center overflow-hidden rounded-full border-2 border-green-500 px-8 py-4 text-green-400 font-semibold transition-all duration-300 hover:bg-green-500 hover:text-white hover:scale-105 cursor-pointer z-20"
               >
                 <span className="relative flex items-center">
                   Explorar Projetos

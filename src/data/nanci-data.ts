@@ -67,17 +67,7 @@ export const nanciData = {
       impact:
         'Cada peça carrega uma narrativa de sustentabilidade, transformando oficinas em espaços de educação ambiental prática.',
       details:
-        'Uma das contribuições mais inovadoras de Nanci para o movimento de sustentabilidade. Estas oficinas representam uma alternativa concreta à joalheria convencional, desde a coleta responsável dos materiais até as técnicas artesanais que respeitam os ciclos naturais.',
-    },
-    {
-      title: 'Instrumentos Musicais Naturais',
-      category: 'Música e Ecologia',
-      description:
-        'Oficinas de construção de instrumentos musicais utilizando materiais naturais e sustentáveis, incluindo flautas de bambu, percussão com sementes e cabaças, e cordofones com fibras vegetais.',
-      impact:
-        'Conecta músicos com tradições ancestrais de construção instrumental, integrando conhecimento técnico, consciência ambiental e expressão artística.',
-      details:
-        'Os instrumentos produzem sons autênticos, oferecendo alternativas aos instrumentos convencionais produzidos industrialmente. Esta abordagem pedagógica integra conhecimento técnico, consciência ambiental e expressão artística em uma experiência educativa holística.',
+        'Uma das contribuições mais inovadoras de Nanci para o movimento de sustentabilidade. Estas oficinas representam uma alternativa concreta à joalheria e abre portas para a criação de instrumentos naturais, desde a coleta responsável dos materiais até as técnicas artesanais que respeitam os ciclos naturais.',
     },
     {
       title: 'Kintal da Dita',
