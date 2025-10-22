@@ -73,7 +73,7 @@ export const nanciData = {
       title: 'Kintal da Dita',
       category: 'Espaço Cultural',
       description:
-        'Centro de convergência para atividades artísticas, educativas e ambientais no bairro da Cascata. Mais que um local físico, é um conceito de espaço comunitário que privilegia a sustentabilidade.',
+        'Ponto de Cultura para atividades artísticas, educativas e ambientais no bairro da Cascata. Mais que um local físico, é um conceito de espaço comunitário que privilegia a sustentabilidade.',
       impact:
         'Serve como laboratório de experimentação para práticas sustentáveis e ponto de encontro para a comunidade local.',
       details:
@@ -83,7 +83,7 @@ export const nanciData = {
 
   specialEvents: [
     {
-      title: 'Virada Climática 1 & 2',
+      title: 'Virada Climática (2024 e 2025)',
       description:
         'Organizadora e facilitadora do Décimo e Décimo primeiro aniversário do Ponto de Cultura Guardiões da Terra, do qual é Conselheira de Conhecimento, o evento conta com diferentes vertentes: plantio de árvores nativas, vigília climática e músicas populares, como o Dub Sound System.',
       type: 'Evento Cultural Gratuito À Comunidade',
