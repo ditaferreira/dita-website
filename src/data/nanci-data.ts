@@ -148,6 +148,84 @@ export const nanciData = {
     expansion:
       'Sistematização de metodologias para replicação em outras comunidades, multiplicando benefícios sociais e ambientais.',
   },
+
+  ods: {
+    title: 'Objetivos de Desenvolvimento Sustentável (ONU)',
+    description:
+      'O trabalho de Nanci Ferreira está profundamente alinhado com os Objetivos de Desenvolvimento Sustentável da ONU, contribuindo ativamente para a construção de um futuro mais justo e sustentável.',
+    objectives: [
+      {
+        number: 3,
+        title: 'Saúde e Bem-Estar',
+        description:
+          'Através do conhecimento de ervas medicinais do Cerrado e Mata Atlântica, promove práticas de medicina tradicional que complementam os cuidados de saúde convencionais.',
+        color: '#4C9F38',
+      },
+      {
+        number: 4,
+        title: 'Educação de Qualidade',
+        description:
+          'Desenvolve oficinas educativas que integram arte, música e consciência ambiental, formando multiplicadores e preservando saberes ancestrais.',
+        color: '#C5192D',
+      },
+      {
+        number: 5,
+        title: 'Igualdade de Gênero',
+        description:
+          'Lidera a Orquestra de Violeiros com predominância feminina, quebrando barreiras em um universo tradicionalmente masculino e inspirando outras mulheres.',
+        color: '#FF3A21',
+      },
+      {
+        number: 8,
+        title: 'Trabalho Decente e Crescimento Econômico',
+        description:
+          'Promove geração de renda através de bio-joias sustentáveis e turismo comunitário, criando oportunidades econômicas que respeitam o meio ambiente.',
+        color: '#A21942',
+      },
+      {
+        number: 10,
+        title: 'Redução das Desigualdades',
+        description:
+          'Atua no Conselho Municipal dos Direitos da Criança e do Adolescente, garantindo que as vozes da comunidade rural sejam ouvidas nas políticas públicas.',
+        color: '#DD1367',
+      },
+      {
+        number: 11,
+        title: 'Cidades e Comunidades Sustentáveis',
+        description:
+          'Através do Kintal da Dita e da Associação Cascatense, fortalece a identidade cultural local e promove práticas sustentáveis na comunidade.',
+        color: '#FD9D24',
+      },
+      {
+        number: 12,
+        title: 'Consumo e Produção Responsáveis',
+        description:
+          'Ensina técnicas de artesanato com materiais naturais e coleta responsável, promovendo alternativas sustentáveis ao consumo convencional.',
+        color: '#BF8B2E',
+      },
+      {
+        number: 13,
+        title: 'Ação Contra a Mudança Global do Clima',
+        description:
+          'Organiza eventos como a Virada Climática e participa ativamente do Earth Guardians, promovendo ações de educação ambiental e ativismo climático.',
+        color: '#3F7E44',
+      },
+      {
+        number: 15,
+        title: 'Vida Terrestre',
+        description:
+          'Protege a biodiversidade da Mata Atlântica através de práticas sustentáveis, plantio de árvores nativas e combate à mineração predatória.',
+        color: '#56C02B',
+      },
+      {
+        number: 17,
+        title: 'Parcerias e Meios de Implementação',
+        description:
+          'Articula parcerias locais, nacionais e internacionais (Earth Guardians, SOS Águas da Prata) para amplificar o impacto de suas ações sustentáveis.',
+        color: '#19486A',
+      },
+    ],
+  },
 }
 
 export type NanciData = typeof nanciData
