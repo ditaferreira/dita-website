@@ -6,6 +6,7 @@ import Navigation from '@/components/Navigation'
 import SplashCursor from '@/components/SplashCursor'
 import DomeGallery from '@/components/DomeGallery'
 import SectionBackground from '@/components/SectionBackground'
+import ChromaGrid from '@/components/ChromaGrid'
 
 import { getImagePath } from '@/lib/utils'
 import {
@@ -27,6 +28,17 @@ import {
 } from 'lucide-react'
 
 export default function HomePage() {
+  // Transform ODS data for ChromaGrid
+  const odsItems = nanciData.ods.objectives.map((ods) => ({
+    image: getImagePath(`/ods_${ods.number}.png`),
+    subtitle: ods.description,
+    description: ods.description,
+    number: ods.number,
+    borderColor: ods.color,
+    gradient: `linear-gradient(145deg, ${ods.color}, #000)`,
+    url: 'https://sdgs.un.org/goals', // Link to UN SDGs page
+  }))
+
   return (
     <div className="min-h-screen text-white relative">
       <Navigation />
@@ -127,14 +139,6 @@ export default function HomePage() {
                 <Calendar className="h-5 w-5 text-green-500 mr-2" />
                 <span className="text-white text-fluid-sm">Líder na Comunidade</span>
               </div>
-              <div className="flex items-center glass-light rounded-full px-5 py-2.5 animate-fade-in animate-delay-500">
-                <MapPin className="h-5 w-5 text-green-500 mr-2" />
-                <span className="text-white text-fluid-sm">Cascata, Águas da Prata - SP</span>
-              </div>
-              <div className="flex items-center glass-light rounded-full px-5 py-2.5 animate-fade-in animate-delay-500">
-                <Mountain className="h-4 w-4 text-green-500 mr-2" />
-                <span className="text-white text-sm">Mata Atlântica e Cerrado</span>
-              </div>
             </div>
 
             {/* Modern CTA Button - Centered */}
@@ -191,12 +195,6 @@ export default function HomePage() {
             <div className="mt-16 max-w-4xl mx-auto animate-slide-up animate-delay-300">
               <blockquote className="relative text-fluid-xl text-green-400 italic font-light leading-relaxed glass-light rounded-2xl py-8 px-10 border border-green-500/10 shadow-lg">
                 {/* Quote mark decoration */}
-                <div className="absolute -top-6 -left-2 text-green-500/20 text-8xl font-serif">
-                  &ldquo;
-                </div>
-                <div className="absolute -bottom-16 -right-2 text-green-500/20 text-8xl font-serif">
-                  &rdquo;
-                </div>
 
                 <p className="relative z-10">&ldquo;{nanciData.personal.quote}&rdquo;</p>
 
@@ -600,42 +598,15 @@ export default function HomePage() {
             </p>
           </div>
 
-          {/* ODS Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {nanciData.ods.objectives.map((ods, index) => (
-              <div
-                key={index}
-                className="glass rounded-2xl p-6 border border-white/5 hover:border-green-500/30 transition-all duration-500 hover:shadow-lg hover:shadow-green-900/20 group animate-fade-in hover:scale-105"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                {/* ODS Number Badge */}
-                <div className="flex items-start mb-5">
-                  <div
-                    className="flex-shrink-0 w-16 h-16 rounded-xl flex items-center justify-center mr-4 shadow-lg transition-all duration-300 group-hover:scale-110"
-                    style={{
-                      backgroundColor: ods.color,
-                      boxShadow: `0 4px 20px ${ods.color}40`,
-                    }}
-                  >
-                    <span className="text-white font-bold text-2xl">{ods.number}</span>
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-fluid-lg font-semibold text-white group-hover:text-green-400 transition-colors duration-300 leading-tight">
-                      {ods.title}
-                    </h3>
-                  </div>
-                </div>
-
-                {/* Description */}
-                <p className="text-white/70 text-sm leading-relaxed">{ods.description}</p>
-
-                {/* Hover indicator */}
-                <div className="mt-4 flex items-center text-green-500/0 group-hover:text-green-500/70 transition-all duration-500">
-                  <ChevronRight className="h-4 w-4 mr-1" />
-                  <span className="text-xs font-medium">Saiba mais no site Oficial da ONU</span>
-                </div>
-              </div>
-            ))}
+          {/* ODS ChromaGrid */}
+          <div className="relative w-full min-h-[800px] animate-fade-in">
+            <ChromaGrid
+              items={odsItems}
+              className="py-8"
+              radius={400}
+              damping={0.5}
+              fadeOut={0.8}
+            />
           </div>
 
           {/* Bottom Info Card */}
