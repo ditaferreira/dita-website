@@ -6,6 +6,7 @@ import Navigation from '@/components/Navigation'
 import SplashCursor from '@/components/SplashCursor'
 import DomeGallery from '@/components/DomeGallery'
 import Waves from '@/components/Waves'
+import SectionBackground from '@/components/SectionBackground'
 
 import { getImagePath } from '@/lib/utils'
 import {
@@ -160,15 +161,14 @@ export default function HomePage() {
       {/* About Section - Enhanced with cultural background */}
       <section id="sobre" className="relative py-32 px-4 overflow-hidden">
         {/* Background Image */}
-        <div className="absolute inset-0 z-0">
-          <Image
-            src={getImagePath('/dita-maracatu.jpg')}
-            alt=""
-            fill
-            className="object-cover opacity-15"
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-black/85 via-black/90 to-black/85"></div>
-        </div>
+        <SectionBackground
+          imagePath="/dita-maracatu.jpg"
+          opacity={0.15}
+          blur={6}
+          gradient="dark"
+          texture={true}
+          textureOpacity={0.03}
+        />
 
         {/* Background decorative elements */}
         <div className="absolute right-0 top-20 w-96 h-96 bg-green-600/8 rounded-full blur-3xl -z-10"></div>
@@ -256,10 +256,13 @@ export default function HomePage() {
       {/* Gallery Section - Nova seção com imagens */}
       <section className="relative py-24 px-4 overflow-hidden">
         {/* Background Image */}
-        <div className="absolute inset-0 z-0">
-          <Image src={getImagePath('/dita3.jpg')} alt="" fill className="object-cover opacity-25" />
-          <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/80 to-black/70"></div>
-        </div>
+        <SectionBackground
+          imagePath="/dita3.jpg"
+          opacity={0.25}
+          blur={8}
+          gradient="dark"
+          customGradient="linear-gradient(to bottom right, rgba(0,0,0,0.70), rgba(0,0,0,0.80), rgba(0,0,0,0.70))"
+        />
 
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-15 animate-fade-in">
@@ -292,13 +295,19 @@ export default function HomePage() {
 
       {/* Projects Section - Enhanced */}
       <section id="projetos" className="relative py-24 px-4 overflow-hidden">
+        <SectionBackground
+          imagePath="/dita-maracatu.jpg" // Obrigatório
+          opacity={0.25} // 0-1
+          blur={8} // pixels
+          texture={true} // noise overlay
+          textureOpacity={0.2} // 0-1
+          gradient="dark" // 'dark' | 'radial' | 'vignette' | 'none'
+          customGradient="..." // CSS gradient customizado
+          objectPosition="center" // posição da imagem
+        />
         {/* Background Pattern */}
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-br from-black via-green-950/10 to-black"></div>
-          <div
-            className="absolute inset-0 opacity-[0.02] mix-blend-overlay"
-            style={{ backgroundImage: `url('${getImagePath('/noise.png')}')` }}
-          ></div>
         </div>
 
         <div className="max-w-7xl mx-auto relative z-10">
@@ -378,17 +387,17 @@ export default function HomePage() {
 
       {/* Organizations Section - Enhanced */}
       <section id="organizacoes" className="relative py-24 px-4 overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src={getImagePath('/nanci-dita-full.jpg')}
-            alt=""
-            fill
-            className="object-cover opacity-10"
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-black/90 via-black/95 to-black/90"></div>
-        </div>
-
         <div className="max-w-7xl mx-auto relative z-10">
+          <SectionBackground
+            imagePath="/dita (42).jpg" // Obrigatório
+            opacity={0.09} // 0-1
+            blur={12} // pixels
+            texture={true} // noise overlay
+            textureOpacity={0.2} // 0-1
+            gradient="dark" // 'dark' | 'radial' | 'vignette' | 'none'
+            customGradient="..." // CSS gradient customizado
+            objectPosition="center" // posição da imagem
+          />
           <div className="text-center mb-16 animate-fade-in">
             <h2 className="text-fluid-4xl font-bold text-gradient mb-6">
               Organizações e Movimentos
@@ -432,15 +441,14 @@ export default function HomePage() {
 
       {/* Tourism Section - Enhanced */}
       <section className="relative py-24 px-4 overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src={getImagePath('/nanci2.jpg')}
-            alt=""
-            fill
-            className="object-cover opacity-15"
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-black/85 via-black/90 to-black/85"></div>
-        </div>
+        <SectionBackground
+          imagePath="/nanci2.jpg"
+          opacity={0.15}
+          blur={7}
+          gradient="dark"
+          texture={true}
+          textureOpacity={0.025}
+        />
 
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-16 animate-fade-in">
@@ -485,6 +493,16 @@ export default function HomePage() {
 
       {/* Events Section - Enhanced */}
       <section className="relative py-24 px-4 overflow-hidden">
+        <SectionBackground
+          imagePath="/dita (83).jpg" // Obrigatório
+          opacity={0.2} // 0-1
+          blur={12} // pixels
+          texture={true} // noise overlay
+          textureOpacity={1} // 0-1
+          gradient="radial" // 'dark' | 'radial' | 'vignette' | 'none'
+          customGradient="..." // CSS gradient customizado
+          objectPosition="center" // posição da imagem
+        />
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-br from-green-950/20 via-black to-green-950/20"></div>
           <div
@@ -558,15 +576,14 @@ export default function HomePage() {
       {/* Call to Action Section - Nova seção especial */}
       <section className="relative py-32 px-4 overflow-hidden">
         {/* Background Image */}
-        <div className="absolute inset-0 z-0">
-          <Image
-            src={getImagePath('/nanci-dita-close.jpg')}
-            alt=""
-            fill
-            className="object-cover opacity-30"
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-green-900/50 via-black/70 to-green-900/50"></div>
-        </div>
+        <SectionBackground
+          imagePath="/nanci-dita-close.jpg"
+          opacity={0.3}
+          blur={6}
+          customGradient="linear-gradient(to bottom right, rgba(20,83,45,0.50), rgba(0,0,0,0.70), rgba(20,83,45,0.50))"
+          texture={true}
+          textureOpacity={0.03}
+        />
 
         {/* Animated particles */}
         <div className="absolute inset-0 z-[1] pointer-events-none">

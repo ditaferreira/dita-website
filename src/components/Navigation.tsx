@@ -38,8 +38,8 @@ export default function Navigation() {
         scrolled ? 'py-3' : 'py-5'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <nav className="flex justify-between items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-50">
+        <nav className="flex justify-between items-center relative z-50">
           <div className="flex items-center space-x-3">
             <div
               className={`bg-green-600 rounded-full p-2 transition-all duration-300 ${
@@ -120,12 +120,12 @@ export default function Navigation() {
                 href="https://www.instagram.com/dita22067/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center text-white hover:text-pink-400 transition-colors animate-fade-in"
+                className="flex items-center text-white hover:text-pink-400 transition-colors animate-fade-in cursor-pointer relative z-[60]"
                 style={{ animationDelay: `${navItems.length * 100}ms` }}
                 onClick={() => setIsOpen(false)}
               >
-                <div className="flex items-center justify-center w-8 h-8 rounded-full bg-gradient-to-br from-purple-600 via-pink-500 to-orange-400 mr-2">
-                  <Instagram className="h-4 w-4 text-white" />
+                <div className="flex items-center justify-center w-8 h-8 rounded-full bg-gradient-to-br from-purple-600 via-pink-500 to-orange-400 mr-2 pointer-events-none">
+                  <Instagram className="h-4 w-4 text-white pointer-events-none" />
                 </div>
                 Instagram
               </a>
