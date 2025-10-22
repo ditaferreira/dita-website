@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Leaf, Menu, X, ChevronRight, Instagram } from 'lucide-react'
+import { Menu, X, ChevronRight, Instagram } from 'lucide-react'
 import Image from 'next/image'
 import { getImagePath } from '@/lib/utils'
 

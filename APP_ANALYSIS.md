@@ -160,13 +160,21 @@ dita-website/
 - Drag to rotate, click to enlarge
 - Grayscale with color on focus
 
-### 12. Call to Action
+### 12. ODS Section (NEW) ✨
+- **10 UN Sustainable Development Goals** aligned with Nanci's work
+- Color-coded cards with official UN SDG colors
+- Interactive hover effects with scale animation
+- Detailed descriptions of how Nanci contributes to each goal
+- Bottom info card about Agenda 2030 commitment
+- Goals covered: 3, 4, 5, 8, 10, 11, 12, 13, 15, 17
+
+### 13. Call to Action
 - Inspirational message
 - Dual CTA buttons
 - Featured quote
 
-### 13. Footer
-- Navigation links
+### 14. Footer
+- Navigation links (including new ODS link)
 - Contact information
 - Copyright notice
 
@@ -494,6 +502,94 @@ The website serves as both a **tribute** and a **portfolio**, effectively commun
 
 ---
 
-**Analysis Date:** October 21, 2025  
+## 🌍 ODS Integration (NEW FEATURE)
+
+### Overview
+A new section has been added to showcase how Nanci Ferreira's work aligns with the United Nations Sustainable Development Goals (SDGs). This section demonstrates the global impact of local actions.
+
+### Data Structure
+```typescript
+ods: {
+  title: string
+  description: string
+  objectives: [
+    {
+      number: number (1-17)
+      title: string
+      description: string
+      color: string (official UN SDG color)
+    }
+  ]
+}
+```
+
+### 10 SDGs Represented
+
+1. **SDG 3 - Good Health and Well-Being** (#4C9F38)
+   - Medicinal herbs knowledge
+   - Traditional medicine practices
+
+2. **SDG 4 - Quality Education** (#C5192D)
+   - Educational workshops
+   - Ancestral knowledge preservation
+
+3. **SDG 5 - Gender Equality** (#FF3A21)
+   - Female leadership in traditionally male spaces
+   - Women's empowerment through bio-jewelry
+
+4. **SDG 8 - Decent Work and Economic Growth** (#A21942)
+   - Sustainable income generation
+   - Community tourism
+
+5. **SDG 10 - Reduced Inequalities** (#DD1367)
+   - Rural community representation
+   - Voice in public policies
+
+6. **SDG 11 - Sustainable Cities and Communities** (#FD9D24)
+   - Kintal da Dita cultural space
+   - Community strengthening
+
+7. **SDG 12 - Responsible Consumption and Production** (#BF8B2E)
+   - Natural materials crafts
+   - Sustainable alternatives
+
+8. **SDG 13 - Climate Action** (#3F7E44)
+   - Virada Climática events
+   - Earth Guardians activism
+
+9. **SDG 15 - Life on Land** (#56C02B)
+   - Atlantic Forest biodiversity protection
+   - Native tree planting
+
+10. **SDG 17 - Partnerships for the Goals** (#19486A)
+    - Local, national, and international networks
+    - Multi-stakeholder collaboration
+
+### Visual Design
+- **Color System:** Official UN SDG colors for authenticity
+- **Card Layout:** 3-column responsive grid
+- **Hover Effects:** Scale animation + glow effect
+- **Number Badges:** Prominent SDG numbers with colored backgrounds
+- **Bottom Card:** Commitment statement about Agenda 2030
+
+### User Experience
+- Smooth animations with staggered delays
+- Interactive hover states
+- Clear visual hierarchy
+- Accessible color contrasts
+- Mobile-responsive layout
+
+### Impact
+This section:
+- Connects local actions to global goals
+- Demonstrates comprehensive impact
+- Educates visitors about SDGs
+- Validates Nanci's work with international framework
+- Inspires others to align with SDGs
+
+---
+
+**Analysis Date:** October 22, 2025  
 **Analyzed By:** Kiro AI Assistant  
-**Project Status:** Production-Ready ✅
+**Project Status:** Production-Ready ✅  
+**Latest Update:** ODS Section Added 🌍

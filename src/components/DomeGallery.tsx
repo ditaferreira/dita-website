@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useCallback } from 'react'
 import { useGesture } from '@use-gesture/react'
+import Image from 'next/image'
 import { getImagePath } from '@/lib/utils'
 
 type ImageItem = string | { src: string; alt?: string }
@@ -890,7 +891,7 @@ export default function DomeGallery({
                       ['--offset-x' as any]: it.x,
                       ['--offset-y' as any]: it.y,
                       ['--item-size-x' as any]: it.sizeX,
-                      ['--item-size-y' as unknown]: it.sizeY,
+                      ['--item-size-y' as any]: it.sizeY,
                       top: '-999px',
                       bottom: '-999px',
                       left: '-999px',
@@ -924,11 +925,13 @@ export default function DomeGallery({
                       backfaceVisibility: 'hidden',
                     }}
                   >
-                    <img
+                    <Image
                       src={it.src}
                       draggable={false}
                       alt={it.alt}
-                      className="w-full h-full object-cover pointer-events-none"
+                      fill
+                      unoptimized
+                      className="object-cover pointer-events-none"
                       style={{
                         backfaceVisibility: 'hidden',
                         filter: `var(--image-filter, ${grayscale ? 'grayscale(1)' : 'none'})`,

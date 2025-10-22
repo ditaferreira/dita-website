@@ -143,9 +143,9 @@ export default function SplashCursor({
         ? (gl as WebGL2RenderingContext).HALF_FLOAT
         : (halfFloat && (halfFloat as any).HALF_FLOAT_OES) || 0
 
-      let formatRGBA: any
-      let formatRG: any
-      let formatR: unknown
+      let formatRGBA: { internalFormat: number; format: number } | null
+      let formatRG: { internalFormat: number; format: number } | null
+      let formatR: { internalFormat: number; format: number } | null
 
       if (isWebGL2) {
         formatRGBA = getSupportedFormat(
@@ -823,6 +823,11 @@ export default function SplashCursor({
       const r = ext.formatR
       const filtering = ext.supportLinearFiltering ? gl.LINEAR : gl.NEAREST
       gl.disable(gl.BLEND)
+
+      if (!rgba || !rg || !r) {
+        console.error('Failed to initialize texture formats')
+        return
+      }
 
       if (!dye) {
         dye = createDoubleFBO(

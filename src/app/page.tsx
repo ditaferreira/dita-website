@@ -5,7 +5,6 @@ import { nanciData } from '@/data/nanci-data'
 import Navigation from '@/components/Navigation'
 import SplashCursor from '@/components/SplashCursor'
 import DomeGallery from '@/components/DomeGallery'
-import Waves from '@/components/Waves'
 import SectionBackground from '@/components/SectionBackground'
 
 import { getImagePath } from '@/lib/utils'
@@ -16,7 +15,6 @@ import {
   Globe,
   Music,
   Palette,
-  TreePine,
   Sparkles,
   MapPin,
   Calendar,
@@ -24,10 +22,8 @@ import {
   BookOpen,
   Mountain,
   ArrowRight,
-  Star,
   ChevronRight,
   ExternalLink,
-  Camera,
 } from 'lucide-react'
 
 export default function HomePage() {
@@ -137,7 +133,7 @@ export default function HomePage() {
               </div>
               <div className="flex items-center glass-light rounded-full px-5 py-2.5 animate-fade-in animate-delay-500">
                 <Mountain className="h-4 w-4 text-green-500 mr-2" />
-                <span className="text-white text-sm">Mata Atlântica</span>
+                <span className="text-white text-sm">Mata Atlântica e Cerrado</span>
               </div>
             </div>
 
@@ -573,6 +569,98 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ODS Section - Objetivos de Desenvolvimento Sustentável */}
+      <section id="ods" className="relative py-32 px-4 overflow-hidden">
+        <SectionBackground
+          imagePath="/dita-photo.jpg"
+          opacity={0.12}
+          blur={10}
+          gradient="dark"
+          texture={true}
+          textureOpacity={0.02}
+        />
+
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="text-center mb-16 animate-fade-in">
+            <div className="inline-flex items-center justify-center mb-6 glass-light rounded-full px-5 py-2 border-glow animate-glow-pulse">
+              <Globe className="h-4 w-4 text-green-500 mr-2" />
+              <span className="text-green-400 text-sm font-medium tracking-wide">
+                Alinhamento Global
+              </span>
+            </div>
+
+            <h2 className="text-fluid-4xl font-bold text-gradient mb-6">
+              Objetivos de Desenvolvimento Sustentável
+            </h2>
+
+            <div className="w-24 h-1 bg-gradient-to-r from-green-500 to-green-700 mx-auto mb-8"></div>
+
+            <p className="text-fluid-lg text-white/80 max-w-4xl mx-auto leading-relaxed">
+              {nanciData.ods.description}
+            </p>
+          </div>
+
+          {/* ODS Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {nanciData.ods.objectives.map((ods, index) => (
+              <div
+                key={index}
+                className="glass rounded-2xl p-6 border border-white/5 hover:border-green-500/30 transition-all duration-500 hover:shadow-lg hover:shadow-green-900/20 group animate-fade-in hover:scale-105"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                {/* ODS Number Badge */}
+                <div className="flex items-start mb-5">
+                  <div
+                    className="flex-shrink-0 w-16 h-16 rounded-xl flex items-center justify-center mr-4 shadow-lg transition-all duration-300 group-hover:scale-110"
+                    style={{
+                      backgroundColor: ods.color,
+                      boxShadow: `0 4px 20px ${ods.color}40`,
+                    }}
+                  >
+                    <span className="text-white font-bold text-2xl">{ods.number}</span>
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-fluid-lg font-semibold text-white group-hover:text-green-400 transition-colors duration-300 leading-tight">
+                      {ods.title}
+                    </h3>
+                  </div>
+                </div>
+
+                {/* Description */}
+                <p className="text-white/70 text-sm leading-relaxed">{ods.description}</p>
+
+                {/* Hover indicator */}
+                <div className="mt-4 flex items-center text-green-500/0 group-hover:text-green-500/70 transition-all duration-500">
+                  <ChevronRight className="h-4 w-4 mr-1" />
+                  <span className="text-xs font-medium">Saiba mais no site Oficial da ONU</span>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Bottom Info Card */}
+          <div className="mt-16 glass rounded-3xl p-8 border border-green-500/15 max-w-4xl mx-auto animate-fade-in animate-delay-400 backdrop-blur-xl">
+            <div className="flex items-start gap-4">
+              <div className="bg-green-900/50 rounded-xl p-3 flex-shrink-0">
+                <Award className="h-6 w-6 text-green-400" />
+              </div>
+              <div>
+                <h3 className="text-fluid-xl font-semibold text-white mb-3">
+                  Compromisso com a Agenda 2030
+                </h3>
+                <p className="text-white/70 leading-relaxed">
+                  O trabalho de Nanci Ferreira demonstra como ações locais, enraizadas em saberes
+                  ancestrais e práticas comunitárias, contribuem diretamente para os objetivos
+                  globais de desenvolvimento sustentável estabelecidos pela ONU. Cada oficina, cada
+                  projeto e cada iniciativa representa um passo concreto em direção a um futuro mais
+                  justo, sustentável e inclusivo.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Call to Action Section - Nova seção especial */}
       <section className="relative py-32 px-4 overflow-hidden">
         {/* Background Image */}
@@ -720,6 +808,15 @@ export default function HomePage() {
                     >
                       <ChevronRight className="h-3 w-3 mr-1" />
                       Impacto
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#ods"
+                      className="text-white/70 hover:text-white transition-colors flex items-center"
+                    >
+                      <ChevronRight className="h-3 w-3 mr-1" />
+                      ODS
                     </a>
                   </li>
                 </ul>
