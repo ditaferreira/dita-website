@@ -141,11 +141,11 @@ export default function SplashCursor({
 
       const halfFloatTexType = isWebGL2
         ? (gl as WebGL2RenderingContext).HALF_FLOAT
-        : (halfFloat && (halfFloat as unknown).HALF_FLOAT_OES) || 0
+        : (halfFloat && (halfFloat as any).HALF_FLOAT_OES) || 0
 
-      let formatRGBA: { internalFormat: number; format: number } | null
-      let formatRG: { internalFormat: number; format: number } | null
-      let formatR: { internalFormat: number; format: number } | null
+      let formatRGBA: any
+      let formatRG: any
+      let formatR: any
 
       if (isWebGL2) {
         formatRGBA = getSupportedFormat(
@@ -824,11 +824,6 @@ export default function SplashCursor({
       const filtering = ext.supportLinearFiltering ? gl.LINEAR : gl.NEAREST
       gl.disable(gl.BLEND)
 
-      if (!rgba || !rg || !r) {
-        console.error('Failed to initialize texture formats')
-        return
-      }
-
       if (!dye) {
         dye = createDoubleFBO(
           dyeRes.width,
@@ -1356,12 +1351,8 @@ export default function SplashCursor({
   ])
 
   return (
-    <div className="fixed top-0 left-0 z-0 pointer-events-none w-full h-full">
-      <canvas
-        ref={canvasRef}
-        id="fluid"
-        className="w-screen h-screen block pointer-events-none"
-      ></canvas>
+    <div className="fixed top-0 left-0 z-50 pointer-events-none w-full h-full">
+      <canvas ref={canvasRef} id="fluid" className="w-screen h-screen block"></canvas>
     </div>
   )
 }
