@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useCallback } from 'react'
 import { useGesture } from '@use-gesture/react'
+import { getImagePath } from '@/lib/utils'
 
 type ImageItem = string | { src: string; alt?: string }
 
@@ -10,7 +11,6 @@ type DomeGalleryProps = {
   minRadius?: number
   maxRadius?: number
   padFactor?: number
-  overlayBlurColor?: string
   maxVerticalRotationDeg?: number
   dragSensitivity?: number
   enlargeTransitionMs?: number
@@ -33,34 +33,93 @@ type ItemDef = {
 }
 
 const DEFAULT_IMAGES: ImageItem[] = [
-  {
-    src: 'https://images.unsplash.com/photo-1755331039789-7e5680e26e8f?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    alt: 'Abstract art',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1755569309049-98410b94f66d?q=80&w=772&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    alt: 'Modern sculpture',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1755497595318-7e5e3523854f?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    alt: 'Digital artwork',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1755353985163-c2a0fe5ac3d8?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    alt: 'Contemporary art',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1745965976680-d00be7dc0377?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    alt: 'Geometric pattern',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1752588975228-21f44630bb3c?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    alt: 'Textured surface',
-  },
-  {
-    src: 'https://pbs.twimg.com/media/Gyla7NnXMAAXSo_?format=jpg&name=large',
-    alt: 'Social media image',
-  },
+  { src: getImagePath('/dita (1).jpg'), alt: 'Dita photo 1' },
+  { src: getImagePath('/dita (10).jpg'), alt: 'Dita photo 10' },
+  { src: getImagePath('/dita (11).jpg'), alt: 'Dita photo 11' },
+  { src: getImagePath('/dita (12).jpg'), alt: 'Dita photo 12' },
+  { src: getImagePath('/dita (13).jpg'), alt: 'Dita photo 13' },
+  { src: getImagePath('/dita (14).jpg'), alt: 'Dita photo 14' },
+  { src: getImagePath('/dita (15).jpg'), alt: 'Dita photo 15' },
+  { src: getImagePath('/dita (16).jpg'), alt: 'Dita photo 16' },
+  { src: getImagePath('/dita (17).jpg'), alt: 'Dita photo 17' },
+  { src: getImagePath('/dita (18).jpg'), alt: 'Dita photo 18' },
+  { src: getImagePath('/dita (19).jpg'), alt: 'Dita photo 19' },
+  { src: getImagePath('/dita (2).jpg'), alt: 'Dita photo 2' },
+  { src: getImagePath('/dita (20).jpg'), alt: 'Dita photo 20' },
+  { src: getImagePath('/dita (21).jpg'), alt: 'Dita photo 21' },
+  { src: getImagePath('/dita (22).jpg'), alt: 'Dita photo 22' },
+  { src: getImagePath('/dita (23).jpg'), alt: 'Dita photo 23' },
+  { src: getImagePath('/dita (24).jpg'), alt: 'Dita photo 24' },
+  { src: getImagePath('/dita (25).jpg'), alt: 'Dita photo 25' },
+  { src: getImagePath('/dita (26).jpg'), alt: 'Dita photo 26' },
+  { src: getImagePath('/dita (27).jpg'), alt: 'Dita photo 27' },
+  { src: getImagePath('/dita (28).jpg'), alt: 'Dita photo 28' },
+  { src: getImagePath('/dita (29).jpg'), alt: 'Dita photo 29' },
+  { src: getImagePath('/dita (3).jpg'), alt: 'Dita photo 3' },
+  { src: getImagePath('/dita (30).jpg'), alt: 'Dita photo 30' },
+  { src: getImagePath('/dita (31).jpg'), alt: 'Dita photo 31' },
+  { src: getImagePath('/dita (32).jpg'), alt: 'Dita photo 32' },
+  { src: getImagePath('/dita (33).jpg'), alt: 'Dita photo 33' },
+  { src: getImagePath('/dita (34).jpg'), alt: 'Dita photo 34' },
+  { src: getImagePath('/dita (35).jpg'), alt: 'Dita photo 35' },
+  { src: getImagePath('/dita (36).jpg'), alt: 'Dita photo 36' },
+  { src: getImagePath('/dita (37).jpg'), alt: 'Dita photo 37' },
+  { src: getImagePath('/dita (38).jpg'), alt: 'Dita photo 38' },
+  { src: getImagePath('/dita (39).jpg'), alt: 'Dita photo 39' },
+  { src: getImagePath('/dita (4).jpg'), alt: 'Dita photo 4' },
+  { src: getImagePath('/dita (40).jpg'), alt: 'Dita photo 40' },
+  { src: getImagePath('/dita (41).jpg'), alt: 'Dita photo 41' },
+  { src: getImagePath('/dita (42).jpg'), alt: 'Dita photo 42' },
+  { src: getImagePath('/dita (43).jpg'), alt: 'Dita photo 43' },
+  { src: getImagePath('/dita (44).jpg'), alt: 'Dita photo 44' },
+  { src: getImagePath('/dita (45).jpg'), alt: 'Dita photo 45' },
+  { src: getImagePath('/dita (46).jpg'), alt: 'Dita photo 46' },
+  { src: getImagePath('/dita (47).jpg'), alt: 'Dita photo 47' },
+  { src: getImagePath('/dita (48).jpg'), alt: 'Dita photo 48' },
+  { src: getImagePath('/dita (49).jpg'), alt: 'Dita photo 49' },
+  { src: getImagePath('/dita (5).jpg'), alt: 'Dita photo 5' },
+  { src: getImagePath('/dita (50).jpg'), alt: 'Dita photo 50' },
+  { src: getImagePath('/dita (51).jpg'), alt: 'Dita photo 51' },
+  { src: getImagePath('/dita (52).jpg'), alt: 'Dita photo 52' },
+  { src: getImagePath('/dita (53).jpg'), alt: 'Dita photo 53' },
+  { src: getImagePath('/dita (56).jpg'), alt: 'Dita photo 56' },
+  { src: getImagePath('/dita (57).jpg'), alt: 'Dita photo 57' },
+  { src: getImagePath('/dita (58).jpg'), alt: 'Dita photo 58' },
+  { src: getImagePath('/dita (59).jpg'), alt: 'Dita photo 59' },
+  { src: getImagePath('/dita (6).jpg'), alt: 'Dita photo 6' },
+  { src: getImagePath('/dita (60).jpg'), alt: 'Dita photo 60' },
+  { src: getImagePath('/dita (61).jpg'), alt: 'Dita photo 61' },
+  { src: getImagePath('/dita (62).jpg'), alt: 'Dita photo 62' },
+  { src: getImagePath('/dita (63).jpg'), alt: 'Dita photo 63' },
+  { src: getImagePath('/dita (64).jpg'), alt: 'Dita photo 64' },
+  { src: getImagePath('/dita (65).jpg'), alt: 'Dita photo 65' },
+  { src: getImagePath('/dita (66).jpg'), alt: 'Dita photo 66' },
+  { src: getImagePath('/dita (67).jpg'), alt: 'Dita photo 67' },
+  { src: getImagePath('/dita (68).jpg'), alt: 'Dita photo 68' },
+  { src: getImagePath('/dita (69).jpg'), alt: 'Dita photo 69' },
+  { src: getImagePath('/dita (7).jpg'), alt: 'Dita photo 7' },
+  { src: getImagePath('/dita (70).jpg'), alt: 'Dita photo 70' },
+  { src: getImagePath('/dita (71).jpg'), alt: 'Dita photo 71' },
+  { src: getImagePath('/dita (72).jpg'), alt: 'Dita photo 72' },
+  { src: getImagePath('/dita (73).jpg'), alt: 'Dita photo 73' },
+  { src: getImagePath('/dita (74).jpg'), alt: 'Dita photo 74' },
+  { src: getImagePath('/dita (75).jpg'), alt: 'Dita photo 75' },
+  { src: getImagePath('/dita (76).jpg'), alt: 'Dita photo 76' },
+  { src: getImagePath('/dita (8).jpg'), alt: 'Dita photo 8' },
+  { src: getImagePath('/dita (81).jpg'), alt: 'Dita photo 81' },
+  { src: getImagePath('/dita (83).jpg'), alt: 'Dita photo 83' },
+  { src: getImagePath('/dita (84).jpg'), alt: 'Dita photo 84' },
+  { src: getImagePath('/dita (85).jpg'), alt: 'Dita photo 85' },
+  { src: getImagePath('/dita (86).jpg'), alt: 'Dita photo 86' },
+  { src: getImagePath('/dita (87).jpg'), alt: 'Dita photo 87' },
+  { src: getImagePath('/dita (88).jpg'), alt: 'Dita photo 88' },
+  { src: getImagePath('/dita (89).jpg'), alt: 'Dita photo 89' },
+  { src: getImagePath('/dita (9).jpg'), alt: 'Dita photo 9' },
+  { src: getImagePath('/dita (90).jpg'), alt: 'Dita photo 90' },
+  { src: getImagePath('/dita (91).jpg'), alt: 'Dita photo 91' },
+  { src: getImagePath('/dita-maracatu.jpg'), alt: 'Dita maracatu' },
+  { src: getImagePath('/dita-photo.jpg'), alt: 'Dita portrait' },
+  { src: getImagePath('/dita3.jpg'), alt: 'Dita photo' },
 ]
 
 const DEFAULTS = {
@@ -149,22 +208,21 @@ function computeItemBaseRotation(
 
 export default function DomeGallery({
   images = DEFAULT_IMAGES,
-  fit = 0.5,
+  fit = 0.9,
   fitBasis = 'auto',
   minRadius = 600,
   maxRadius = Infinity,
   padFactor = 0.25,
-  overlayBlurColor = '#060010',
   maxVerticalRotationDeg = DEFAULTS.maxVerticalRotationDeg,
   dragSensitivity = DEFAULTS.dragSensitivity,
   enlargeTransitionMs = DEFAULTS.enlargeTransitionMs,
   segments = DEFAULTS.segments,
   dragDampening = 2,
-  openedImageWidth = '400px',
-  openedImageHeight = '400px',
+  openedImageWidth = '1200px',
+  openedImageHeight = '1100px',
   imageBorderRadius = '30px',
   openedImageBorderRadius = '30px',
-  grayscale = true,
+  grayscale = false,
 }: DomeGalleryProps) {
   const rootRef = useRef<HTMLDivElement>(null)
   const mainRef = useRef<HTMLDivElement>(null)
@@ -253,7 +311,6 @@ export default function DomeGallery({
       const viewerPad = Math.max(8, Math.round(minDim * padFactor))
       root.style.setProperty('--radius', `${lockedRadiusRef.current}px`)
       root.style.setProperty('--viewer-pad', `${viewerPad}px`)
-      root.style.setProperty('--overlay-blur-color', overlayBlurColor)
       root.style.setProperty('--tile-radius', imageBorderRadius)
       root.style.setProperty('--enlarge-radius', openedImageBorderRadius)
       root.style.setProperty('--image-filter', grayscale ? 'grayscale(1)' : 'none')
@@ -293,7 +350,6 @@ export default function DomeGallery({
     minRadius,
     maxRadius,
     padFactor,
-    overlayBlurColor,
     grayscale,
     imageBorderRadius,
     openedImageBorderRadius,
@@ -803,7 +859,6 @@ export default function DomeGallery({
           {
             ['--segments-x' as any]: segments,
             ['--segments-y' as any]: segments,
-            ['--overlay-blur-color' as any]: overlayBlurColor,
             ['--tile-radius' as any]: imageBorderRadius,
             ['--enlarge-radius' as any]: openedImageBorderRadius,
             ['--image-filter' as any]: grayscale ? 'grayscale(1)' : 'none',
@@ -835,7 +890,7 @@ export default function DomeGallery({
                       ['--offset-x' as any]: it.x,
                       ['--offset-y' as any]: it.y,
                       ['--item-size-x' as any]: it.sizeX,
-                      ['--item-size-y' as any]: it.sizeY,
+                      ['--item-size-y' as unknown]: it.sizeY,
                       top: '-999px',
                       bottom: '-999px',
                       left: '-999px',
@@ -884,35 +939,6 @@ export default function DomeGallery({
               ))}
             </div>
           </div>
-
-          <div
-            className="absolute inset-0 m-auto z-[3] pointer-events-none"
-            style={{
-              backgroundImage: `radial-gradient(rgba(235, 235, 235, 0) 65%, var(--overlay-blur-color, ${overlayBlurColor}) 100%)`,
-            }}
-          />
-
-          <div
-            className="absolute inset-0 m-auto z-[3] pointer-events-none"
-            style={{
-              WebkitMaskImage: `radial-gradient(rgba(235, 235, 235, 0) 70%, var(--overlay-blur-color, ${overlayBlurColor}) 90%)`,
-              maskImage: `radial-gradient(rgba(235, 235, 235, 0) 70%, var(--overlay-blur-color, ${overlayBlurColor}) 90%)`,
-              backdropFilter: 'blur(3px)',
-            }}
-          />
-
-          <div
-            className="absolute left-0 right-0 top-0 h-[120px] z-[5] pointer-events-none rotate-180"
-            style={{
-              background: `linear-gradient(to bottom, transparent, var(--overlay-blur-color, ${overlayBlurColor}))`,
-            }}
-          />
-          <div
-            className="absolute left-0 right-0 bottom-0 h-[120px] z-[5] pointer-events-none"
-            style={{
-              background: `linear-gradient(to bottom, transparent, var(--overlay-blur-color, ${overlayBlurColor}))`,
-            }}
-          />
 
           <div
             ref={viewerRef}

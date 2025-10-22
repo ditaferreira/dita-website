@@ -99,10 +99,16 @@ export const nanciData = {
       type: 'Evento Cultural Gratuito À Comunidade',
     },
     {
-      title: 'Organizadora e participante de Centenas de Eventos Culturais',
+      title: 'Rodas Musicais, Oficinas e Intervenções',
       description:
         'Participação com atividades educativas e oficinas práticas que enriquecem a programação com conteúdo de sustentabilidade, em diversos tipos de eventos culturais, governamentais e não-governamentais.',
       type: 'Feiras Culturais',
+    },
+    {
+      title: 'Documentários, Audiovisual e Shows',
+      description:
+        'Coordenadora em documentários sobre água e radioatividade, a região da Mogiana e participante ilustre da banda Impermanente, com membros das oficinas de Música e Meio Ambiente.',
+      type: 'Cultural',
     },
   ],
 

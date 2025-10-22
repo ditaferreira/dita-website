@@ -266,108 +266,17 @@ export default function HomePage() {
         </div>
 
         <div className="max-w-7xl mx-auto relative z-10">
-          <div className="text-center mb-16 animate-fade-in">
+          <div className="text-center mb-15 animate-fade-in">
             <h2 className="text-fluid-4xl font-bold text-gradient mb-6">Memórias e Momentos</h2>
           </div>
 
           {/* Image Gallery Grid - Enhanced with 8 featured images */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-12">
-            <div className="relative group animate-fade-in image-glow h-48">
-              <Image
-                src={getImagePath('/nanci-dita-close.jpg')}
-                alt="Nanci Ferreira"
-                fill
-                className="object-cover rounded-xl border border-green-500/20 group-hover:border-green-500/40 transition-all duration-500 hover:scale-110 hover:rotate-1"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 rounded-xl"></div>
-              <div className="absolute bottom-3 left-3 right-3 text-white opacity-0 group-hover:opacity-100 transition-all duration-300">
-                <p className="text-sm font-medium">Retrato Íntimo</p>
-              </div>
-            </div>
-            <div className="relative group animate-fade-in animate-delay-100 image-glow h-48">
-              <Image
-                src={getImagePath('/nanci2.jpg')}
-                alt="Dita"
-                fill
-                className="object-cover rounded-xl border border-green-500/20 group-hover:border-green-500/40 transition-all duration-500 hover:scale-110 hover:-rotate-1"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 rounded-xl"></div>
-              <div className="absolute bottom-3 left-3 right-3 text-white opacity-0 group-hover:opacity-100 transition-all duration-300">
-                <p className="text-sm font-medium">Essência Natural</p>
-              </div>
-            </div>
-            <div className="relative group animate-fade-in animate-delay-200 image-glow h-48">
-              <Image
-                src={getImagePath('/dita+friend-square.jpg')}
-                alt="Dita e amiga"
-                fill
-                className="object-cover rounded-xl border border-green-500/20 group-hover:border-green-500/40 transition-all duration-500 hover:scale-110 hover:rotate-1"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 rounded-xl"></div>
-              <div className="absolute bottom-3 left-3 right-3 text-white opacity-0 group-hover:opacity-100 transition-all duration-300">
-                <p className="text-sm font-medium">Vínculos Comunitários</p>
-              </div>
-            </div>
-            <div className="relative group animate-fade-in animate-delay-300 image-glow h-48">
-              <Image
-                src={getImagePath('/dita-photo.jpg')}
-                alt="Nanci artesã"
-                fill
-                className="object-cover rounded-xl border border-green-500/20 group-hover:border-green-500/40 transition-all duration-500 hover:scale-110 hover:-rotate-1"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 rounded-xl"></div>
-              <div className="absolute bottom-3 left-3 right-3 text-white opacity-0 group-hover:opacity-100 transition-all duration-300">
-                <p className="text-sm font-medium">Mestre Artesã</p>
-              </div>
-            </div>
-            <div className="relative group animate-fade-in animate-delay-400 image-glow h-48">
-              <Image
-                src={getImagePath('/dita-maracatu.jpg')}
-                alt="Dita no Maracatu"
-                fill
-                className="object-cover rounded-xl border border-green-500/20 group-hover:border-green-500/40 transition-all duration-500 hover:scale-110 hover:rotate-1"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 rounded-xl"></div>
-              <div className="absolute bottom-3 left-3 right-3 text-white opacity-0 group-hover:opacity-100 transition-all duration-300">
-                <p className="text-sm font-medium">Cultura e Tradição</p>
-              </div>
-            </div>
-            <div className="relative group animate-fade-in animate-delay-500 image-glow h-48">
-              <Image
-                src={getImagePath('/dita3.jpg')}
-                alt="Dita momento cultural"
-                fill
-                className="object-cover rounded-xl border border-green-500/20 group-hover:border-green-500/40 transition-all duration-500 hover:scale-110 hover:-rotate-1"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 rounded-xl"></div>
-              <div className="absolute bottom-3 left-3 right-3 text-white opacity-0 group-hover:opacity-100 transition-all duration-300">
-                <p className="text-sm font-medium">Celebração</p>
-              </div>
-            </div>
-            <div className="relative group animate-fade-in animate-delay-600 image-glow h-48">
-              <Image
-                src={getImagePath('/nanci-dita-full.jpg')}
-                alt="Nanci Ferreira retrato completo"
-                fill
-                className="object-cover rounded-xl border border-green-500/20 group-hover:border-green-500/40 transition-all duration-500 hover:scale-110 hover:rotate-1"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 rounded-xl"></div>
-              <div className="absolute bottom-3 left-3 right-3 text-white opacity-0 group-hover:opacity-100 transition-all duration-300">
-                <p className="text-sm font-medium">Retrato Completo</p>
-              </div>
-            </div>
-            <div className="relative group animate-fade-in animate-delay-700 image-glow h-48">
-              <Image
-                src={getImagePath('/dita-nobackground.png')}
-                alt="Dita logo"
-                fill
-                className="object-contain rounded-xl border border-green-500/20 group-hover:border-green-500/40 transition-all duration-500 hover:scale-110 hover:-rotate-1 bg-black/20"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 rounded-xl"></div>
-              <div className="absolute bottom-3 left-3 right-3 text-white opacity-0 group-hover:opacity-100 transition-all duration-300">
-                <p className="text-sm font-medium">Identidade Visual</p>
-              </div>
-            </div>
+          {/* Dome Gallery Component - Full Width */}
+          <div
+            className="relative w-full flex items-center justify-center z-10"
+            style={{ height: '100vh', maxWidth: '100vw' }}
+          >
+            <DomeGallery />
           </div>
 
           {/* Featured Quote */}
@@ -470,58 +379,6 @@ export default function HomePage() {
       </section>
 
       {/* Stats Section - Nova seção com números impactantes */}
-      <section className="relative py-20 px-4 overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-radial from-green-900/20 via-black to-black"></div>
-        </div>
-
-        <div className="max-w-6xl mx-auto relative z-10">
-          <div className="text-center mb-12 animate-fade-in">
-            <h2 className="text-fluid-3xl font-bold text-gradient mb-4">Impacto</h2>
-            <p className="text-white/70 text-fluid-lg">
-              Mais de 7 décadas transformando vidas e preservando tradições
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div className="text-center glass rounded-2xl p-6 animate-fade-in">
-              <div className="text-fluid-3xl font-bold text-green-400 mb-2">
-                {nanciData.personal.age}+
-              </div>
-              <div className="text-white/70 text-sm">Anos de Sabedoria</div>
-            </div>
-            <div className="text-center glass rounded-2xl p-6 animate-fade-in animate-delay-100">
-              <div className="text-fluid-3xl font-bold text-green-400 mb-2">21+ Parceiros</div>
-              <div className="text-white/70 text-sm">
-                BAQUE MULHER,
-                <br /> GREENPEACE LESTE PAULISTA,
-                <br /> GUARDIÕES DA TERRA,
-                <br /> ASSOCIAÇÃO SOCIOCULTURAL DA ESTAÇÃO DA CASCATA,
-                <br /> SOS ÁGUAS DA PRATA
-                <br /> dentre outras entidades.
-              </div>
-            </div>
-            <div className="text-center glass rounded-2xl p-6 animate-fade-in animate-delay-200">
-              <div className="text-fluid-3xl font-bold text-green-400 mb-2">Eventos</div>
-              <div className="text-white/70 text-sm">
-                {' '}
-                COORGANIZADORA E PRODUTORA EXECUTIVA DAS VIRADAS CLIMÁTICAS <br /> (2024 e 2025){' '}
-                <br />
-                <br /> PARTICIPANTE COM OFICINAS:
-                <br />
-                <br /> CULTURANDO NA MONTANHA
-                <br /> MORO NA ROÇA - SAMBA DO CHICÃO
-                <br />
-                <br />{' '}
-              </div>
-            </div>
-            <div className="text-center glass rounded-2xl p-6 animate-fade-in animate-delay-300">
-              <div className="text-fluid-3xl font-bold text-green-400 mb-2">∞</div>
-              <div className="text-white/70 text-sm">Vidas Transformadas</div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Organizations Section - Enhanced */}
       <section id="organizacoes" className="relative py-24 px-4 overflow-hidden">
@@ -628,61 +485,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Impact Section - Enhanced */}
-      <section id="impacto" className="relative py-24 px-4 overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src={getImagePath('/dita+friend-square.jpg')}
-            alt=""
-            fill
-            className="object-cover opacity-20"
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/90 to-black/80"></div>
-        </div>
-
-        <div className="max-w-7xl mx-auto relative z-10">
-          <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-fluid-4xl font-bold text-gradient mb-6">Impacto e Legado</h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-green-500 to-green-700 mx-auto mb-8"></div>
-            <p className="text-fluid-lg text-white/70 max-w-3xl mx-auto">
-              Transformando realidades e inspirando mudanças que transcendem os limites territoriais
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="glass rounded-2xl p-8 border border-white/5 hover:border-green-500/30 transition-all duration-500 hover:shadow-lg hover:shadow-green-900/20 group animate-fade-in">
-              <div className="bg-green-900/50 rounded-xl p-3 w-fit mb-6 group-hover:bg-green-800/50 transition-colors duration-300">
-                <MapPin className="h-6 w-6 text-green-400" />
-              </div>
-              <h3 className="text-fluid-xl font-semibold text-white group-hover:text-green-400 transition-colors duration-300 mb-4">
-                Impacto Local
-              </h3>
-              <p className="text-white/70 leading-relaxed">{nanciData.impact.local}</p>
-            </div>
-
-            <div className="glass rounded-2xl p-8 border border-white/5 hover:border-green-500/30 transition-all duration-500 hover:shadow-lg hover:shadow-green-900/20 group animate-fade-in animate-delay-200">
-              <div className="bg-green-900/50 rounded-xl p-3 w-fit mb-6 group-hover:bg-green-800/50 transition-colors duration-300">
-                <TreePine className="h-6 w-6 text-green-400" />
-              </div>
-              <h3 className="text-fluid-xl font-semibold text-white group-hover:text-green-400 transition-colors duration-300 mb-4">
-                Modelo de Desenvolvimento
-              </h3>
-              <p className="text-white/70 leading-relaxed">{nanciData.impact.model}</p>
-            </div>
-
-            <div className="glass rounded-2xl p-8 border border-white/5 hover:border-green-500/30 transition-all duration-500 hover:shadow-lg hover:shadow-green-900/20 group animate-fade-in animate-delay-300">
-              <div className="bg-green-900/50 rounded-xl p-3 w-fit mb-6 group-hover:bg-green-800/50 transition-colors duration-300">
-                <Star className="h-6 w-6 text-green-400" />
-              </div>
-              <h3 className="text-fluid-xl font-semibold text-white group-hover:text-green-400 transition-colors duration-300 mb-4">
-                Legado
-              </h3>
-              <p className="text-white/70 leading-relaxed">{nanciData.impact.legacy}</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Events Section - Enhanced */}
       <section className="relative py-24 px-4 overflow-hidden">
         <div className="absolute inset-0 z-0">
@@ -707,7 +509,7 @@ export default function HomePage() {
           {nanciData.specialEvents && (
             <div className="mb-16 animate-fade-in">
               <h3 className="text-fluid-2xl font-semibold text-white text-center mb-10">
-                Eventos Especiais
+                Organizadora e Fomentadora
               </h3>
               <div className="grid md:grid-cols-3 gap-6">
                 {nanciData.specialEvents.map((event, index) => (
@@ -752,56 +554,6 @@ export default function HomePage() {
               ))}
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Gallery Section - Dome Gallery */}
-      <section id="galeria" className="relative py-32 px-4 overflow-hidden">
-        {/* Background */}
-        <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-black via-green-950/10 to-black"></div>
-          <div
-            className="absolute inset-0 bg-repeat opacity-[0.02] mix-blend-overlay"
-            style={{ backgroundImage: `url('${getImagePath('/particles.png')}')` }}
-          ></div>
-        </div>
-
-        {/* Decorative elements */}
-        <div className="absolute left-0 top-1/4 w-96 h-96 bg-green-600/5 rounded-full blur-3xl -z-10"></div>
-        <div className="absolute right-0 bottom-1/4 w-80 h-80 bg-green-700/5 rounded-full blur-3xl -z-10"></div>
-
-        <div className="max-w-7xl mx-auto relative z-10">
-          {/* Section Header */}
-          <div className="text-center mb-16 animate-fade-in">
-            <div className="inline-flex items-center justify-center mb-6 glass-light rounded-full px-5 py-2 border-glow animate-glow-pulse">
-              <Camera className="h-4 w-4 text-green-500 mr-2" />
-              <span className="text-green-400 text-sm font-medium tracking-wide">
-                Momentos Especiais
-              </span>
-            </div>
-
-            <h2 className="text-fluid-4xl font-bold text-gradient mb-8 tracking-tight">
-              Galeria de Imagens
-            </h2>
-
-            {/* Enhanced divider */}
-            <div className="relative w-32 h-1 mx-auto mb-10">
-              <div className="absolute inset-0 bg-gradient-to-r from-green-600 via-green-500 to-green-600 rounded-full animate-shimmer"></div>
-              <div className="absolute inset-0 bg-green-500/50 blur-sm rounded-full"></div>
-            </div>
-
-            <p className="text-fluid-xl text-white/90 max-w-3xl mx-auto leading-relaxed mb-4">
-              Explore momentos marcantes da trajetória de Nanci Ferreira
-            </p>
-            <p className="text-white/70 max-w-2xl mx-auto">
-              Arraste para navegar • Clique para ampliar
-            </p>
-          </div>
-          {/* Dome Gallery Component */}
-          <div className=" width: '100vw', height: '100vh'">
-            <DomeGallery />
-          </div>
-          /
         </div>
       </section>
 
