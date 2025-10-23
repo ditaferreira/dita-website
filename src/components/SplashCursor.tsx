@@ -60,7 +60,7 @@ export default function SplashCursor({
   VELOCITY_DISSIPATION = 2,
   PRESSURE = 0.1,
   PRESSURE_ITERATIONS = 20,
-  CURL = 12,
+  CURL = 3,
   SPLAT_RADIUS = 0.2,
   SPLAT_FORCE = 6000,
   SHADING = true,
@@ -141,11 +141,11 @@ export default function SplashCursor({
 
       const halfFloatTexType = isWebGL2
         ? (gl as WebGL2RenderingContext).HALF_FLOAT
-        : (halfFloat && (halfFloat as { HALF_FLOAT_OES: number }).HALF_FLOAT_OES) || 0
+        : (halfFloat && (halfFloat as any).HALF_FLOAT_OES) || 0
 
-      let formatRGBA: { internalFormat: number; format: number } | null
-      let formatRG: { internalFormat: number; format: number } | null
-      let formatR: { internalFormat: number; format: number } | null
+      let formatRGBA: any
+      let formatRG: any
+      let formatR: any
 
       if (isWebGL2) {
         formatRGBA = getSupportedFormat(
