@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { Montserrat, Playfair_Display } from 'next/font/google'
 
 import { GeistMono } from 'geist/font/mono'
 import { GeistSans } from 'geist/font/sans'
@@ -6,6 +7,19 @@ import React from 'react'
 
 import './globals.css'
 import { getImagePath } from '@/lib/utils'
+
+const montserrat = Montserrat({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-montserrat',
+})
+
+const playfairDisplay = Playfair_Display({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  style: ['normal', 'italic'],
+  variable: '--font-playfair',
+})
 
 // Utility function to merge class names
 function cn(...classes: string[]) {
@@ -17,18 +31,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
   return (
     <html
-      className={cn(GeistSans.variable, GeistMono.variable)}
+      className={cn(
+        GeistSans.variable,
+        GeistMono.variable,
+        montserrat.variable,
+        playfairDisplay.variable,
+      )}
       lang="pt-BR"
       suppressHydrationWarning
     >
       <head>
         <link href={`${basePath}/favicon.ico`} rel="icon" sizes="32x32" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
-          rel="stylesheet"
-        />
       </head>
       <body className="bg-black min-h-screen overflow-x-hidden">
         {/* Organic texture base layer */}
