@@ -1,9 +1,49 @@
-import { useEffect, useMemo, useRef, useCallback } from 'react'
+import { useEffect, useMemo, useRef, useCallback, useState } from 'react'
 import { useGesture } from '@use-gesture/react'
 import Image from 'next/image'
 import { getImagePath } from '@/lib/utils'
 
 type ImageItem = string | { src: string; alt?: string }
+
+type ResponsiveConfig = {
+  mobile: {
+    maxWidthVw: number
+    maxHeightVh: number
+    padding: number
+  }
+  tablet: {
+    maxWidthVw: number
+    maxHeightVh: number
+    padding: number
+  }
+  desktop: {
+    maxWidthVw: number
+    maxHeightVh: number
+    padding: number
+  }
+  breakpoints: {
+    mobile: number
+    tablet: number
+  }
+}
+
+type DeviceInfo = {
+  type: 'mobile' | 'tablet' | 'desktop'
+  orientation: 'portrait' | 'landscape'
+  viewport: {
+    width: number
+    height: number
+    availableWidth: number
+    availableHeight: number
+  }
+}
+
+type ImageDimensions = {
+  width: string
+  height: string
+  maxWidth: string
+  maxHeight: string
+}
 
 type DomeGalleryProps = {
   images?: ImageItem[]
@@ -22,6 +62,8 @@ type DomeGalleryProps = {
   imageBorderRadius?: string
   openedImageBorderRadius?: string
   grayscale?: boolean
+  responsiveConfig?: ResponsiveConfig
+  enableSmartSizing?: boolean
 }
 
 type ItemDef = {
@@ -124,6 +166,28 @@ const DEFAULTS = {
   segments: 35,
 }
 
+const DEFAULT_RESPONSIVE_CONFIG: ResponsiveConfig = {
+  mobile: {
+    maxWidthVw: 95,
+    maxHeightVh: 75,
+    padding: 16,
+  },
+  tablet: {
+    maxWidthVw: 85,
+    maxHeightVh: 80,
+    padding: 32,
+  },
+  desktop: {
+    maxWidthVw: 75,
+    maxHeightVh: 85,
+    padding: 48,
+  },
+  breakpoints: {
+    mobile: 768,
+    tablet: 1024,
+  },
+}
+
 const clamp = (v: number, min: number, max: number) => Math.min(Math.max(v, min), max)
 const normalizeAngle = (d: number) => ((d % 360) + 360) % 360
 const wrapAngleSigned = (deg: number) => {
@@ -201,6 +265,120 @@ function computeItemBaseRotation(
   return { rotateX, rotateY }
 }
 
+function getSafeAreaHorizontal(): number {
+  if (typeof window === 'undefined') return 0
+  const safeAreaLeft = parseInt(
+    getComputedStyle(document.documentElement).getPropertyValue('--safe-area-inset-left') || '0',
+  )
+  const safeAreaRight = parseInt(
+    getComputedStyle(document.documentElement).getPropertyValue('--safe-area-inset-right') || '0',
+  )
+  return safeAreaLeft + safeAreaRight
+}
+
+function getSafeAreaVertical(): number {
+  if (typeof window === 'undefined') return 0
+  const safeAreaTop = parseInt(
+    getComputedStyle(document.documentElement).getPropertyValue('--safe-area-inset-top') || '0',
+  )
+  const safeAreaBottom = parseInt(
+    getComputedStyle(document.documentElement).getPropertyValue('--safe-area-inset-bottom') || '0',
+  )
+  return safeAreaTop + safeAreaBottom
+}
+
+function useDeviceInfo(): DeviceInfo | null {
+  const [deviceInfo, setDeviceInfo] = useState<DeviceInfo | null>(null)
+
+  useEffect(() => {
+    const updateDeviceInfo = () => {
+      if (typeof window === 'undefined') return
+
+      const width = window.innerWidth
+      const height = window.innerHeight
+
+      const type = width < 768 ? 'mobile' : width < 1024 ? 'tablet' : 'desktop'
+
+      const orientation = width > height ? 'landscape' : 'portrait'
+
+      const safeAreaHorizontal = getSafeAreaHorizontal()
+      const safeAreaVertical = getSafeAreaVertical()
+
+      setDeviceInfo({
+        type,
+        orientation,
+        viewport: {
+          width,
+          height,
+          availableWidth: width - safeAreaHorizontal,
+          availableHeight: height - safeAreaVertical,
+        },
+      })
+    }
+
+    updateDeviceInfo()
+
+    const debouncedUpdate = debounce(updateDeviceInfo, 100)
+    window.addEventListener('resize', debouncedUpdate)
+    window.addEventListener('orientationchange', () => {
+      // Delay to allow orientation change to complete
+      setTimeout(updateDeviceInfo, 100)
+    })
+
+    return () => {
+      window.removeEventListener('resize', debouncedUpdate)
+      window.removeEventListener('orientationchange', updateDeviceInfo)
+    }
+  }, [])
+
+  return deviceInfo
+}
+
+function debounce<T extends (...args: any[]) => any>(func: T, wait: number): T {
+  let timeout: NodeJS.Timeout
+  return ((...args: any[]) => {
+    clearTimeout(timeout)
+    timeout = setTimeout(() => func.apply(null, args), wait)
+  }) as T
+}
+
+function useResponsiveImageSize(
+  deviceInfo: DeviceInfo | null,
+  config: ResponsiveConfig,
+  enableSmartSizing: boolean,
+): ImageDimensions {
+  return useMemo(() => {
+    if (!enableSmartSizing || !deviceInfo) {
+      return {
+        width: 'auto',
+        height: 'auto',
+        maxWidth: '90%',
+        maxHeight: '40%',
+      }
+    }
+
+    const deviceConfig = config[deviceInfo.type]
+    const { viewport } = deviceInfo
+
+    const maxWidth = Math.min(
+      (viewport.availableWidth * deviceConfig.maxWidthVw) / 100,
+      viewport.availableWidth - deviceConfig.padding * 2,
+    )
+
+    const maxHeight = Math.min(
+      (viewport.availableHeight * deviceConfig.maxHeightVh) / 100,
+      viewport.availableHeight - deviceConfig.padding * 2,
+    )
+
+    return {
+      width: 'auto',
+      height: 'auto',
+      maxWidth: `${maxWidth}px`,
+      maxHeight: `${maxHeight}px`,
+    }
+  }, [deviceInfo, config, enableSmartSizing])
+}
+
 export default function DomeGallery({
   images = DEFAULT_IMAGES,
   fit = 0.9,
@@ -218,6 +396,8 @@ export default function DomeGallery({
   imageBorderRadius = '30px',
   openedImageBorderRadius = '30px',
   grayscale = false,
+  responsiveConfig = DEFAULT_RESPONSIVE_CONFIG,
+  enableSmartSizing = true,
 }: DomeGalleryProps) {
   const rootRef = useRef<HTMLDivElement>(null)
   const mainRef = useRef<HTMLDivElement>(null)
@@ -260,6 +440,12 @@ export default function DomeGallery({
   }, [])
 
   const items = useMemo(() => buildItems(images, segments), [images, segments])
+  const deviceInfo = useDeviceInfo()
+  const responsiveDimensions = useResponsiveImageSize(
+    deviceInfo,
+    responsiveConfig,
+    enableSmartSizing,
+  )
 
   const applyTransform = (xDeg: number, yDeg: number) => {
     const el = sphereRef.current
@@ -316,24 +502,41 @@ export default function DomeGallery({
         const frameR = frameRef.current.getBoundingClientRect()
         const mainR = mainRef.current.getBoundingClientRect()
 
-        const hasCustomSize = openedImageWidth && openedImageHeight
-        if (hasCustomSize) {
-          const tempDiv = document.createElement('div')
-          tempDiv.style.cssText = `position: absolute; width: ${openedImageWidth}; height: ${openedImageHeight}; visibility: hidden;`
-          document.body.appendChild(tempDiv)
-          const tempRect = tempDiv.getBoundingClientRect()
-          document.body.removeChild(tempDiv)
+        if (enableSmartSizing && deviceInfo) {
+          // Apply responsive dimensions
+          enlargedOverlay.style.maxWidth = responsiveDimensions.maxWidth
+          enlargedOverlay.style.maxHeight = responsiveDimensions.maxHeight
+          enlargedOverlay.style.width = responsiveDimensions.width
+          enlargedOverlay.style.height = responsiveDimensions.height
 
-          const centeredLeft = frameR.left - mainR.left + (frameR.width - tempRect.width) / 2
-          const centeredTop = frameR.top - mainR.top + (frameR.height - tempRect.height) / 2
+          // Center the overlay
+          const overlayRect = enlargedOverlay.getBoundingClientRect()
+          const centeredLeft = frameR.left - mainR.left + (frameR.width - overlayRect.width) / 2
+          const centeredTop = frameR.top - mainR.top + (frameR.height - overlayRect.height) / 2
 
           enlargedOverlay.style.left = `${centeredLeft}px`
           enlargedOverlay.style.top = `${centeredTop}px`
         } else {
-          enlargedOverlay.style.left = `${frameR.left - mainR.left}px`
-          enlargedOverlay.style.top = `${frameR.top - mainR.top}px`
-          enlargedOverlay.style.width = `${frameR.width}px`
-          enlargedOverlay.style.height = `${frameR.height}px`
+          // Fallback to legacy behavior
+          const hasCustomSize = openedImageWidth && openedImageHeight
+          if (hasCustomSize) {
+            const tempDiv = document.createElement('div')
+            tempDiv.style.cssText = `position: absolute; width: ${openedImageWidth}; height: ${openedImageHeight}; visibility: hidden;`
+            document.body.appendChild(tempDiv)
+            const tempRect = tempDiv.getBoundingClientRect()
+            document.body.removeChild(tempDiv)
+
+            const centeredLeft = frameR.left - mainR.left + (frameR.width - tempRect.width) / 2
+            const centeredTop = frameR.top - mainR.top + (frameR.height - tempRect.height) / 2
+
+            enlargedOverlay.style.left = `${centeredLeft}px`
+            enlargedOverlay.style.top = `${centeredTop}px`
+          } else {
+            enlargedOverlay.style.left = `${frameR.left - mainR.left}px`
+            enlargedOverlay.style.top = `${frameR.top - mainR.top}px`
+            enlargedOverlay.style.width = `${frameR.width}px`
+            enlargedOverlay.style.height = `${frameR.height}px`
+          }
         }
       }
     })
@@ -350,6 +553,9 @@ export default function DomeGallery({
     openedImageBorderRadius,
     openedImageWidth,
     openedImageHeight,
+    enableSmartSizing,
+    deviceInfo,
+    responsiveDimensions,
   ])
 
   useEffect(() => {
@@ -687,7 +893,15 @@ export default function DomeGallery({
     ;(el.style as any).zIndex = 0
     const overlay = document.createElement('div')
     overlay.className = 'enlarge'
-    overlay.style.cssText = `position:absolute; left:${frameR.left - mainR.left}px; top:${frameR.top - mainR.top}px; width:${frameR.width}px; height:${frameR.height}px; opacity:0; z-index:30; will-change:transform,opacity; transform-origin:top left; transition:transform ${enlargeTransitionMs}ms ease, opacity ${enlargeTransitionMs}ms ease; border-radius:${openedImageBorderRadius}; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,.35);`
+
+    // Apply responsive dimensions if smart sizing is enabled
+    let overlayStyles = `position:absolute; left:${frameR.left - mainR.left}px; top:${frameR.top - mainR.top}px; width:${frameR.width}px; height:${frameR.height}px; opacity:0; z-index:30; will-change:transform,opacity; transform-origin:top left; transition:transform ${enlargeTransitionMs}ms ease, opacity ${enlargeTransitionMs}ms ease; border-radius:${openedImageBorderRadius}; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,.35);`
+
+    if (enableSmartSizing && deviceInfo) {
+      overlayStyles = `position:absolute; left:${frameR.left - mainR.left}px; top:${frameR.top - mainR.top}px; width:${responsiveDimensions.width}; height:${responsiveDimensions.height}; max-width:${responsiveDimensions.maxWidth}; max-height:${responsiveDimensions.maxHeight}; opacity:0; z-index:30; will-change:transform,opacity; transform-origin:top left; transition:transform ${enlargeTransitionMs}ms ease, opacity ${enlargeTransitionMs}ms ease; border-radius:${openedImageBorderRadius}; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,.35);`
+    }
+
+    overlay.style.cssText = overlayStyles
     const rawSrc = parent.dataset.src || (el.querySelector('img') as HTMLImageElement)?.src || ''
     const rawAlt = parent.dataset.alt || (el.querySelector('img') as HTMLImageElement)?.alt || ''
     const img = document.createElement('img')
@@ -711,15 +925,27 @@ export default function DomeGallery({
       overlay.style.transform = 'translate(0px, 0px) scale(1, 1)'
       rootRef.current?.setAttribute('data-enlarging', 'true')
     }, 16)
-    const wantsResize = openedImageWidth || openedImageHeight
+    const wantsResize = (enableSmartSizing && deviceInfo) || openedImageWidth || openedImageHeight
     if (wantsResize) {
       const onFirstEnd = (ev: TransitionEvent) => {
         if (ev.propertyName !== 'transform') return
         overlay.removeEventListener('transitionend', onFirstEnd)
         const prevTransition = overlay.style.transition
         overlay.style.transition = 'none'
-        const tempWidth = openedImageWidth || `${frameR.width}px`
-        const tempHeight = openedImageHeight || `${frameR.height}px`
+
+        let tempWidth: string
+        let tempHeight: string
+
+        if (enableSmartSizing && deviceInfo) {
+          tempWidth = responsiveDimensions.width
+          tempHeight = responsiveDimensions.height
+          overlay.style.maxWidth = responsiveDimensions.maxWidth
+          overlay.style.maxHeight = responsiveDimensions.maxHeight
+        } else {
+          tempWidth = openedImageWidth || `${frameR.width}px`
+          tempHeight = openedImageHeight || `${frameR.height}px`
+        }
+
         overlay.style.width = tempWidth
         overlay.style.height = tempHeight
         const newRect = overlay.getBoundingClientRect()
@@ -734,6 +960,10 @@ export default function DomeGallery({
           overlay.style.top = `${centeredTop}px`
           overlay.style.width = tempWidth
           overlay.style.height = tempHeight
+          if (enableSmartSizing && deviceInfo) {
+            overlay.style.maxWidth = responsiveDimensions.maxWidth
+            overlay.style.maxHeight = responsiveDimensions.maxHeight
+          }
         })
         const cleanupSecond = () => {
           overlay.removeEventListener('transitionend', cleanupSecond)
@@ -811,6 +1041,27 @@ export default function DomeGallery({
       .viewer-frame {
         height: auto !important;
         width: 100% !important;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .enlarge {
+        max-width: 95vw !important;
+        max-height: 75vh !important;
+      }
+    }
+    
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .enlarge {
+        max-width: 85vw !important;
+        max-height: 80vh !important;
+      }
+    }
+    
+    @media (min-width: 1025px) {
+      .enlarge {
+        max-width: 75vw !important;
+        max-height: 85vh !important;
       }
     }
     
@@ -946,7 +1197,7 @@ export default function DomeGallery({
               ref={scrimRef}
               className="scrim absolute inset-0 z-10 pointer-events-none opacity-0 transition-opacity duration-500"
               style={{
-                background: 'rgba(0, 0, 0, 0.4)',
+                background: 'rgba(0, 0, 0, 0.01)',
                 backdropFilter: 'blur(3px)',
               }}
             />
