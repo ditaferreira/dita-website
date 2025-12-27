@@ -1,66 +1,24 @@
 {
-  "name": "dita-website",
+  "name": "dita-website-vue",
   "version": "1.0.0",
-  "description": "Static website for Nanci Ferreira (Dita)",
-  "license": "MIT",
   "type": "module",
   "scripts": {
-    "build": "next build",
-    "dev": "next dev",
-    "start": "next start",
-    "lint": "next lint",
-    "lint:fix": "next lint --fix",
-    "export": "next build"
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview"
   },
   "dependencies": {
-    "@radix-ui/react-checkbox": "^1.0.4",
-    "@radix-ui/react-label": "^2.0.2",
-    "@radix-ui/react-select": "^2.0.0",
-    "@radix-ui/react-slot": "^1.0.2",
-    "@use-gesture/react": "^10.3.1",
-    "class-variance-authority": "^0.7.0",
-    "clsx": "^2.1.1",
-    "geist": "^1.3.0",
-    "gsap": "^3.13.0",
-    "lucide-react": "^0.378.0",
-    "motion": "^12.23.22",
-    "next": "15.4.4",
-    "react": "19.1.0",
-    "react-dom": "19.1.0",
-    "tailwind-merge": "^2.3.0",
-    "tailwindcss-animate": "^1.0.7"
+    "vue": "^3.4.21",
+    "animejs": "^3.2.2",
+    "lucide-vue-next": "^0.378.0"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3.2.0",
-    "@playwright/test": "1.54.1",
-    "@tailwindcss/typography": "^0.5.13",
-    "@testing-library/react": "16.3.0",
-    "@types/escape-html": "^1.0.2",
-    "@types/node": "22.5.4",
-    "@types/react": "19.1.8",
-    "@types/react-dom": "19.1.6",
-    "@vitejs/plugin-react": "4.5.2",
+    "@vitejs/plugin-vue": "^5.0.4",
     "autoprefixer": "^10.4.19",
-    "copyfiles": "^2.4.1",
-    "eslint": "^9.16.0",
-    "eslint-config-next": "15.4.4",
-    "jsdom": "26.1.0",
-    "playwright": "1.54.1",
-    "playwright-core": "1.54.1",
     "postcss": "^8.4.38",
-    "prettier": "^3.4.2",
     "tailwindcss": "^3.4.3",
-    "typescript": "5.7.3",
-    "vite-tsconfig-paths": "5.1.4",
-    "vitest": "3.2.3"
-  },
-  "packageManager": "pnpm@10.15.1",
-  "engines": {
-    "node": "^18.20.2 || >=20.9.0"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "esbuild"
-    ]
+    "typescript": "^5.4.5",
+    "vite": "^5.2.8",
+    "vue-tsc": "^2.0.11"
   }
 }
