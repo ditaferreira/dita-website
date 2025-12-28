@@ -1,21 +1,11 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { Leaf, Heart, ArrowDown, Sparkles } from 'lucide-vue-next'
-import anime from 'animejs'
 import { SectionBackground } from '@/components/ui'
 import { nanciData, getImagePath } from '@/data/nanci-data'
 
-const heroRef = ref<HTMLElement | null>(null)
-
-onMounted(() => {
-  anime.timeline({ easing: 'easeOutExpo' })
-    .add({ targets: '.hero-badge', opacity: [0, 1], translateY: [20, 0], duration: 600 })
-    .add({ targets: '.hero-title', opacity: [0, 1], translateY: [30, 0], duration: 800 }, '-=400')
-    .add({ targets: '.hero-subtitle', opacity: [0, 1], translateY: [20, 0], duration: 600 }, '-=500')
-    .add({ targets: '.hero-image', opacity: [0, 1], scale: [0.9, 1], duration: 800 }, '-=400')
-    .add({ targets: '.hero-pills', opacity: [0, 1], translateY: [15, 0], duration: 500 }, '-=400')
-    .add({ targets: '.hero-cta', opacity: [0, 1], translateY: [15, 0], duration: 500 }, '-=300')
-})
+const loaded = ref(false)
+onMounted(() => setTimeout(() => loaded.value = true, 100))
 
 const scrollToAbout = () => {
   document.querySelector('#sobre')?.scrollIntoView({ behavior: 'smooth' })
@@ -23,11 +13,7 @@ const scrollToAbout = () => {
 </script>
 
 <template>
-  <section
-    id="hero"
-    ref="heroRef"
-    class="section min-h-screen flex items-center justify-center"
-  >
+  <section id="hero" class="section min-h-screen flex items-center justify-center">
     <SectionBackground
       image-path="/nanci-dita-full.webp"
       :opacity="0.4"
@@ -38,18 +24,30 @@ const scrollToAbout = () => {
     <div class="max-w-4xl mx-auto text-center relative z-10 px-4">
       <div class="glass rounded-3xl p-6 md:p-10 lg:p-12 border border-white/10">
         <!-- Badge -->
-        <div class="hero-badge inline-flex items-center gap-2 glass-light rounded-full px-4 py-2 mb-6" style="opacity: 0">
+        <div 
+          class="hero-item inline-flex items-center gap-2 glass-light rounded-full px-4 py-2 mb-6"
+          :class="loaded ? 'animate-in' : 'opacity-0'"
+          style="--delay: 0ms"
+        >
           <Leaf class="w-4 h-4 text-emerald-400" />
           <span class="text-white/80 text-sm font-medium">Mata Atlântica • Cascata</span>
         </div>
 
         <!-- Title -->
-        <h1 class="hero-title text-fluid-5xl font-bold mb-3" style="opacity: 0">
+        <h1 
+          class="hero-item text-fluid-5xl font-bold mb-3"
+          :class="loaded ? 'animate-in' : 'opacity-0'"
+          style="--delay: 100ms"
+        >
           <span class="text-gradient">{{ nanciData.personal.name }}</span>
         </h1>
 
         <!-- Subtitle -->
-        <div class="hero-subtitle flex items-center justify-center gap-2 mb-4" style="opacity: 0">
+        <div 
+          class="hero-item flex items-center justify-center gap-2 mb-4"
+          :class="loaded ? 'animate-in' : 'opacity-0'"
+          style="--delay: 200ms"
+        >
           <Heart class="w-5 h-5 text-rose-400" />
           <p class="text-fluid-lg text-white/90">
             Carinhosamente conhecida como
@@ -58,19 +56,31 @@ const scrollToAbout = () => {
         </div>
 
         <!-- Age Badge -->
-        <div class="hero-subtitle inline-block glass-light rounded-full px-4 py-1.5 mb-5" style="opacity: 0">
+        <div 
+          class="hero-item inline-block glass-light rounded-full px-4 py-1.5 mb-5"
+          :class="loaded ? 'animate-in' : 'opacity-0'"
+          style="--delay: 300ms"
+        >
           <span class="text-white/80 text-sm">
             <span class="font-bold text-emerald-400">{{ nanciData.personal.age }}</span> anos de sabedoria ancestral
           </span>
         </div>
 
         <!-- Description -->
-        <p class="hero-subtitle text-fluid-base text-white/70 max-w-xl mx-auto mb-6 leading-relaxed" style="opacity: 0">
+        <p 
+          class="hero-item text-fluid-base text-white/70 max-w-xl mx-auto mb-6 leading-relaxed"
+          :class="loaded ? 'animate-in' : 'opacity-0'"
+          style="--delay: 400ms"
+        >
           {{ nanciData.personal.title }}
         </p>
 
         <!-- Profile Image -->
-        <div class="hero-image relative mx-auto w-44 h-44 md:w-52 md:h-52 mb-8" style="opacity: 0">
+        <div 
+          class="hero-item relative mx-auto w-44 h-44 md:w-52 md:h-52 mb-8"
+          :class="loaded ? 'animate-in-scale' : 'opacity-0'"
+          style="--delay: 500ms"
+        >
           <div class="absolute -inset-4 bg-gradient-to-r from-emerald-500/20 via-cyan-500/20 to-purple-500/20 rounded-full blur-2xl animate-pulse-glow" />
           <div class="relative w-full h-full rounded-full overflow-hidden border-2 border-white/20">
             <img
@@ -82,7 +92,11 @@ const scrollToAbout = () => {
         </div>
 
         <!-- Info Pills -->
-        <div class="hero-pills flex flex-wrap justify-center gap-2 mb-8" style="opacity: 0">
+        <div 
+          class="hero-item flex flex-wrap justify-center gap-2 mb-8"
+          :class="loaded ? 'animate-in' : 'opacity-0'"
+          style="--delay: 600ms"
+        >
           <div class="flex items-center gap-2 glass-light rounded-full px-3 py-1.5">
             <Leaf class="w-4 h-4 text-emerald-400" />
             <span class="text-white/80 text-sm">Guardiã da Terra</span>
@@ -98,7 +112,12 @@ const scrollToAbout = () => {
         </div>
 
         <!-- CTA Button -->
-        <button class="hero-cta btn-primary" style="opacity: 0" @click="scrollToAbout">
+        <button 
+          class="hero-item btn-primary"
+          :class="loaded ? 'animate-in' : 'opacity-0'"
+          style="--delay: 700ms"
+          @click="scrollToAbout"
+        >
           <span>Conheça seu trabalho</span>
           <ArrowDown class="w-5 h-5" />
         </button>
@@ -112,3 +131,29 @@ const scrollToAbout = () => {
     </div>
   </section>
 </template>
+
+<style scoped>
+.hero-item {
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--delay);
+}
+
+.animate-in {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.hero-item:not(.animate-in):not(.animate-in-scale) {
+  transform: translateY(20px);
+}
+
+.animate-in-scale {
+  opacity: 1 !important;
+  transform: scale(1) !important;
+}
+
+.hero-item:not(.animate-in-scale):not(.animate-in) {
+  transform: scale(0.9);
+}
+</style>

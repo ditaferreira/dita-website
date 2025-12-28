@@ -1,27 +1,17 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref } from 'vue'
+import { useIntersectionObserver } from '@vueuse/core'
 import { Sparkles, Shovel, Gem, Leaf, MapPin } from 'lucide-vue-next'
-import anime from 'animejs'
 import { SectionBackground, SectionHeader } from '@/components/ui'
 import { nanciData } from '@/data/nanci-data'
 
 const icons = [Shovel, Gem, Leaf]
 const sectionRef = ref<HTMLElement | null>(null)
+const isVisible = ref(false)
 
-onMounted(() => {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          anime({ targets: '.animate-item', opacity: [0, 1], translateY: [20, 0], delay: anime.stagger(60), duration: 400, easing: 'easeOutCubic' })
-          observer.disconnect()
-        }
-      })
-    },
-    { threshold: 0.1 }
-  )
-  if (sectionRef.value) observer.observe(sectionRef.value)
-})
+useIntersectionObserver(sectionRef, ([{ isIntersecting }]) => {
+  if (isIntersecting) isVisible.value = true
+}, { threshold: 0.1 })
 </script>
 
 <template>
@@ -49,7 +39,13 @@ onMounted(() => {
 
       <!-- Expertise -->
       <div class="grid md:grid-cols-3 gap-4 mb-8">
-        <div v-for="(skill, i) in nanciData.expertise" :key="i" class="animate-item card text-center" style="opacity:0">
+        <div 
+          v-for="(skill, i) in nanciData.expertise" 
+          :key="i" 
+          class="card text-center transition-all duration-500"
+          :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'"
+          :style="{ transitionDelay: `${i * 100}ms` }"
+        >
           <div class="w-12 h-12 mx-auto rounded-xl bg-gradient-to-br from-emerald-600/30 to-cyan-600/30 flex items-center justify-center mb-3">
             <component :is="icons[i]" class="w-5 h-5 text-emerald-400" />
           </div>

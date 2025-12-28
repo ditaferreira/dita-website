@@ -21,7 +21,6 @@ const navItems = [
 
 const handleScroll = () => {
   scrolled.value = window.scrollY > 50
-  
   const docHeight = document.documentElement.scrollHeight - window.innerHeight
   scrollProgress.value = Math.min((window.scrollY / docHeight) * 100, 100)
   
@@ -36,13 +35,23 @@ const handleScroll = () => {
 }
 
 const scrollTo = (href: string) => {
-  document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' })
+  const el = document.querySelector(href)
+  if (!el) return
+  
+  // Use View Transitions API if available
+  if (document.startViewTransition) {
+    document.startViewTransition(() => {
+      el.scrollIntoView({ behavior: 'smooth' })
+    })
+  } else {
+    el.scrollIntoView({ behavior: 'smooth' })
+  }
   mobileMenuOpen.value = false
 }
 
 const isActive = (href: string) => activeSection.value === href.slice(1)
 
-onMounted(() => window.addEventListener('scroll', handleScroll))
+onMounted(() => window.addEventListener('scroll', handleScroll, { passive: true }))
 onUnmounted(() => window.removeEventListener('scroll', handleScroll))
 </script>
 
@@ -53,7 +62,7 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
     class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
     :class="scrolled ? 'glass py-3' : 'py-4 bg-transparent'"
   >
-    <div class="absolute bottom-0 left-0 h-0.5 bg-emerald-500/50 transition-all duration-150" :style="{ width: `${scrollProgress}%` }" />
+    <div class="progress-bar" :style="{ width: `${scrollProgress}%` }" />
     
     <div class="max-w-7xl mx-auto px-4 flex items-center justify-between">
       <a href="#hero" class="flex items-center gap-3 group" @click.prevent="scrollTo('#hero')">
@@ -73,15 +82,12 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
           v-for="item in navItems"
           :key="item.href"
           :href="item.href"
-          class="relative px-3 py-2 rounded-full text-sm font-medium transition-all duration-300"
-          :class="isActive(item.href) ? 'text-emerald-400 bg-emerald-500/10' : 'text-white/70 hover:text-white hover:bg-white/5'"
+          class="nav-link"
+          :class="isActive(item.href) ? 'nav-link-active' : ''"
           @click.prevent="scrollTo(item.href)"
         >
           {{ item.label }}
-          <span
-            v-if="isActive(item.href)"
-            class="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 bg-emerald-500 rounded-full"
-          />
+          <span v-if="isActive(item.href)" class="nav-indicator" />
         </a>
 
         <a
@@ -97,10 +103,7 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
   </header>
 
   <!-- Mobile Header -->
-  <header
-    v-if="isMobile"
-    class="fixed top-0 left-0 right-0 z-50 glass py-3 px-4 safe-top"
-  >
+  <header v-if="isMobile" class="fixed top-0 left-0 right-0 z-50 glass py-3 px-4 safe-top">
     <div class="flex items-center justify-between">
       <a href="#hero" class="flex items-center gap-2" @click.prevent="scrollTo('#hero')">
         <div class="w-8 h-8 rounded-full bg-gradient-to-br from-emerald-500 to-green-600 p-0.5">
@@ -117,20 +120,21 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
       <button
         class="w-10 h-10 rounded-full glass-light flex items-center justify-center"
         @click="mobileMenuOpen = !mobileMenuOpen"
+        aria-label="Menu"
       >
         <Menu v-if="!mobileMenuOpen" class="w-5 h-5 text-white" />
         <X v-else class="w-5 h-5 text-white" />
       </button>
     </div>
 
-    <div class="absolute bottom-0 left-0 h-0.5 bg-emerald-500/50" :style="{ width: `${scrollProgress}%` }" />
+    <div class="progress-bar" :style="{ width: `${scrollProgress}%` }" />
   </header>
 
   <!-- Mobile Menu Overlay -->
-  <Transition name="slide">
+  <Transition name="menu">
     <div
       v-if="isMobile && mobileMenuOpen"
-      class="fixed inset-0 z-40 bg-forest-950/98 backdrop-blur-lg pt-20 px-6"
+      class="fixed inset-0 z-40 bg-black/95 backdrop-blur-lg pt-20 px-6"
     >
       <nav class="flex flex-col gap-2">
         <a
@@ -185,14 +189,35 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
 </template>
 
 <style scoped>
-.slide-enter-active,
-.slide-leave-active {
-  transition: all 0.3s ease;
+.progress-bar {
+  @apply absolute bottom-0 left-0 h-0.5 bg-emerald-500/60;
+  transition: width 0.15s ease-out;
 }
 
-.slide-enter-from,
-.slide-leave-to {
+.nav-link {
+  @apply relative px-3 py-2 rounded-full text-sm font-medium text-white/70 transition-all duration-300;
+}
+
+.nav-link:hover {
+  @apply text-white bg-white/5;
+}
+
+.nav-link-active {
+  @apply text-emerald-400 bg-emerald-500/10;
+}
+
+.nav-indicator {
+  @apply absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 bg-emerald-500 rounded-full;
+}
+
+.menu-enter-active,
+.menu-leave-active {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.menu-enter-from,
+.menu-leave-to {
   opacity: 0;
-  transform: translateY(-20px);
+  transform: translateY(-10px);
 }
 </style>

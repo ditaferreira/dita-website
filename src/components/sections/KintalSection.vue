@@ -1,26 +1,16 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref } from 'vue'
+import { useIntersectionObserver } from '@vueuse/core'
 import { Home, MapPin, Landmark, Palette, Gem, Users, Building2, Heart } from 'lucide-vue-next'
-import anime from 'animejs'
 import { SectionBackground, SectionHeader } from '@/components/ui'
 import { nanciData } from '@/data/nanci-data'
 
 const sectionRef = ref<HTMLElement | null>(null)
+const isVisible = ref(false)
 
-onMounted(() => {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          anime({ targets: '.kintal-item', opacity: [0, 1], translateY: [20, 0], delay: anime.stagger(80), duration: 500, easing: 'easeOutCubic' })
-          observer.disconnect()
-        }
-      })
-    },
-    { threshold: 0.1 }
-  )
-  if (sectionRef.value) observer.observe(sectionRef.value)
-})
+useIntersectionObserver(sectionRef, ([{ isIntersecting }]) => {
+  if (isIntersecting) isVisible.value = true
+}, { threshold: 0.1 })
 </script>
 
 <template>
@@ -34,10 +24,12 @@ onMounted(() => {
         </template>
       </SectionHeader>
 
-      <!-- Dois Pontos de Cultura -->
       <div class="grid md:grid-cols-2 gap-6 mb-8">
         <!-- Guardiões da Terra -->
-        <div class="kintal-item card" style="opacity:0">
+        <div 
+          class="card transition-all duration-500"
+          :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'"
+        >
           <div class="flex items-center gap-3 mb-4">
             <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-emerald-600/30 to-green-600/30 flex items-center justify-center">
               <Users class="w-7 h-7 text-emerald-400" />
@@ -49,7 +41,6 @@ onMounted(() => {
           </div>
           <p class="text-white/80 text-sm mb-4">{{ nanciData.guardioesDaTerra.description }}</p>
           
-          <!-- ONG -->
           <div class="glass-light rounded-lg p-3 mb-4">
             <div class="flex items-center gap-2 mb-2">
               <Building2 class="w-4 h-4 text-amber-400" />
@@ -60,7 +51,6 @@ onMounted(() => {
             <p class="text-white/50 text-xs mt-1">{{ nanciData.guardioesDaTerra.ong.description }}</p>
           </div>
 
-          <!-- Atividades -->
           <div class="space-y-2">
             <div v-for="a in nanciData.guardioesDaTerra.activities" :key="a" class="flex items-center gap-2 text-white/70 text-xs">
               <span class="w-1.5 h-1.5 rounded-full bg-emerald-500" />
@@ -70,7 +60,11 @@ onMounted(() => {
         </div>
 
         <!-- Kintal da Dita -->
-        <div class="kintal-item card" style="opacity:0">
+        <div 
+          class="card transition-all duration-500"
+          :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'"
+          style="transition-delay: 100ms"
+        >
           <div class="flex items-center gap-3 mb-4">
             <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-amber-600/30 to-orange-600/30 flex items-center justify-center">
               <Home class="w-7 h-7 text-amber-400" />
@@ -86,9 +80,7 @@ onMounted(() => {
           </div>
           <p class="text-white/80 text-sm mb-4">{{ nanciData.kintalDaDita.description }}</p>
 
-          <!-- Sub-seções do Kintal -->
           <div class="space-y-4">
-            <!-- Marco Histórico -->
             <div class="glass-light rounded-lg p-3">
               <div class="flex items-center gap-2 mb-2">
                 <Landmark class="w-4 h-4 text-amber-400" />
@@ -100,7 +92,6 @@ onMounted(() => {
               </div>
             </div>
 
-            <!-- Museu -->
             <div class="glass-light rounded-lg p-3">
               <div class="flex items-center gap-2 mb-2">
                 <Palette class="w-4 h-4 text-purple-400" />
@@ -112,7 +103,6 @@ onMounted(() => {
               </div>
             </div>
 
-            <!-- Oficinas -->
             <div class="glass-light rounded-lg p-3">
               <div class="flex items-center gap-2 mb-2">
                 <Gem class="w-4 h-4 text-emerald-400" />
@@ -123,7 +113,6 @@ onMounted(() => {
               </div>
             </div>
 
-            <!-- Agroecologia -->
             <div class="flex flex-wrap gap-1">
               <span v-for="a in nanciData.kintalDaDita.agroecology" :key="a" class="px-2 py-1 rounded-full text-xs bg-green-500/20 text-green-300">{{ a }}</span>
             </div>
