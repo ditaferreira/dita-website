@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import { Leaf, Heart, ArrowDown, Sparkles, Star } from 'lucide-vue-next'
+import { Leaf, Heart, ArrowDown, Star } from 'lucide-vue-next'
 import { SectionBackground } from '@/components/ui'
 import { nanciData, getImagePath } from '@/data/nanci-data'
 
