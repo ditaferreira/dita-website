@@ -137,10 +137,13 @@ export const nanciData: NanciData = {
     age: 73,
     location: 'Cascata, Águas da Prata - SP',
     title: 'Anciã, Visionária e Guardiã da Terra',
-    bio: `Nanci Ferreira, Dita, é uma força da natureza. Aos 73 anos é erveira, artista e artesã, consolidando-se como uma referência cultural em sua região. Idealizadora do Kintal da Dita, um espaço de arte e resistência na Cascata, divisa entre MG e SP, ela dedica a vida à defesa da terra e ao resgate de saberes ancestrais.
+    bio: `Nanci Ferreira, Dita, é uma força da natureza. Aos 73 anos é erveira, artista e artesã, consolidou-se uma referência cultural em sua região. Idealizadora do Kintal da Dita, um espaço de arte e resistência na Cascata, divisa entre MG e SP, ela dedica a vida à defesa da terra e ao resgate de saberes ancestrais.
 
 Filha de líder comunitário e neta de curandeira, Dita carrega em seu sangue a força da ancestralidade. 
-Em sua jornada percorreu o Brasil e a América do Sul, e hoje ela é a "Conselheira da Sabedoria" no Ponto de Cultura premiado Guardiões da Terra, é voz ativa na luta pela preservação ambiental, cultural e antinuclear, representando diversos coletivos e associações em sua região.`,
+
+Em sua jornada percorreu o Brasil e a América do Sul, e hoje ela é a "Conselheira da Sabedoria" no Ponto de Cultura premiado Guardiões da Terra.
+
+É voz ativa na luta pela preservação ambiental, cultural e antinuclear, representando diversos coletivos e associações em sua região.`,
     quote: 'O simples é poderoso',
   },
 
