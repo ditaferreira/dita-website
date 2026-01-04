@@ -1,11 +1,23 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import { Sparkles, Music, Calendar } from 'lucide-vue-next'
+import { Sparkles, Music, Calendar, Users, GraduationCap, Gem } from 'lucide-vue-next'
 import anime from 'animejs'
 import { SectionBackground, SectionHeader } from '@/components/ui'
 import { nanciData } from '@/data/nanci-data'
 
 const sectionRef = ref<HTMLElement | null>(null)
+
+const iconComponents = {
+  Music,
+  Calendar,
+  Users,
+  GraduationCap,
+  Gem,
+}
+
+const getIcon = (name: string) => {
+  return iconComponents[name as keyof typeof iconComponents]
+}
 
 onMounted(() => {
   const observer = new IntersectionObserver(
@@ -36,9 +48,9 @@ onMounted(() => {
 
       <div class="card">
         <div class="flex flex-wrap justify-center gap-2">
-          <div v-for="e in nanciData.events" :key="e" class="event-item flex items-center gap-2 glass-light rounded-full px-4 py-2" style="opacity:0">
-            <Music class="w-4 h-4 text-emerald-400" />
-            <span class="text-white/80 text-sm">{{ e }}</span>
+          <div v-for="e in nanciData.events" :key="e.name" class="event-item flex items-center gap-2 glass-light rounded-full px-4 py-2" style="opacity:0">
+            <component :is="getIcon(e.icon)" class="w-4 h-4 text-emerald-400" />
+            <span class="text-white/80 text-sm">{{ e.name }}</span>
           </div>
         </div>
       </div>

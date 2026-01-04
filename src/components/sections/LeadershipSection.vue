@@ -1,20 +1,21 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import { Crown, Users, Heart, Music, Vote, Droplets, GraduationCap } from 'lucide-vue-next'
+import { Crown, Users, GraduationCap, Music, Droplets } from 'lucide-vue-next'
 import anime from 'animejs'
 import { SectionBackground, SectionHeader } from '@/components/ui'
 import { nanciData } from '@/data/nanci-data'
 
 const sectionRef = ref<HTMLElement | null>(null)
 
-const typeIcons = { march: Users, cultural: Music, community: Heart, political: Vote, environmental: Droplets, education: GraduationCap }
-const typeColors = {
-  march: 'from-purple-500 to-pink-600',
-  cultural: 'from-amber-500 to-orange-600',
-  community: 'from-rose-500 to-red-600',
-  political: 'from-blue-500 to-indigo-600',
-  environmental: 'from-cyan-500 to-teal-600',
-  education: 'from-emerald-500 to-green-600',
+const iconComponents = {
+  Users,
+  GraduationCap,
+  Music,
+  Droplets,
+}
+
+const getIcon = (name: string) => {
+  return iconComponents[name as keyof typeof iconComponents]
 }
 
 onMounted(() => {
@@ -47,10 +48,10 @@ onMounted(() => {
       <!-- Highlights -->
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
         <div v-for="(h, i) in nanciData.leadership.highlights" :key="i" class="leadership-card card" style="opacity:0">
-          <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r rounded-t-2xl" :class="typeColors[h.type]" />
+          <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r rounded-t-2xl" :class="h.color" />
           <div class="flex items-start gap-3">
-            <div class="w-10 h-10 rounded-lg bg-gradient-to-br flex items-center justify-center flex-shrink-0" :class="typeColors[h.type]">
-              <component :is="typeIcons[h.type]" class="w-4 h-4 text-white" />
+            <div class="w-10 h-10 rounded-lg bg-gradient-to-br flex items-center justify-center flex-shrink-0" :class="h.color">
+              <component :is="getIcon(h.icon)" class="w-4 h-4 text-white" />
             </div>
             <div class="flex-1 min-w-0">
               <div class="flex items-center justify-between gap-2 mb-1">

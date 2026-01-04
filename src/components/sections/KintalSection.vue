@@ -18,13 +18,12 @@ useIntersectionObserver(sectionRef, ([{ isIntersecting }]) => {
     <SectionBackground image-path="/dita (42).webp" :opacity="0.3" :blur="3" gradient="subtle" />
 
     <div class="max-w-6xl mx-auto relative z-10">
-      <SectionHeader title="Pontos de Cultura" badge="Dois Espaços de Resistência" center>
-        <template #badge-icon>
-          <Heart class="w-4 h-4 text-emerald-400" />
-        </template>
-      </SectionHeader>
-
-      <div class="grid md:grid-cols-2 gap-6 mb-8">
+      <div class="grid md:grid-cols-2 gap-6 mb-8 items-stretch">
+        <SectionHeader title="Pontos de Cultura" badge="Dois Espaços de Resistência">
+          <template #badge-icon>
+            <Heart class="w-4 h-4 text-emerald-400" />
+          </template>
+        </SectionHeader>
         <!-- Guardiões da Terra -->
         <div 
           class="card transition-all duration-500"
@@ -61,7 +60,7 @@ useIntersectionObserver(sectionRef, ([{ isIntersecting }]) => {
 
         <!-- Kintal da Dita -->
         <div 
-          class="card transition-all duration-500"
+          class="card transition-all duration-500 md:col-span-2"
           :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'"
           style="transition-delay: 100ms"
         >
@@ -80,7 +79,7 @@ useIntersectionObserver(sectionRef, ([{ isIntersecting }]) => {
           </div>
           <p class="text-white/80 text-sm mb-4">{{ nanciData.kintalDaDita.description }}</p>
 
-          <div class="space-y-4">
+          <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
             <div class="glass-light rounded-lg p-3">
               <div class="flex items-center gap-2 mb-2">
                 <Landmark class="w-4 h-4 text-amber-400" />
@@ -112,8 +111,8 @@ useIntersectionObserver(sectionRef, ([{ isIntersecting }]) => {
                 <span v-for="w in nanciData.kintalDaDita.workshops" :key="w" class="px-2 py-0.5 rounded text-[10px] bg-emerald-500/15 text-emerald-300/80">{{ w }}</span>
               </div>
             </div>
-
-            <div class="flex flex-wrap gap-1">
+            
+            <div class="sm:col-span-2 md:col-span-3 flex flex-wrap gap-1">
               <span v-for="a in nanciData.kintalDaDita.agroecology" :key="a" class="px-2 py-1 rounded-full text-xs bg-green-500/20 text-green-300">{{ a }}</span>
             </div>
           </div>

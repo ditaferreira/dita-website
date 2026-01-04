@@ -85,7 +85,7 @@ const scrollToAbout = () => {
           style="--delay: 0ms"
         >
           <Leaf class="w-4 h-4 text-emerald-400" />
-          <span class="text-white/80 text-sm font-medium tracking-wide">Mata Atlântica • Cascata</span>
+          <span class="text-white/80 text-sm font-medium tracking-wide">Águas da Prata • Cascata</span>
           <Star class="w-3 h-3 text-amber-400 fill-amber-400" />
         </div>
 
@@ -95,7 +95,7 @@ const scrollToAbout = () => {
           :class="loaded ? 'animate-in' : 'opacity-0'"
           style="--delay: 100ms"
         >
-          <span class="text-gradient">{{ nanciData.personal.name }}</span>
+          <span class="text-gradient">{{ nanciData.personal.title }}</span>
         </h1>
 
         <!-- Subtitle -->
@@ -106,7 +106,6 @@ const scrollToAbout = () => {
         >
           <Heart class="w-5 h-5 text-rose-400 animate-pulse" />
           <p class="text-fluid-lg text-white/90">
-            Carinhosamente conhecida como
             <span class="text-emerald-400 font-semibold">"{{ nanciData.personal.nickname }}"</span>
           </p>
         </div>
@@ -129,7 +128,7 @@ const scrollToAbout = () => {
           :class="loaded ? 'animate-in' : 'opacity-0'"
           style="--delay: 400ms"
         >
-          {{ nanciData.personal.title }}
+          "{{ nanciData.personal.quote }}"
         </p>
 
         <!-- Profile Image -->
@@ -162,17 +161,13 @@ const scrollToAbout = () => {
           :class="loaded ? 'animate-in' : 'opacity-0'"
           style="--delay: 600ms"
         >
-          <div class="flex items-center gap-2 glass-light rounded-full px-4 py-2 border border-emerald-500/10 hover:border-emerald-500/30 transition-colors cursor-default">
+          <div v-for="expertise in nanciData.expertise" :key="expertise.title" class="flex items-center gap-2 glass-light rounded-full px-4 py-2 border border-emerald-500/10 hover:border-emerald-500/30 transition-colors cursor-default">
             <Leaf class="w-4 h-4 text-emerald-400" />
-            <span class="text-white/80 text-sm font-medium">Guardiã da Terra</span>
+            <span class="text-white/80 text-sm font-medium">{{ expertise.title }}</span>
           </div>
           <div class="flex items-center gap-2 glass-light rounded-full px-4 py-2 border border-rose-500/10 hover:border-rose-500/30 transition-colors cursor-default">
             <Heart class="w-4 h-4 text-rose-400" />
             <span class="text-white/80 text-sm font-medium">Líder Comunitária</span>
-          </div>
-          <div class="flex items-center gap-2 glass-light rounded-full px-4 py-2 border border-amber-500/10 hover:border-amber-500/30 transition-colors cursor-default">
-            <Sparkles class="w-4 h-4 text-amber-400" />
-            <span class="text-white/80 text-sm font-medium">Artesã</span>
           </div>
         </div>
 

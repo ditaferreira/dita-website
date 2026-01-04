@@ -1,11 +1,20 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useIntersectionObserver } from '@vueuse/core'
-import { Sparkles, Shovel, Gem, Leaf, MapPin, Quote } from 'lucide-vue-next'
+import { Sparkles, Shovel, Gem, Leaf, MapPin } from 'lucide-vue-next'
 import { SectionBackground, SectionHeader } from '@/components/ui'
 import { nanciData } from '@/data/nanci-data'
 
-const icons = [Shovel, Gem, Leaf]
+const iconComponents = {
+  Shovel,
+  Gem,
+  Leaf,
+}
+
+const getIcon = (name: string) => {
+  return iconComponents[name as keyof typeof iconComponents]
+}
+
 const iconColors = ['from-emerald-500/30 to-green-600/30', 'from-amber-500/30 to-orange-600/30', 'from-cyan-500/30 to-teal-600/30']
 const sectionRef = ref<HTMLElement | null>(null)
 const isVisible = ref(false)
@@ -35,13 +44,9 @@ useIntersectionObserver(sectionRef, ([{ isIntersecting }]) => {
           <MapPin class="w-4 h-4" />
           <span class="font-medium">{{ nanciData.personal.location }}</span>
         </div>
-        <p class="text-white/80 leading-relaxed text-center mb-6 text-lg">{{ nanciData.personal.bio }}</p>
-        <blockquote class="relative glass-light rounded-2xl p-6 max-w-2xl mx-auto border border-emerald-500/10">
-          <Quote class="absolute -top-3 -left-3 w-8 h-8 text-emerald-500/30" />
-          <p class="text-emerald-300/90 italic text-base leading-relaxed pl-4">
-            "{{ nanciData.personal.quote }}"
-          </p>
-        </blockquote>
+        <div class="text-white/80 leading-relaxed text-center mb-6 text-lg">
+          <p v-for="(paragraph, index) in nanciData.personal.bio.split('\n\n')" :key="index" class="mb-4">{{ paragraph }}</p>
+        </div>
       </div>
 
       <!-- Expertise -->
@@ -57,7 +62,7 @@ useIntersectionObserver(sectionRef, ([{ isIntersecting }]) => {
             class="w-14 h-14 mx-auto rounded-2xl flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110"
             :class="`bg-gradient-to-br ${iconColors[i]}`"
           >
-            <component :is="icons[i]" class="w-6 h-6 text-white" />
+            <component :is="getIcon(skill.icon)" class="w-6 h-6 text-white" />
           </div>
           <h3 class="text-white font-semibold mb-2 text-lg">{{ skill.title }}</h3>
           <p class="text-white/50 text-sm leading-relaxed">{{ skill.description }}</p>

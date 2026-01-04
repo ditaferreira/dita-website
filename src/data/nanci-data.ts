@@ -1,6 +1,7 @@
 export interface Expertise {
   title: string
   description: string
+  icon: string
 }
 
 export interface Organization {
@@ -8,6 +9,8 @@ export interface Organization {
   role: string
   description: string
   link?: string
+  icon: string
+  color: string
 }
 
 export interface Project {
@@ -36,6 +39,8 @@ export interface LeadershipHighlight {
   description: string
   year: string
   type: 'march' | 'cultural' | 'community' | 'political' | 'environmental' | 'education'
+  icon: string
+  color: string
 }
 
 export interface GuardioesDaTerra {
@@ -81,6 +86,19 @@ export interface AgroecologyTraining {
   }
 }
 
+export interface Event {
+  name: string;
+  icon: string;
+}
+
+export interface Tourism {
+  title: string;
+  subtitle: string;
+  description: string;
+  link: string;
+  linkLabel: string;
+}
+
 export interface NanciData {
   personal: {
     name: string
@@ -105,7 +123,8 @@ export interface NanciData {
   }
   activism: string[]
   folkCulture: string[]
-  events: string[]
+  events: Event[]
+  tourism: Tourism
 }
 
 export const nanciData: NanciData = {
@@ -115,27 +134,30 @@ export const nanciData: NanciData = {
     age: 73,
     location: 'Cascata, Águas da Prata - SP',
     title: 'Anciã, Visionária e Guardiã da Terra',
-    bio: 'Nanci Ferreira, conhecida como "Dita", é uma mulher negra de 73 anos, nascida e criada na comunidade rural da Cascata, em Águas da Prata. Neta de parteira e filha de líder comunitário e vereador, cresceu com as mãos na terra — trabalho que mantém até hoje. Viveu anos como hippie, percorrendo a Bahia, Amazônia, Peru e o Sul do Brasil. Hoje é guardiã de dois Pontos de Cultura, escritora de biografia em desenvolvimento e referência em saberes tradicionais.',
-    quote: 'A terra é nossa mãe. Cada semente plantada é um ato de resistência e esperança.',
+    bio: `Nanci Ferreira, Dita, é uma força da natureza. Aos 73 anos é erveira, artista e artesã, consolidando-se como uma referência cultural em sua região. Idealizadora do Kintal da Dita, um espaço de arte e resistência na Cascata, divisa entre MG e SP, ela dedica a vida à defesa da terra e ao resgate de saberes ancestrais.
+
+Filha de líder comunitário e neta de curandeira, Dita carrega em seu sangue a força da ancestralidade. 
+Em sua jornada percorreu o Brasil e a América do Sul, e hoje ela é a "Conselheira da Sabedoria" no Ponto de Cultura premiado Guardiões da Terra, além de idealizadora do Ponto de Cultura que carrega seu nome: Kintal da Dita. Nanci é uma voz ativa na luta pela preservação ambiental, cultural e antinuclear, representando diversos coletivos e associações em sua região.`,
+    quote: 'O simples é o mais poderoso',
   },
 
   guardioesDaTerra: {
     name: 'Guardiões da Terra',
     type: 'Ponto de Cultura',
-    description: 'Ponto de Cultura dedicado à arte, educação ambiental e formação de jovens. Atua há mais de 11 anos na preservação cultural e ambiental da região.',
+    description: 'Ponto de Cultura dedicado à arte, educação ambiental e a formação em práticas sustentáveis. Atua há mais de 11 anos na preservação cultural e ambiental da região.',
     sede: 'ONG SOS Águas da Prata',
     ong: {
       name: 'ONG SOS Águas da Prata',
       fullName: 'Serviço de Obras Sociais de Águas da Prata',
       type: 'Pontão de Cultura em Credenciamento',
-      description: 'Organização de assistência social que sedia o Ponto de Cultura Guardiões da Terra, promovendo ações de cidadania, cultura e meio ambiente.',
+      description: 'Organização de assistência social existente desde 1968, promovendo ações de cidadania, cultura e meio ambiente.',
     },
     activities: [
-      'Oficinas de arte e cultura popular',
-      'Educação ambiental para jovens',
-      'Formação em práticas sustentáveis',
-      'Eventos culturais comunitários',
-      'Preservação de saberes tradicionais',
+      'Oficinas semanais de Agroecologia',
+      'Oficinas semanais de Música e Audiovisual',
+      'Oficinas de Escrita e Envio de Projetos Culturais',
+      'Eventos e atividades culturais',
+      'Preservação e difusão de saberes tradicionais',
     ],
   },
 
@@ -143,19 +165,19 @@ export const nanciData: NanciData = {
     name: 'Kintal da Dita',
     location: 'Cascata, Águas da Prata - SP',
     type: 'Coletivo Artístico e Agroecológico',
-    description: 'Espaço de arte, memória e resistência aberto à comunidade local (carente e vulnerável). Oferece contação de histórias, cursos, oficinas de arte, agroecologia e conhecimentos tradicionais.',
+    description: 'Espaço de arte, memória e resistência aberto à comunidade. Oferece contação de histórias, cursos, oficinas de arte, agroecologia e conhecimentos tradicionais.',
     historicSite: {
       name: 'Marco da Revolta de 32',
-      description: 'O Kintal está situado onde reside o obelisco do Marco da Revolução Constitucionalista de 1932, fronteira histórica entre São Paulo e Minas Gerais.',
+      description: 'O Kintal está situado próximo ao obelisco, Marco da Revolução Constitucionalista de 1932, fronteira histórica entre São Paulo e Minas Gerais.',
       features: [
-        'Obelisco histórico da Revolução de 32',
+        'Caminhada com histórias até o Obelisco',
         'Mapas e documentos da disputa SP x MG',
         'Acervo documental da época',
-        'Área de visitação e memória',
+        'Artefatos e objetos históricos',
       ],
     },
     museum: {
-      description: 'Museu tradicional com obras e artesanatos produzidos com matérias-primas naturais da Mata Atlântica.',
+      description: 'Museu artístico com obras e artesanatos feitos com matérias-primas naturais da Mata Atlântica.',
       collections: [
         'Biojoias artesanais',
         'Artesanato em materiais naturais',
@@ -164,9 +186,9 @@ export const nanciData: NanciData = {
       ],
     },
     agroecology: [
-      'Horta agroecológica',
+      'Horta',
       'Plantas medicinais',
-      'Sementes crioulas',
+      'Sementes',
       'Práticas de permacultura',
     ],
     workshops: [
@@ -181,10 +203,10 @@ export const nanciData: NanciData = {
 
   agroecology: {
     title: 'Agroecologia Aplicada',
-    description: 'Nanci atua no aconselhamento e treinamento de biólogos e professores em práticas de agroecologia aplicada, compartilhando décadas de conhecimento tradicional.',
+    description: 'Nanci atua no aconselhamento e treinamento de biólogos e professores em práticas de agroecologia e arte, compartilhando décadas de conhecimento tradicional.',
     activities: [
       'Treinamento de biólogos em práticas tradicionais',
-      'Capacitação de professores em agroecologia',
+      'Treinamento de professores em agroecologia',
       'Consultoria em plantio sustentável',
       'Transmissão de saberes ancestrais',
     ],
@@ -196,22 +218,23 @@ export const nanciData: NanciData = {
   },
 
   expertise: [
-    { title: 'Agricultora e Guardiã', description: 'Plantio sustentável e conexão com a terra. Décadas de prática na roça.' },
-    { title: 'Artesã de Biojoias', description: 'Criação de joias e artesanatos com matérias-primas naturais da Mata Atlântica.' },
-    { title: 'Formadora em Agroecologia', description: 'Treina biólogos e professores em práticas de agroecologia aplicada.' },
+    { title: 'Agricultora e Guardiã', description: 'Plantio sustentável e conexão com a terra. Décadas de prática na roça.', icon: 'Shovel' },
+    { title: 'Artesã de Biojoias', description: 'Criação de joias e artesanatos com matérias-primas naturais da Mata Atlântica.', icon: 'Gem' },
+    { title: 'Formadora em Agroecologia', description: 'Treina biólogos e professores em práticas de agroecologia.', icon: 'Leaf' },
   ],
 
   organizations: [
-    { name: 'Guardiões da Terra', role: 'Líder e Oficineira', description: 'Coletivo Ponto de Cultura ligado à ONG internacional Earth Guardians, que oferece suporte a jovens ativistas do mundo inteiro. Arte, educação ambiental e formação há 11+ anos.', link: 'https://www.earthguardians.org/' },
-    { name: 'ONG SOS Águas da Prata', role: 'Pontão de Cultura em Credenciamento', description: 'Serviço de Obras Sociais que sedia o Ponto de Cultura Guardiões da Terra.' },
-    { name: 'Kintal da Dita', role: 'Guardiã e Artesã', description: 'Coletivo artístico e agroecológico aberto à comunidade. Contação de histórias, oficinas de arte, cursos de agroecologia e saberes tradicionais.' },
-    { name: 'Associação Sociocultural da Estação da Cascata', role: 'Co-fundadora', description: 'Associação cultural fundada com Malala, renomada professora e diretora do Conservatório de Poços de Caldas.' },
-    { name: 'Bhumisparsha School', role: 'Parceira', description: 'Escola de música, audiovisual e arte que provê estrutura técnica para shows e eventos do SOS e Guardiões da Terra.' },
-    { name: 'Culturando na Montanha', role: 'Parceira', description: 'Ponto de Cultura premiado em São Tomé das Letras. Intervenções artísticas, shows e oficinas em eventos culturais.', link: 'https://www.instagram.com/cultureando/' },
-    { name: 'Baque Mulher', role: 'Figura Ilustre', description: 'Maracatu interestadual celebrando a força das mulheres negras.', link: 'https://www.instagram.com/baquemulher/' },
-    { name: 'IF São João da Boa Vista', role: 'Aluna e Facilitadora', description: 'Curso para mulheres em agroecologia e práticas sustentáveis.' },
-    { name: 'Conselho do Idoso', role: 'Conselheira', description: 'Defesa dos direitos da população idosa.' },
-    { name: 'Movimento Antinuclear', role: 'Ativista', description: 'Luta ambiental contra exploração nuclear na região.' },
+    { name: 'Guardiões da Terra', role: 'Líder e Oficineira', description: 'Coletivo Ponto de Cultura ligado à ONG internacional Earth Guardians, que oferece suporte a jovens ativistas do mundo inteiro. Arte, educação ambiental e formação há 11+ anos.', link: 'https://www.instagram.com/earthguardians_br/', icon: 'Globe', color: 'from-emerald-600/30 to-green-700/30' },
+    { name: 'ONG SOS Águas da Prata', role: 'Pontão de Cultura', description: 'Serviço de Obras Sociais que sedia o Ponto de Cultura Guardiões da Terra.', link: 'https://aguasdapratasos.wixstudio.com/2025', icon: 'Building', color: 'from-cyan-600/30 to-blue-700/30' },
+    { name: 'Kintal da Dita', role: 'Guardiã e Artesã', description: 'Coletivo artístico e agroecológico aberto à comunidade. Contação de histórias, oficinas de arte, cursos de agroecologia e saberes tradicionais.', icon: 'Leaf', color: 'from-amber-600/30 to-orange-700/30' },
+    { name: 'Associação Sociocultural da Estação da Cascata', role: 'Co-fundadora', description: 'Coofundado com Malala, renomada diretora, para o desenvolvimento humano e cultural da Cascata.', icon: 'Users', color: 'from-rose-600/30 to-red-700/30' },
+    { name: 'Bhumisparsha School', role: 'Parceira', description: 'Escola de música, audiovisual e arte que provê estrutura técnica para shows e eventos do SOS e Guardiões da Terra.', link: 'https://www.bhumisparshaschool.org/', icon: 'Music', color: 'from-purple-600/30 to-indigo-700/30' },
+    { name: 'Earth Guardians', role: 'Parceira Internacional', description: 'ONG internacional que oferece suporte a jovens ativistas do mundo inteiro.', link: 'https://www.earthguardians.org/', icon: 'Globe', color: 'from-teal-600/30 to-emerald-700/30' },
+    { name: 'Culturando na Montanha', role: 'Parceira', description: 'Ponto de Cultura premiado em São Tomé das Letras. Intervenções artísticas, shows e oficinas em eventos culturais.', link: 'https://www.instagram.com/culturandonamontanha/', icon: 'Mountain', color: 'from-teal-600/30 to-cyan-700/30' },
+    { name: 'Baque Mulher', role: 'Figura Ilustre', description: 'Maracatu interestadual celebrando a força das mulheres negras.', link: 'https://www.instagram.com/baquemulhersjbv/', icon: 'Heart', color: 'from-pink-600/30 to-rose-700/30' },
+    { name: 'IF São João da Boa Vista', role: 'Aluna e Facilitadora', description: 'Curso para mulheres em agroecologia e práticas sustentáveis.', link: 'https://www.sbv.ifsp.edu.br/', icon: 'GraduationCap', color: 'from-green-600/30 to-emerald-700/30' },
+    { name: 'Conselho do Idoso', role: 'Conselheira', description: 'Defesa dos direitos da população idosa em Águas da Prata.', icon: 'Users', color: 'from-blue-600/30 to-sky-700/30' },
+    { name: 'Movimento Antinuclear', role: 'Ativista', description: 'Luta ambiental contra exploração nuclear na região.', link: 'https://www.instagram.com/terraviva_aguarara/', icon: 'Shield', color: 'from-red-600/30 to-orange-700/30' },
   ],
 
   projects: [
@@ -242,13 +265,13 @@ export const nanciData: NanciData = {
   ],
 
   leadership: {
-    title: 'Liderança Negra Anciã',
+    title: 'Liderança Anciã',
     highlights: [
-      { title: 'Marcha das Mulheres Negras 2025', subtitle: 'Liderança Anciã', description: 'Representando mulheres negras do interior paulista.', year: '2025', type: 'march' },
-      { title: 'Formadora em Agroecologia', subtitle: 'Consultora', description: 'Treinamento de biólogos e professores em práticas sustentáveis.', year: 'Atual', type: 'education' },
-      { title: 'Curso IF São João', subtitle: 'Aluna e Facilitadora', description: 'Curso para mulheres em agroecologia aplicada.', year: '2025', type: 'education' },
-      { title: 'Kintal da Dita', subtitle: 'Guardiã', description: 'Preservação do Marco da Revolta de 32 e museu artístico.', year: 'Atual', type: 'cultural' },
-      { title: 'Virada Climática', subtitle: 'Organizadora', description: 'Evento anual de conscientização ambiental.', year: '2024-2025', type: 'environmental' },
+      { title: 'Marcha das Mulheres Negras 2025', subtitle: 'Liderança Anciã', description: 'Representando mulheres negras do interior paulista.', year: '2025', type: 'march', icon: 'Users', color: 'from-purple-500 to-pink-600' },
+      { title: 'Formadora em Agroecologia', subtitle: 'Consultora', description: 'Treinamento de biólogos e professores em práticas sustentáveis.', year: 'Atual', type: 'education', icon: 'GraduationCap', color: 'from-emerald-500 to-green-600' },
+      { title: 'Curso IF São João', subtitle: 'Aluna e Facilitadora', description: 'Curso para mulheres em agroecologia aplicada.', year: '2025', type: 'education', icon: 'GraduationCap', color: 'from-emerald-500 to-green-600' },
+      { title: 'Kintal da Dita', subtitle: 'Guardiã', description: 'Preservação do Marco da Revolta de 32 e museu artístico.', year: 'Atual', type: 'cultural', icon: 'Music', color: 'from-amber-500 to-orange-600' },
+      { title: 'Virada Climática', subtitle: 'Organizadora', description: 'Evento anual de conscientização ambiental.', year: '2024-2025', type: 'environmental', icon: 'Droplets', color: 'from-cyan-500 to-teal-600' },
     ],
   },
 
@@ -256,7 +279,20 @@ export const nanciData: NanciData = {
 
   folkCulture: ['Congo', 'Folia de Reis', 'Dança de São Gonçalo', 'Maracatu', 'Tradições Afro-brasileiras'],
 
-  events: ['Virada Climática 2024/2025', 'Marcha das Mulheres Negras 2025', 'Curso IF São João da Boa Vista', 'Oficinas de Biojoias', 'Festivais Regionais'],
+  events: [
+    { name: 'Virada Climática 2024/2025', icon: 'Calendar' },
+    { name: 'Marcha das Mulheres Negras 2025', icon: 'Users' },
+    { name: 'Curso IF São João da Boa Vista', icon: 'GraduationCap' },
+    { name: 'Oficinas de Biojoias', icon: 'Gem' },
+    { name: 'Festivais Regionais', icon: 'Music' },
+  ],
+  tourism: {
+    title: 'Prata Expedições',
+    subtitle: 'Guia Local',
+    description: 'Guia turística com conhecimento histórico, social e ambiental da região.',
+    link: 'https://prataexpedicoes.com.br/',
+    linkLabel: 'Conhecer roteiros',
+  },
 }
 
 export const galleryImages = Array.from({ length: 80 }, (_, i) => ({

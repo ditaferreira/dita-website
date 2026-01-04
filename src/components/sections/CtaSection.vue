@@ -106,10 +106,10 @@ onMounted(() => {
               <Sparkles class="w-5 h-5 text-emerald-400" />
             </div>
             <blockquote class="text-emerald-200/80 italic text-sm leading-relaxed max-w-md mx-auto">
-              "Cada gesto de preservação cultural é uma semente plantada para as futuras gerações"
+              "O simples é poderoso"
             </blockquote>
             <cite class="block text-white/40 mt-2 text-xs">
-              — Filosofia de vida de Nanci Ferreira
+              — Nanci Ferreira
             </cite>
           </div>
         </div>

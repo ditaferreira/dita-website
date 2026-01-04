@@ -43,7 +43,7 @@ const scrollTo = (href: string) => {
             </span>
             <span class="flex items-center gap-1">
               <Crown class="w-3 h-3 text-amber-400" />
-              Liderança Negra Anciã
+              Liderança Anciã
             </span>
           </div>
         </div>

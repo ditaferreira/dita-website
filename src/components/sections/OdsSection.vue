@@ -35,12 +35,13 @@ onMounted(() => {
       </SectionHeader>
 
       <div ref="gridRef" class="grid grid-cols-2 md:grid-cols-3 gap-4">
-        <div v-for="ods in nanciData.ods" :key="ods.number" class="ods-item glass rounded-xl p-4 group" style="opacity:0">
-          <div class="flex items-center gap-3 mb-2">
-            <img :src="getImagePath(`/ods_${ods.number}.webp`)" :alt="`ODS ${ods.number}`" class="w-10 h-10 rounded-lg" loading="lazy" />
-            <span class="text-xl font-bold text-white">{{ ods.number }}</span>
+        <div v-for="ods in nanciData.ods" :key="ods.number" class="ods-item glass rounded-xl p-4 group transition-all duration-300 hover:bg-white/10" style="opacity:0">
+          <div class="relative mb-2">
+            <img :src="getImagePath(`/ods_${ods.number}.webp`)" :alt="`ODS ${ods.number}`" class="w-full h-auto aspect-square rounded-lg" loading="lazy" />
+            <div class="absolute inset-0 bg-black/30 rounded-lg"></div>
+            <span class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-4xl font-bold" :style="{ color: ods.color }">{{ ods.number }}</span>
           </div>
-          <p class="text-white/60 text-xs">{{ ods.description }}</p>
+          <p class="text-white/60 text-xs text-center">{{ ods.description }}</p>
         </div>
       </div>
     </div>
