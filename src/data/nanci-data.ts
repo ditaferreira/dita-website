@@ -138,7 +138,7 @@ export const nanciData: NanciData = {
 
 Filha de líder comunitário e neta de curandeira, Dita carrega em seu sangue a força da ancestralidade. 
 Em sua jornada percorreu o Brasil e a América do Sul, e hoje ela é a "Conselheira da Sabedoria" no Ponto de Cultura premiado Guardiões da Terra, além de idealizadora do Ponto de Cultura que carrega seu nome: Kintal da Dita. Nanci é uma voz ativa na luta pela preservação ambiental, cultural e antinuclear, representando diversos coletivos e associações em sua região.`,
-    quote: 'O simples é o mais poderoso',
+    quote: 'O simples é poderoso',
   },
 
   guardioesDaTerra: {
