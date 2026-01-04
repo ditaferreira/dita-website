@@ -260,10 +260,14 @@ export const nanciData: NanciData = {
 }
 
 export const galleryImages = Array.from({ length: 80 }, (_, i) => ({
-  src: `/dita-website/dita (${i + 10}).webp`,
+  src: getImagePath(`/dita (${i + 10}).webp`),
   alt: `Dita foto ${i + 10}`,
 }))
 
 export function getImagePath(path: string): string {
-  return `/dita-website${path}`
+  const base = import.meta.env.BASE_URL
+  if (path.startsWith(base)) {
+    return path
+  }
+  return `${base}${path.startsWith('/') ? path.slice(1) : path}`
 }
