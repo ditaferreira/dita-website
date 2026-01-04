@@ -220,7 +220,7 @@ Em sua jornada percorreu o Brasil e a América do Sul, e hoje ela é a "Conselhe
   expertise: [
     { title: 'Agricultora e Guardiã', description: 'Plantio sustentável e conexão com a terra. Décadas de prática na roça.', icon: 'Shovel' },
     { title: 'Artesã de Biojoias', description: 'Criação de joias e artesanatos com matérias-primas naturais da Mata Atlântica.', icon: 'Gem' },
-    { title: 'Formadora em Agroecologia', description: 'Treina biólogos e professores em práticas de agroecologia.', icon: 'Leaf' },
+    { title: 'Formadora em Tradição', description: 'Treina biólogos, professores e artistas em saberes tradicionais diversos.', icon: 'Leaf' },
   ],
 
   organizations: [
