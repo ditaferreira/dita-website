@@ -48,11 +48,13 @@ export interface GuardioesDaTerra {
   type: string
   description: string
   sede: string
+  link?: string
   ong: {
     name: string
     fullName: string
     type: string
     description: string
+    link?: string
   }
   activities: string[]
 }
@@ -62,6 +64,7 @@ export interface KintalDaDita {
   location: string
   type: string
   description: string
+  link?: string
   historicSite: {
     name: string
     description: string
@@ -146,11 +149,13 @@ Em sua jornada percorreu o Brasil e a América do Sul, e hoje ela é a "Conselhe
     type: 'Ponto de Cultura',
     description: 'Ponto de Cultura dedicado à arte, educação ambiental e a formação em práticas sustentáveis. Atua há mais de 11 anos na preservação cultural e ambiental da região.',
     sede: 'ONG SOS Águas da Prata',
+    link: 'https://www.instagram.com/earthguardians_br/',
     ong: {
       name: 'ONG SOS Águas da Prata',
       fullName: 'Serviço de Obras Sociais de Águas da Prata',
       type: 'Pontão de Cultura em Credenciamento',
       description: 'Organização de assistência social existente desde 1968, promovendo ações de cidadania, cultura e meio ambiente.',
+      link: 'https://aguasdapratasos.wixstudio.com/2025',
     },
     activities: [
       'Oficinas semanais de Agroecologia',
@@ -166,6 +171,7 @@ Em sua jornada percorreu o Brasil e a América do Sul, e hoje ela é a "Conselhe
     location: 'Cascata, Águas da Prata - SP',
     type: 'Coletivo Artístico e Agroecológico',
     description: 'Espaço de arte, memória e resistência aberto à comunidade. Oferece contação de histórias, cursos, oficinas de arte, agroecologia e conhecimentos tradicionais.',
+    link: 'https://www.instagram.com/nanciferreira_oficial',
     historicSite: {
       name: 'Marco da Revolta de 32',
       description: 'O Kintal está situado próximo ao obelisco, Marco da Revolução Constitucionalista de 1932, fronteira histórica entre São Paulo e Minas Gerais.',

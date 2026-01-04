@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useIntersectionObserver } from '@vueuse/core'
-import { Home, MapPin, Landmark, Palette, Gem, Users, Building2, Heart } from 'lucide-vue-next'
+import { Home, MapPin, Landmark, Palette, Gem, Users, Building2, Heart, ExternalLink } from 'lucide-vue-next'
 import { SectionBackground, SectionHeader } from '@/components/ui'
 import { nanciData } from '@/data/nanci-data'
 
@@ -34,7 +34,15 @@ useIntersectionObserver(sectionRef, ([{ isIntersecting }]) => {
               <Users class="w-7 h-7 text-emerald-400" />
             </div>
             <div>
-              <h3 class="text-white font-bold text-lg">{{ nanciData.guardioesDaTerra.name }}</h3>
+              <a 
+                :href="nanciData.guardioesDaTerra.link" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="group flex items-center gap-2 hover:text-emerald-400 transition-colors"
+              >
+                <h3 class="text-white font-bold text-lg group-hover:text-emerald-400 transition-colors">{{ nanciData.guardioesDaTerra.name }}</h3>
+                <ExternalLink class="w-4 h-4 text-emerald-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+              </a>
               <span class="text-emerald-400/80 text-xs">{{ nanciData.guardioesDaTerra.type }}</span>
             </div>
           </div>
@@ -45,7 +53,15 @@ useIntersectionObserver(sectionRef, ([{ isIntersecting }]) => {
               <Building2 class="w-4 h-4 text-amber-400" />
               <span class="text-amber-400 text-xs font-medium">Sede</span>
             </div>
-            <p class="text-white font-medium text-sm">{{ nanciData.guardioesDaTerra.ong.name }}</p>
+            <a 
+              :href="nanciData.guardioesDaTerra.ong.link" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="group flex items-center gap-2 hover:text-amber-400 transition-colors"
+            >
+              <p class="text-white font-medium text-sm group-hover:text-amber-400 transition-colors">{{ nanciData.guardioesDaTerra.ong.name }}</p>
+              <ExternalLink class="w-3 h-3 text-amber-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+            </a>
             <p class="text-emerald-400/80 text-xs">{{ nanciData.guardioesDaTerra.ong.type }}</p>
             <p class="text-white/50 text-xs mt-1">{{ nanciData.guardioesDaTerra.ong.description }}</p>
           </div>
@@ -69,7 +85,15 @@ useIntersectionObserver(sectionRef, ([{ isIntersecting }]) => {
               <Home class="w-7 h-7 text-amber-400" />
             </div>
             <div>
-              <h3 class="text-white font-bold text-lg">{{ nanciData.kintalDaDita.name }}</h3>
+              <a 
+                :href="nanciData.kintalDaDita.link" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="group flex items-center gap-2 hover:text-amber-400 transition-colors"
+              >
+                <h3 class="text-white font-bold text-lg group-hover:text-amber-400 transition-colors">{{ nanciData.kintalDaDita.name }}</h3>
+                <ExternalLink class="w-4 h-4 text-amber-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+              </a>
               <span class="text-amber-400/80 text-xs">{{ nanciData.kintalDaDita.type }}</span>
             </div>
           </div>
