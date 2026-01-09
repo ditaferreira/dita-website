@@ -280,7 +280,7 @@ Em sua jornada percorreu o Brasil e a América do Sul, e hoje ela é a "Conselhe
       { title: 'Formadora em Agroecologia', subtitle: 'Consultora', description: 'Treinamento de biólogos e professores em práticas sustentáveis.', year: 'Atual', type: 'education', icon: 'GraduationCap', color: 'from-emerald-500 to-green-600' },
       { title: 'Curso IF São João', subtitle: 'Aluna e Facilitadora', description: 'Curso para mulheres em agroecologia aplicada.', year: '2025', type: 'education', icon: 'GraduationCap', color: 'from-emerald-500 to-green-600' },
       { title: 'Kintal da Dita', subtitle: 'Guardiã', description: 'Preservação do Marco da Revolta de 32 e museu artístico.', year: 'Atual', type: 'cultural', icon: 'Music', color: 'from-amber-500 to-orange-600' },
-      { title: 'Virada Climática', subtitle: 'Organizadora', description: 'Evento anual de conscientização ambiental.', year: '2024-2025', type: 'environmental', icon: 'Droplets', color: 'from-cyan-500 to-teal-600' },
+      { title: 'Virada Climática', subtitle: 'Equipe Organizadora', description: 'Evento anual de conscientização ambiental.', year: '2024-2025', type: 'environmental', icon: 'Droplets', color: 'from-cyan-500 to-teal-600' },
     ],
   },
 

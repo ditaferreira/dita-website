@@ -7,6 +7,7 @@ import {
   GallerySection,
   OrganizationsSection,
   LeadershipSection,
+  MarchaSection,
   TourismSection,
   EventsSection,
   OdsSection,
@@ -23,6 +24,7 @@ import {
       <AboutSection />
       <KintalSection />
       <LeadershipSection />
+      <MarchaSection />
       <GallerySection />
       <OrganizationsSection />
       <TourismSection />
